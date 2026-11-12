@@ -325,7 +325,7 @@ function executeVideoPackUnlock(reqIdOrStudentId) {
   return { success: true, request: reqObj, student: null };
 }
 
-const server = http.createServer(async (req, res) => {
+const handleRequest = async (req, res) => {
   // CORS Preflight
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
@@ -2530,7 +2530,9 @@ const server = http.createServer(async (req, res) => {
     const stream = fs.createReadStream(filePath);
     stream.pipe(res);
   });
-});
+};
+
+const server = http.createServer(handleRequest);
 
 
 // ==========================================
@@ -2887,17 +2889,19 @@ async function startStudyPackTelegramPolling() {
   setTimeout(startStudyPackTelegramPolling, 1500);
 }
 
-server.listen(PORT, () => {
-  startTelegramPolling();
-  startStudyPackTelegramPolling();
-  console.log(`===============================================`);
-  console.log(`🚀 Apex Biology Server running on:`);
-  console.log(`👉 Student Portal: http://localhost:${PORT}`);
-  console.log(`👉 Admin Panel:    http://localhost:${PORT}/admin`);
-  console.log(`👉 Public Bio Bank: http://localhost:${PORT}/biobank`);
-  console.log(`🤖 Card Bot Polling: Active`);
-  console.log(`🤖 Study Pack Bot Polling: Active (@Bio_study_packbot)`);
-  console.log(`===============================================`);
-});
+if (!process.env.VERCEL) {
+  server.listen(PORT, () => {
+    startTelegramPolling();
+    startStudyPackTelegramPolling();
+    console.log(`===============================================`);
+    console.log(`🚀 Apex Biology Server running on:`);
+    console.log(`👉 Student Portal: http://localhost:${PORT}`);
+    console.log(`👉 Admin Panel:    http://localhost:${PORT}/admin`);
+    console.log(`👉 Public Bio Bank: http://localhost:${PORT}/biobank`);
+    console.log(`🤖 Card Bot Polling: Active`);
+    console.log(`🤖 Study Pack Bot Polling: Active (@Bio_study_packbot)`);
+    console.log(`===============================================`);
+  });
+}
 
-module.exports = server;
+module.exports = handleRequest;

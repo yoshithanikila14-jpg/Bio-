@@ -7739,9 +7739,4 @@ function triggerPwaInstall() {
     // Open modern Desktop App Install Modal (YouTube style)
     openModal('modal-desktop-app-install');
   }
-}      deferredPwaPrompt = null;
-    });
-  } else {
-    showToast('💡 To install on PC: In Chrome address bar, click the Install icon (or Menu > More Tools > Create Shortcut).');
-  }
 }
