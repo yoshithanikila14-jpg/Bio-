@@ -807,11 +807,15 @@ function updateNavAuthButtons(isLoggedIn) {
 
   if (isLoggedIn) {
     if (joinBtn) joinBtn.style.display = 'none';
-    if (loginBtn) loginBtn.style.display = 'none';
+    if (loginBtn) {
+      loginBtn.style.display = 'inline-flex';
+      loginBtn.innerHTML = '<i class="fa-solid fa-arrow-right-to-bracket"></i> Switch Account / Log In';
+      loginBtn.setAttribute('onclick', 'logoutAndOpenLogin()');
+    }
     if (portalBtn) portalBtn.style.display = 'inline-flex';
     if (logoutBtn) logoutBtn.style.display = 'inline-flex';
 
-    if (heroLoginBtn) heroLoginBtn.style.display = 'none';
+    if (heroLoginBtn) heroLoginBtn.style.display = 'inline-flex';
     if (heroStartBtn) {
       heroStartBtn.setAttribute('onclick', 'showDashboardView()');
       const lbl = heroStartBtn.querySelector('.start-btn-label');
@@ -819,7 +823,11 @@ function updateNavAuthButtons(isLoggedIn) {
     }
   } else {
     if (joinBtn) joinBtn.style.display = 'inline-flex';
-    if (loginBtn) loginBtn.style.display = 'inline-flex';
+    if (loginBtn) {
+      loginBtn.style.display = 'inline-flex';
+      loginBtn.innerHTML = '<i class="fa-solid fa-arrow-right-to-bracket"></i> Log In';
+      loginBtn.setAttribute('onclick', "openModal('login-modal')");
+    }
     if (portalBtn) portalBtn.style.display = 'none';
     if (logoutBtn) logoutBtn.style.display = 'none';
 
@@ -831,6 +839,14 @@ function updateNavAuthButtons(isLoggedIn) {
     }
   }
 }
+
+function logoutAndOpenLogin() {
+  logoutStudent();
+  setTimeout(() => {
+    openModal('login-modal');
+  }, 100);
+}
+window.logoutAndOpenLogin = logoutAndOpenLogin;
 
 let cfTurnstileVerified = true;
 function toggleTurnstileCheck() {

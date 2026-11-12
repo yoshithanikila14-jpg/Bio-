@@ -303,9 +303,9 @@
             <span>Landing Page</span>
           </button>
 
-          <button class="btn-sidebar-logout" onclick="logoutStudent()" title="Logout">
+          <button class="btn-sidebar-logout" onclick="logoutAndOpenLogin()" title="Logout & Log In as another Account">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Logout</span>
+            <span>Log In / Switch</span>
           </button>
         </div>
 
@@ -365,9 +365,15 @@
               <span class="top-student-name" id="top-student-name">Student</span>
             </div>
 
-            <!-- Quick Logout / Switch Account -->
-            <button class="btn-top-icon" onclick="logoutStudent()" title="Logout / Switch Account" style="color: #ef4444;">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <!-- Prominent Log In / Switch Button on Dashboard Header -->
+            <button class="btn-top-switch-login" onclick="logoutAndOpenLogin()" title="Switch Account / Log In as Another Student">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              <span>Log In / Switch</span>
+            </button>
+
+            <!-- Quick Logout Icon -->
+            <button class="btn-top-icon" onclick="logoutStudent()" title="Logout" style="color: #ef4444;">
+              <i class="fa-solid fa-power-off"></i>
             </button>
           </div>
         </header>
