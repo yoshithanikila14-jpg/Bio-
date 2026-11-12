@@ -1078,6 +1078,12 @@ function populateDashboard(student) {
 
   if (topBatchText) topBatchText.textContent = student.year + ' A/L Biological Science';
   if (topIdNumber) topIdNumber.textContent = student.studentId || '27804192';
+  
+  const topStudentId = document.getElementById('top-student-id');
+  const topStudentName = document.getElementById('top-student-name');
+  if (topStudentId) topStudentId.textContent = 'ID: ' + (student.studentId || '27804192');
+  if (topStudentName) topStudentName.textContent = student.name ? student.name.split(' ')[0] : 'Student';
+  
   if (portalBtn) portalBtn.style.display = 'inline-flex';
 
   const bannerId = document.getElementById('banner-student-id');

@@ -57,13 +57,19 @@
             </span>
           </a>
 
-          <!-- Right Action: ONLY Join Now Button (Clean & Focused) -->
+          <!-- Right Action: Log In & Join Now Buttons -->
           <div class="nav-actions-cluster">
+            <button class="btn-login-nav" id="btn-nav-login" onclick="openModal('login-modal')" title="Log In to your Account">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+            </button>
             <button class="btn-join-pill" id="btn-nav-join" onclick="openModal('signup-modal')" title="Sign Up for A/L Biology">
               Join Now <span class="btn-arrow">→</span>
             </button>
             <button class="btn-portal-pill" id="btn-nav-portal" onclick="showDashboardView()" style="display: none;" title="Go to Student Dashboard">
               <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </button>
+            <button class="btn-nav-logout" id="btn-nav-logout" onclick="logoutStudent()" style="display: none;" title="Logout">
+              <i class="fa-solid fa-power-off"></i>
             </button>
           </div>
         </nav>
@@ -127,6 +133,13 @@
                 <span>Download APK &amp; App</span>
                 <span class="explore-arrow">→</span>
               </button>
+            </div>
+
+            <div class="hero-login-sublink" style="margin-top: 16px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.9);">
+              දැනටමත් ගිණුමක් ලියාපදිංචි වී ඇත්නම්? 
+              <a href="javascript:void(0)" onclick="openModal('login-modal')" style="color: #6ee7b7; font-weight: 800; text-decoration: underline; margin-left: 6px;">
+                Log In Here (ගිණුමට පිවිසෙන්න) →
+              </a>
             </div>
 
           </div>
@@ -349,8 +362,13 @@
             <!-- Student Profile Avatar Menu -->
             <div class="top-profile-menu" onclick="switchDashboardTab('tab-account')">
               <div class="top-avatar">🌱</div>
-              <span class="top-student-name" id="top-student-name">Kasun</span>
+              <span class="top-student-name" id="top-student-name">Student</span>
             </div>
+
+            <!-- Quick Logout / Switch Account -->
+            <button class="btn-top-icon" onclick="logoutStudent()" title="Logout / Switch Account" style="color: #ef4444;">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
           </div>
         </header>
 
