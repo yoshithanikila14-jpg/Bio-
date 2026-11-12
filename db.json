@@ -1,0 +1,2219 @@
+{
+  "students": [
+    {
+      "studentId": "27784979",
+      "firebaseUid": "kKBzMhxiLAPYu576k66dl4YXYti1",
+      "name": "nikila yoshitha",
+      "school": "Nalanda college",
+      "isPrivate": false,
+      "year": "2027",
+      "gender": "male",
+      "phone": "0762266917",
+      "email": "yoshithanikila14@gmail.com",
+      "password": "NIkila2008326@",
+      "isVerified": false,
+      "status": "active",
+      "activeCards": [],
+      "createdAt": "2026-11-12T05:51:19.242Z",
+      "unlockedPacks": [
+        "dinesh-u1",
+        "u1",
+        "dinesh-u2",
+        "u2",
+        "sasanka-revision",
+        "revision",
+        "dinesh-u3",
+        "u3",
+        "dinesh-u4",
+        "u4",
+        "dinesh-u5",
+        "u5"
+      ],
+      "photoUrl": "/uploads/avatars/avatar_27784979_1794471555563.webp"
+    },
+    {
+      "studentId": "27728669",
+      "name": "dg edits",
+      "school": "Private Candidate (Private A/L)",
+      "isPrivate": true,
+      "year": "2027",
+      "gender": "male",
+      "phone": "+94728266917",
+      "email": "dg.edits65@gmail.com",
+      "password": "Nikila2008326@",
+      "isVerified": true,
+      "status": "active",
+      "activeCards": [],
+      "createdAt": "2026-11-10T13:52:49.770Z"
+    }
+  ],
+  "tutors": [
+    {
+      "id": "dinesh",
+      "name": "දිනේෂ් මුතුගල (Dinesh Muthugala)",
+      "avatar": "/muthugala-sir.jpg",
+      "hasTheory": true,
+      "hasRevision": true,
+      "showInFreeLessons": true
+    },
+    {
+      "id": "sasanka",
+      "name": "ශශංක ධනුජය (Sasanka Danujaya)",
+      "avatar": "/sasanka-danujaya.jpg",
+      "hasTheory": false,
+      "hasRevision": true,
+      "showInFreeLessons": false
+    },
+    {
+      "id": "dhananjaya",
+      "name": "ධනංජය ආරියදාස (Dhananjaya Ariyadasa)",
+      "avatar": "/dhananjaya-ariyadasa.jpg",
+      "hasTheory": false,
+      "hasRevision": true,
+      "showInFreeLessons": false
+    }
+  ],
+  "videoPacks": [
+    {
+      "unitId": "u1",
+      "num": "01",
+      "name": "ජීව විද්‍යාව හැඳින්වීම",
+      "icon": "🌿",
+      "tutorId": "dinesh",
+      "isLocked": false,
+      "lessons": [
+        {
+          "id": "dinesh_1794472435096",
+          "title": "Day 1",
+          "duration": "2h 00m",
+          "ytId": "TA96gzZs1Fc",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472451710",
+          "title": "Day 2",
+          "duration": "2h 00m",
+          "ytId": "rRd2aMWD63I",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        }
+      ],
+      "isVisibleToStudents": true
+    },
+    {
+      "unitId": "u2",
+      "num": "02",
+      "name": "ජීවයේ රසායනික සහ සෛලීය පදනම",
+      "icon": "🔬",
+      "tutorId": "dinesh",
+      "isLocked": false,
+      "lessons": [
+        {
+          "id": "dinesh_1794472480172",
+          "title": "Day 1",
+          "duration": "2h 00m",
+          "ytId": "rRd2aMWD63I",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472503391",
+          "title": "Day 2",
+          "duration": "2h 00m",
+          "ytId": "N-4RHkfj4Ng",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472522144",
+          "title": "Day 3",
+          "duration": "2h 00m",
+          "ytId": "eVgfUTQMOv4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472551380",
+          "title": "Day 4",
+          "duration": "2h 00m",
+          "ytId": "ZBc3c4-lmh4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472572950",
+          "title": "Day 5",
+          "duration": "2h 00m",
+          "ytId": "kUWRtyjGEJw",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472601815",
+          "title": "Day 6",
+          "duration": "2h 00m",
+          "ytId": "l9XbyQUtJeg",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472617301",
+          "title": "Day 7",
+          "duration": "2h 00m",
+          "ytId": "5ltusW-z5XU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472632758",
+          "title": "Day 8",
+          "duration": "2h 00m",
+          "ytId": "eA8opuFSVIk",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472654539",
+          "title": "Day 9",
+          "duration": "2h 00m",
+          "ytId": "L06Ksm9Mr58",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472672973",
+          "title": "Day 10",
+          "duration": "2h 00m",
+          "ytId": "Hp4HMqpHsGY",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472688935",
+          "title": "Day 11",
+          "duration": "2h 00m",
+          "ytId": "lsiApuctAjU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472707751",
+          "title": "Day 12",
+          "duration": "2h 00m",
+          "ytId": "owB6T2w4duk",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472730893",
+          "title": "Day 13",
+          "duration": "2h 00m",
+          "ytId": "Gzp2Sax9rj4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472749465",
+          "title": "Day 14",
+          "duration": "2h 00m",
+          "ytId": "v7J49L9P6m8",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472764538",
+          "title": "Day 15",
+          "duration": "2h 00m",
+          "ytId": "sPWg88n1AK4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472782215",
+          "title": "Day 16",
+          "duration": "2h 00m",
+          "ytId": "A9HyPTlcfFg",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472797125",
+          "title": "Day 17",
+          "duration": "2h 00m",
+          "ytId": "tBEWIJH-MTE",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472820805",
+          "title": "Day 18",
+          "duration": "2h 00m",
+          "ytId": "TbP2uKVvlbk",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472834910",
+          "title": "Day 19",
+          "duration": "2h 00m",
+          "ytId": "6ubrnX4GCPE",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472851416",
+          "title": "Day 20",
+          "duration": "2h 00m",
+          "ytId": "EzcovPBwRgU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472865039",
+          "title": "Day 21",
+          "duration": "2h 00m",
+          "ytId": "KrmsShtmAPo",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472881970",
+          "title": "Day 22",
+          "duration": "2h 00m",
+          "ytId": "RqV2BmRqP6A",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794472899829",
+          "title": "Day 23",
+          "duration": "2h 00m",
+          "ytId": "8hI6TcH68nw",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        }
+      ],
+      "isVisibleToStudents": true
+    },
+    {
+      "unitId": "u3",
+      "num": "03",
+      "name": "පරිණාමය සහ ජෛව විවිධත්වය",
+      "icon": "🌲",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [
+        {
+          "id": "dinesh_1794473043526",
+          "title": "Day 1",
+          "duration": "2h 00m",
+          "ytId": "TBAxa0g9dqk",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473093622",
+          "title": "Day 2",
+          "duration": "2h 00m",
+          "ytId": "HS7Ikh8RgmQ",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473106264",
+          "title": "Day 3",
+          "duration": "2h 00m",
+          "ytId": "HUlEEd8VBBQ",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473123582",
+          "title": "Day 4",
+          "duration": "2h 00m",
+          "ytId": "ex-j2cyxj3k",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473138085",
+          "title": "Day 5",
+          "duration": "2h 00m",
+          "ytId": "EL99l9at_CU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473150382",
+          "title": "Day 6",
+          "duration": "2h 00m",
+          "ytId": "N3gmpBa6hSk",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473168478",
+          "title": "Day 7",
+          "duration": "2h 00m",
+          "ytId": "PcubqXvd-cA",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473184926",
+          "title": "Day 8",
+          "duration": "2h 00m",
+          "ytId": "Zm6Qny5H0s4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473199138",
+          "title": "Day 9",
+          "duration": "2h 00m",
+          "ytId": "0Rk1QLqEz9c",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473213152",
+          "title": "Day 10",
+          "duration": "2h 00m",
+          "ytId": "maSFzyhqeF4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473235812",
+          "title": "Day 11",
+          "duration": "2h 00m",
+          "ytId": "EUVlCmCBlhc",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473250432",
+          "title": "Day 12",
+          "duration": "2h 00m",
+          "ytId": "ZcialnUjWFU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473266748",
+          "title": "Day 13",
+          "duration": "2h 00m",
+          "ytId": "8K5yJrvf_80",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473280693",
+          "title": "Day 14",
+          "duration": "2h 00m",
+          "ytId": "9ozNQkOS3rc",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473300829",
+          "title": "Day 15",
+          "duration": "2h 00m",
+          "ytId": "_JlcZ-Zgdf0",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        }
+      ],
+      "isVisibleToStudents": true
+    },
+    {
+      "unitId": "u4",
+      "num": "04",
+      "name": "ශාක ආකාරය සහ ක්‍රියාකාරීත්වය",
+      "icon": "🌱",
+      "tutorId": "dinesh",
+      "isLocked": false,
+      "lessons": [
+        {
+          "id": "dinesh_1794473328779",
+          "title": "Day 1",
+          "duration": "2h 00m",
+          "ytId": "DcBJeJlgRIU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473341128",
+          "title": "Day 2",
+          "duration": "2h 00m",
+          "ytId": "nu5MJVjJZxc",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473354816",
+          "title": "Day 3",
+          "duration": "2h 00m",
+          "ytId": "VpQXd-9Ymwk",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473372796",
+          "title": "Day 4",
+          "duration": "2h 00m",
+          "ytId": "pSDs4l6rWZI",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473386339",
+          "title": "Day 5",
+          "duration": "2h 00m",
+          "ytId": "cfX7jcA4jbY",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473397808",
+          "title": "Day 6",
+          "duration": "2h 00m",
+          "ytId": "VGLX1GmNpIw",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473411036",
+          "title": "DAy 7",
+          "duration": "2h 00m",
+          "ytId": "lcsRJx_lk98",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473426340",
+          "title": "Day 8",
+          "duration": "2h 00m",
+          "ytId": "MgKRAXrpxaU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473441287",
+          "title": "Day 9",
+          "duration": "2h 00m",
+          "ytId": "Y1SNmtGlj8Q",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473469009",
+          "title": "Day 10",
+          "duration": "2h 00m",
+          "ytId": "nsDQuWA3yP4",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473481351",
+          "title": "Day 11",
+          "duration": "2h 00m",
+          "ytId": "gJb8nKKt3rE",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473494074",
+          "title": "Day 12",
+          "duration": "2h 00m",
+          "ytId": "JwBCJFxpfGU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473508311",
+          "title": "Day 13",
+          "duration": "2h 00m",
+          "ytId": "xeme8VCF6JQ",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473522220",
+          "title": "Day 14",
+          "duration": "2h 00m",
+          "ytId": "Xw2MODXOPfI",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        }
+      ],
+      "isVisibleToStudents": true
+    },
+    {
+      "unitId": "u5",
+      "num": "05",
+      "name": "සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය",
+      "icon": "🫀",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [
+        {
+          "id": "dinesh_1794473889427",
+          "title": "Day 1",
+          "duration": "2h 00m",
+          "ytId": "kq6SnDA55Tc",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        },
+        {
+          "id": "dinesh_1794473905458",
+          "title": "Day 2",
+          "duration": "2h 00m",
+          "ytId": "iWCAdFGN4OU",
+          "desc": "",
+          "tuteUrl": "",
+          "isLocked": true
+        }
+      ],
+      "isVisibleToStudents": true
+    },
+    {
+      "unitId": "u6",
+      "num": "06",
+      "name": "ප්‍රවේණිය",
+      "icon": "🧬",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [],
+      "isVisibleToStudents": true
+    },
+    {
+      "unitId": "u7",
+      "num": "07",
+      "name": "අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය",
+      "icon": "🧪",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [],
+      "isVisibleToStudents": false
+    },
+    {
+      "unitId": "u8",
+      "num": "08",
+      "name": "පාරිසරික ජීව විද්‍යාව",
+      "icon": "🌍",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [],
+      "isVisibleToStudents": false
+    },
+    {
+      "unitId": "u9",
+      "num": "09",
+      "name": "ක්ෂුද්‍ර ජීව විද්‍යාව",
+      "icon": "🦠",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [],
+      "isVisibleToStudents": false
+    },
+    {
+      "unitId": "u10",
+      "num": "10",
+      "name": "ව්‍යවහාරික ජීව විද්‍යාව",
+      "icon": "💊",
+      "tutorId": "dinesh",
+      "isLocked": true,
+      "lessons": [],
+      "isVisibleToStudents": false
+    }
+  ],
+  "freeLessons": [],
+  "syllabusUnits": [
+    {
+      "id": "u1",
+      "number": "01",
+      "icon": "fa-seedling",
+      "title": "Unit 01: ජීව විද්‍යාව හැඳින්වීම",
+      "englishTitle": "Introduction to Biology",
+      "topics": [
+        "ජීව විද්‍යාව හැඳින්වීම සහ ජීවයේ ලක්ෂණ",
+        "ජීව විද්‍යාවේ විෂය පථය සහ වැදගත්කම",
+        "විද්‍යාත්මක ක්‍රමය සහ පරීක්ෂණාත්මක විමර්ශන"
+      ]
+    },
+    {
+      "id": "u2",
+      "number": "02",
+      "icon": "fa-atom",
+      "title": "Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම",
+      "englishTitle": "Chemical and Cellular Basis of Life",
+      "topics": [
+        "සෛලීය පදනම හා ජලය",
+        "කාබෝහයිඩ්‍රේට",
+        "ලිපිඩ",
+        "ප්‍රෝටීන",
+        "DNA හා RNA",
+        "අන්වීක්ෂ",
+        "ප්ලාස්ම පටලය",
+        "උපසෛලීය සංඝටක",
+        "සෛල චක්‍රය-අනූනනය",
+        "ඌනනය",
+        "අර්බුද, ගෙඩි, පිළිකා",
+        "පරිවෘත්තීය ක්‍රියාවල ශක්ති සම්බන්ධතා",
+        "එන්සයිමවල කාර්යය හා ලක්ෂණ",
+        "එන්සයිම ක්‍රියාවේ යාන්ත්‍රණය",
+        "සහ සාධක",
+        "එන්සයිමීය ප්‍රතික්‍රියාවට බලපාන සාධක",
+        "නිෂේධක",
+        "ඇලොස්ටරික යාමනය",
+        "ප්‍රභාසංශ්ලේෂණය හැඳින්වීම",
+        "ආලෝක ප්‍රතික්‍රියාව",
+        "අඳුරු ප්‍රතික්‍රියාව (කැල්වින් චක්‍රය)",
+        "ප්‍රභාශ්වසනය",
+        "C3 ශාක හා C4 ශාක",
+        "C4 පථය",
+        "වර්ණාවලි හා ප්‍රභාසංශ්ලේෂණයට බලපාන සාධක",
+        "ස්වායු ශ්වසනය",
+        "නිර්වායු ශ්වසනය",
+        "ශ්වසන ලබ්ධිය",
+        "practicals"
+      ]
+    },
+    {
+      "id": "u3",
+      "number": "03",
+      "icon": "fa-tree",
+      "title": "Unit 03: පරිණාමය සහ ජෛව විවිධත්වය",
+      "englishTitle": "Evolution and Biodiversity",
+      "topics": [
+        "පෘථිවියේ බිහිවීම හා ජෛව විවිධත්වයේ පරිණාමය",
+        "ජීවී වර්ගීකරණය",
+        "ආකියා අධිරාජධානිය",
+        "බැක්ටීරියා අධිරාජධානිය",
+        "යුකැරියා අධිරාජධානිය-ප්‍රොටිස්ටා රාජධානිය",
+        "ශාක ජීවන චක්‍ර-Pogonatum ජීවන චක්‍රය",
+        "Neprolepis ජීවන චක්‍රය",
+        "Sellaginella ජීවන චක්‍රය",
+        "Cycus ජීවන චක්‍රය",
+        "Anthopyta ජීවන චක්‍රය",
+        "ශාක වර්ගීකරණය",
+        "දිලීර රාජධානිය",
+        "ඇනිමාලියා වංශ 8",
+        "කෝඩේටා වංශය"
+      ]
+    },
+    {
+      "id": "u4",
+      "number": "04",
+      "icon": "fa-leaf",
+      "title": "Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය",
+      "englishTitle": "Plant Form and Function",
+      "topics": [
+        "විභාජක පටක",
+        "ශාක කඳේ ප්‍රාථමික වර්ධනය",
+        "ශාක මුලේ ප්‍රාථමික වර්ධනය",
+        "ශාක පටක පද්ධති-චර්මීය පටක පද්ධතිය",
+        "පූරක පටක පද්ධතිය",
+        "සනාල පටක පද්ධතිය",
+        "ශාක කඳේ ප්‍රාථමික ව්‍යුහය",
+        "ශාක මුලේ ප්‍රාථමික ව්‍යුහය",
+        "ශාක කඳේ ද්විතියික වර්ධනය",
+        "ශාක මුලේ ද්විතියික වර්ධනය",
+        "කාෂ්ඨය",
+        "වර්ධක වල",
+        "ආලෝක අධිග්‍රහණය",
+        "ශාක පත්‍රවල ව්‍යුහය",
+        "පූටිකා- K+ සාන්ද්‍රණ කල්පිතය",
+        "පූටිකා ක්‍රියාකාරිත්වයට බලපාන සාධක",
+        "ජලය හා ද්‍රව්‍ය පරිවහනය වන ක්‍රම",
+        "ජල විභවය",
+        "ද්‍රාව්‍ය විභවය",
+        "ශාක සෛලයක සෛලයේ ජලය ගමන් කරන මාර්ග",
+        "ශාක මුල් වලට ජලය අවශෝෂණය වන ක්‍රමවේදය",
+        "රසෝද්ගමනය",
+        "උත්ස්වේදනය",
+        "උත්ස්වේදනයට බලපාන සාධක හා වැදගත්කම",
+        "උත්ස්වේදන ක්‍රියාව මැනීම-practical",
+        "මූල පීඩනය හා බිංදුදය",
+        "ප්ලෝයම පරිවහනය",
+        "ශාක පෝෂණය",
+        "ශාක පෝෂක ඌනතා ලක්ෂණ",
+        "ශාක වල අණුක පෝෂක අවශෝෂණය",
+        "පසේ හා මුල් වල සබඳතා",
+        "ශාක ආලෝක ප්‍රතිචාර-දීප්ති කාලීනතාව",
+        "ශාක හෝමෝන",
+        "ඔක්සින්",
+        "ගිබරලින්",
+        "සයිටොකයනින්",
+        "ඇබ්සිසික් අම්ලය(ABA)",
+        "එතිලීන්",
+        "ශාක ප්‍රජනනය-අලිංගික ප්‍රජනනය",
+        "ලිංගික ප්‍රජනනය",
+        "Practicals"
+      ]
+    },
+    {
+      "id": "u5",
+      "number": "05",
+      "icon": "fa-heart-pulse",
+      "title": "Unit 05: සත්ව ආකාරය සහ ක්‍රියාකාරීත්වය",
+      "englishTitle": "Animal Form and Function",
+      "topics": [
+        "අපිච්ඡද පටකය",
+        "සරල අපිච්ඡද",
+        "සංයුක්ත අපිච්ඡද",
+        "පේශි පටකය",
+        "සම්බන්ධක පටකය",
+        "අරියල පටකය",
+        "තන්තුමය පටකය",
+        "මේද පටකය",
+        "රුධිරය",
+        "කාටිලේජ",
+        "අස්ථි",
+        "ස්නායු පටකය",
+        "සංසරණ පද්ධතිය හැඳින්වීම",
+        "විවෘත සංසරණ පද්ධතිය",
+        "සංවෘත සංසරණ පද්ධතිය",
+        "ඒක සංසරණය සහ ද්විත්ව සංසරණය",
+        "මානව සංසරණ පද්ධතියේ මූලික සැලැස්ම",
+        "මානව හෘදයේ ව්‍යුහය හා කෘත්‍යය",
+        "හෘද් බිත්තිය",
+        "හෘදයේ සන්නායක පද්ධතිය",
+        "හෘත් චක්‍රය",
+        "විද්‍යුත් කන්තුක රේඛනය(ECG)",
+        "රුධිර පීඩනය",
+        "අධිරුධිර පීඩනය හා මන්දරක්තතාවය",
+        "කිරීටක සංසරණය",
+        "ශ්වසන වර්ණක",
+        "මානව රුධිරයේ ශ්වසන වායු පරිවහනය",
+        "මානව රුධිරයේ සංයුතිය හා කෘත්‍යය",
+        "රුධිරය කැටි ගැසීම",
+        "රුධිර ගිණීම හා කාණ්ඩ කිරීම",
+        "රීසස් පද්ධතිය",
+        "මානව වසා පද්ධතිය",
+        "ශ්වසනය හැඳින්වීම හා සතුන්ගේ විවිධ ශ්වසන ව්‍යුහ",
+        "මානව ශ්වසන පද්ධතියේ ව්‍යුහය හා කෘත්‍යය",
+        "ශ්වසන චක්‍රය",
+        "පෙණහළු පරිමා හා ධාරිතා",
+        "ගර්තවල හා පටක වල සිදුවන වායු හුවමාරුව",
+        "බාහිර ශ්වසනය",
+        "අභ්‍යන්තර ශ්වසනය",
+        "ආශ්වාස ප්‍රාශ්වාස ක්‍රියාවලියේ සමස්ථිතික යාමනය",
+        "ශ්වසන පද්ධතියේ ආබාධ",
+        "ප්‍රතිශක්තිය හැඳින්වීම",
+        "සහජ ප්‍රතිශක්තිය - බාහිර ආරක්ෂණය",
+        "සහජ ප්‍රතිශක්තිය - අභ්‍යන්තර ආරක්ෂණය",
+        "ප්‍රතික්ෂුද්‍රජීවී ප්‍රෝටීන",
+        "ප්‍රදාහක ප්‍රතිචාරය",
+        "පරිචිත ප්‍රතිශක්තිය",
+        "පරිචිත ප්‍රතිශක්තියේදී T වසා සෛල හා B වසා සෛලවල කාර්ය භාරය",
+        "පරිචිත ප්‍රතිශක්ති ආකාර",
+        "ප්‍රතිදේහ",
+        "සක්‍රීය ප්‍රතිශක්තිය",
+        "අක්‍රීය ප්‍රතිශක්තිය",
+        "ආසාත්මිකතා",
+        "ස්වයං ප්‍රතිශක්ති රෝග",
+        "ප්‍රතිශක්ති ඌනතා රෝග",
+        "ආස්‍රැති විධානය හා බහිස්ස්‍රාවය",
+        "නයිට්‍රජනීය බහිස්ස්‍රාවීය ඵල",
+        "සතුන්ගේ බහිස්ස්‍රාවීය ව්‍යුහ",
+        "වෘක්ක",
+        "වෘක්කාණුවක ව්‍යුහය",
+        "වෘක්කාණුවේ රුධිර කේශනාලිකා දැල(ගුච්ඡිකාව)",
+        "වෘක්කාණු වර්ග",
+        "මුත්‍ර සෑදීමේ ක්‍රියාවලියට අයත් ප්‍රධාන පියවර",
+        "මුත්‍රා සෑදීමේ ක්‍රියාවලිය",
+        "වෘක්ක ක්‍රියාකාරීත්වය කෙරෙහි හෝමෝන වල දායකත්වය",
+        "සමස්ථිතියේදී වෘක්ක වල කාර්යභාරය",
+        "මානව මුත්‍ර පද්ධතිය ආශ්‍රිත ආබාධ",
+        "සමායෝජනය හැඳින්වීම",
+        "මධ්‍ය ස්නායු පද්ධතිය",
+        "පූර්ව මොළය",
+        "මධ්‍ය මොළය",
+        "අපර මොළය",
+        "සුෂුම්නාව",
+        "පර්යන්ත ස්නායු පද්ධතිය",
+        "ස්වයං සාධක ස්නායු පද්ධතිය",
+        "ස්නායු ආවේග උත්පාදනය හා සම්ප්‍රේෂණය",
+        "අක්‍රිය විභවය",
+        "ක්‍රියා විභවය",
+        "ස්නායු තන්තුවක් ඔස්සේ ආවේග සන්නයනය",
+        "උපාගමය",
+        "රසායනික උපාගම හරහා ස්නායු ආවේගයක් සම්ප්‍රේෂණය වීමේ යාන්ත්‍රණය",
+        "ස්නායු සම්ප්‍රේෂක",
+        "ප්‍රතීක ක්‍රියා",
+        "ස්නායු පද්ධතිය හා සම්බන්ධ පොදු ආබාධ",
+        "මානව සංවේදක ව්‍යුහ හා ක්‍රියාකාරීත්වය",
+        "සංවේදී ප්‍රතිග්‍රාහක වර්ග",
+        "මිනිස් ඇසේ මූලික ව්‍යුහය",
+        "ආලෝක සංවේදී සෛල",
+        "මිනිස් ඇසේ ක්‍රියාකාරීත්වය",
+        "මිනිසාගේ දෘෂ්ටික දෝෂ හා දෘෂ්ටික ආබාධ",
+        "ඇසේ දෘෂ්ටිය",
+        "මිනිස් කන (බාහිර කන හා මැද කන)",
+        "ඇතුළු කන",
+        "මිනිස් කනේ ශ්‍රවණ ක්‍රියාව",
+        "මිනිස් කනේ සමතුලිත ක්‍රියාව",
+        "මිනිස් කනේ ආබාධ",
+        "මානව අන්තරාසර්ග පද්ධතිය හැඳින්වීම",
+        "පිටියුටරි ග්‍රන්ථිය",
+        "තයිරොයිඩ් ග්‍රන්ථිය",
+        "පැරාතයිරොයිඩ් ග්‍රන්ථිය",
+        "අධිවෘක්ක බාහිකය,මජ්ජාව,අග්න්‍යාශයේ දීපිකා",
+        "ඩිම්බකෝෂ ග්‍රන්ථිය",
+        "අන්තරාසර්ග පද්ධතියේ ආබාධ",
+        "ගෝනැඩ",
+        "අන්තරාසර්ග පද්ධතිය හා සම්බන්ධ ප්‍රතිපෝෂි යාන්ත්‍රණ",
+        "මිනිසාගේ අන්තරා සර්ග ආබාධ",
+        "සමස්ථිතිය හැඳින්වීම",
+        "දේහ උෂ්ණත්වය සමස්ථිතික යාමනය",
+        "රුධිර ග්ලුකෝස් මට්ටම සමස්ථිතික යාමනය",
+        "කැල්සියම් විධානය",
+        "සමස්ථිතිය තුළ අක්මාවේ කාර්යභාරය",
+        "ප්‍රජනනය හැඳින්වීම හා අලිංගික ප්‍රජනනය",
+        "ලිංගික ප්‍රජනනය",
+        "පුරුෂ ප්‍රජනක පද්ධතියේ ව්‍යුහය",
+        "ශුක්‍රාණු ජනනය",
+        "ශුක්‍රාණුවක ව්‍යුහය",
+        "ශුක්‍ර තරලය/ශුක්‍රාණු තරලය හා පුරුෂ ප්‍රජනක පද්ධතියේ හෝමෝනමය පාලනය",
+        "පුරුෂ ප්‍රජනක පද්ධතියේ හෝමෝනමය පාලනය",
+        "ස්ත්‍රී ප්‍රජනක පද්ධතියේ ව්‍යුහය",
+        "ඩිම්බකෝෂජනනය (ඩිම්බජනනය)",
+        "ස්ත්‍රී ප්‍රජනක චක්‍රයේ හෝමෝනමය පාලනය",
+        "ඩිම්බකෝෂ චක්‍රය",
+        "ගර්භාෂයික චක්‍රය",
+        "ආර්තවහරණය,මානව විකසනය,සංසේචනය හා යුක්තානුව ඇතිවීම",
+        "අධිරෝපණය",
+        "කලල පටල",
+        "කලල ඛණ්ඩය",
+        "ගර්භණී භාවය හා කාලාන්තර• මවගේ සිදුවන වෙනස්කම්",
+        "ප්‍රසවයේ සිදුවන වෙනස්කම්",
+        "දරු ප්‍රසූති ක්‍රියාවලිය",
+        "කිරිවරණය",
+        "උපත් පාලන ක්‍රම",
+        "ගබ්සා කිරීම,ගර්භණී සමයේ ආබාධ",
+        "නිසරුභාවය,ප්‍රජනක තාක්ෂණ ක්‍රම",
+        "ලිංගිකව සම්ප්‍රේෂණය වන ආසාදන",
+        "සතුන්ගේ පෝෂණය හා විෂම පෝෂී පෝෂණ ආකාර",
+        "මානව ජීරණ පද්ධතිය හැඳින්වීම",
+        "මුඛය",
+        "ග්‍රසනිකාව",
+        "අන්නස්‍රෝතය",
+        "ආමාශය",
+        "කුඩා අන්ත්‍රය",
+        "කුඩා අන්ත්‍රය තුළ සිදුවන රසායනික ජීරණය",
+        "කුඩා අන්ත්‍රය තුළ සිදුවන අවශෝෂණය",
+        "ආශ්‍රිත ග්‍රන්ථි - අග්න්‍යාශය",
+        "පිත්තාශය හා අක්මාව",
+        "අක්මාවේ කෘත්‍ය",
+        "මිනිසා තුළ ජීරණයේ යාමනය",
+        "සමබල ආහාරය",
+        "ආහාරයේ සංඝටක හා ඒවායේ කෘත්‍ය",
+        "අත්‍යවශ්‍ය පෝෂක",
+        "විටමින්",
+        "ඛනිජ",
+        "මූලික පරිවෘත්තීය වේගය",
+        "ආහාර මාර්ගය ආශ්‍රිත සුලභ රෝගාබාධ",
+        "අස්ථි හැඳින්වීම",
+        "හිස් කබල - කපාල අස්ථි",
+        "වක්ත්‍ර අස්ථි",
+        "කශේරුව",
+        "උරෝස්ථිය",
+        "ගාත්‍රා සැකිල්ල - පූර්ව ගාත්‍රය",
+        "අපර ගාත්‍රය",
+        "මානව කංකාල පද්ධතිය හා සම්බන්ධ සංකූලතා",
+        "කංකාල පේශි සහ සංකෝචන යාන්ත්‍රණය",
+        "සර්පන සූත්‍රිකා වාදය"
+      ]
+    },
+    {
+      "id": "u6",
+      "number": "06",
+      "icon": "fa-dna",
+      "title": "Unit 06: ප්‍රවේණිය",
+      "englishTitle": "Genetics & Heredity",
+      "topics": [
+        "හැඳින්වීම",
+        "ප්‍රවේණි විද්‍යාවේ වත් මාලාව",
+        "මෙන්ඩල්ගේ පළමු වන නියමය",
+        "මෙන්ඩල්ගේ දෙවන නියමය",
+        "සම්භාවිතා නියම හා මෙන්ඩලීය ආවේණිය",
+        "බහු විධ ලක්ෂණ මුසුබිම්වල ආවේණික රටා පෙරැයීම",
+        "පරීක්ෂා මුහුම හා පිළි දෙමුහුම",
+        "සුලභ මෙන්ඩලීය ලක්ෂණ",
+        "මෙන්ඩලීය නොවන ආවේණිය-බහු ඇලීලතාවය",
+        "සහ ප්‍රමුඛතාවය",
+        "අසම්පූර්ණ ප්‍රමුඛතාවය",
+        "ජාන ප්‍රතිබද්ධය",
+        "අභිභවනය",
+        "බහුජාන ආවේණිය",
+        "මානව ලිංග නිර්ණය",
+        "මානව ලිංග ප්‍රතිබද්ධ ලක්ෂණ",
+        "X ප්‍රතිබද්ධ ජානවලින් ආවේණිය",
+        "පෙළපත් සටහන්",
+        "ගහන ප්‍රවේණිය",
+        "ශාක හා සත්ව අභිජනනය",
+        "අභිජනන ශිල්ප ක්‍රම",
+        "අභිජනන ක්‍රමවේදයන්හි ප්‍රවේණි විද්‍යාත්මක මූලධර්ම"
+      ]
+    },
+    {
+      "id": "u7",
+      "number": "07",
+      "icon": "fa-flask-vial",
+      "title": "Unit 07: අණුක ජීව විද්‍යාව සහ rDNA තාක්ෂණය",
+      "englishTitle": "Molecular Biology & Recombinant DNA",
+      "topics": [
+        "DNA වල ද්විත්ව හෙලික්සීය ව්‍යුහය හා වර්ණදේහවල ව්‍යුහික නිර්මාණය",
+        "වර්ණ දේහයක් සෑදෙන මට්ටම",
+        "DNA ප්‍රතිවලිත වීම හා ප්‍රාග් න්‍යෂ්ටිකයන්ගේ DNA ප්‍රතිවලිත ක්‍රියාවලිය",
+        "DNA ප්‍රතිවලිතයට බලපාන ප්‍රධාන එන්සයිම හා ප්‍රෝටීන",
+        "ප්‍රාග්න්‍යාෂ්ටික හා සුන්‍යෂ්ටික DNA ප්‍රතිවලිතයේ සමානතා හා අසමානතා",
+        "DNA අලුත්වැඩියාව හා එහි වැදගත්කම",
+        "ජාන හා ඒවා ක්‍රියා කරන ආකාරය",
+        "ජාන ප්‍රකාශනය",
+        "පොලි පෙප්ටයිඩ සංශ්ලේෂණ යාන්ත්‍රණය",
+        "ප්‍රෝටීනවල ඉරණම හා වරණීය හායනය",
+        "විකෘති - ජාන විකෘති",
+        "විකෘති - වර්ණ දේහ විකෘති(ව්‍යුහය වෙනස්වීමෙන්)",
+        "වර්ණ දේහ විකෘති(සංඛ්‍යාව වෙනස් වීමෙන්)",
+        "මානව ප්‍රවේණික ආබාධ - ජාන විකෘති නිසා ඇතිවන ආබාධ",
+        "වර්ණ දේහ විකෘති නිසා ඇතිවන ආබාධ",
+        "ප්‍රවේණි උපදේශනය",
+        "ජාන තාක්ෂණය - DNA විසංගමනය",
+        "ඇගරෝස් ජෙල විද්‍යුත් ගමනය",
+        "DNA ඵ්ෂණ සහ දෙමුහුම්කරණය",
+        "ප්‍රතිසංයෝජිත DNA තාක්ෂණය",
+        "පරිණාමනය",
+        "Agrobacterium යොදාගෙන ජාන හුවමාරු කිරීම",
+        "විශ්ලේෂණය,සීමා සිතියම",
+        "DNA අනුක්‍රම නිර්ණය",
+        "DNA ඇඟිලි සලකුණු තාක්ෂණය",
+        "පොලිමරේස් දාම ප්‍රතික්‍රියාව(PCR)",
+        "ප්‍රවේණිකව විකරණය කරන ලද ජීවීන්ගේ භාවිතය(GMO)",
+        "කාටජීනා ගිවිසුම හා ශ්‍රී ලංකාවේ ජෛව සුරක්ෂිතතා රාමුව"
+      ]
+    },
+    {
+      "id": "u8",
+      "number": "08",
+      "icon": "fa-earth-americas",
+      "title": "Unit 08: පාරිසරික ජීව විද්‍යාව",
+      "englishTitle": "Environmental Biology",
+      "topics": [
+        "හැඳින්වීම හා පරිසරයේ සංවිධාන මට්ටම්",
+        "පරිසර පද්ධතියක ව්‍යුහය හා කෘත්‍යය",
+        "පරිසර පද්ධතියක් තුළින් ශක්තිය ගලා යාම",
+        "පාරිසරික පිරමිඩ",
+        "ශ්‍රී ලංකාවේ පරිසර පද්ධති - වනාන්තර",
+        "ශ්‍රී ලංකාවේ පරිසර පද්ධති - තෘණ භූමි",
+        "තෙත්බිම්",
+        "බයෝම - නිවර්තන වනාන්තර හා සැවානා",
+        "කාන්තාර හා චපරාල්",
+        "සෞම්‍ය කලාපික තෘණ භූමි හා සෞම්‍ය කලාපික පළල් පත්‍ර වනාන්තර",
+        "උතුරු කේතුධර වනාන්තර හා තුන්ද්‍රා",
+        "ජෛව විවිධත්වය - වටිනාකම හා වැදගත්කම",
+        "ජෛව විවිධත්වයට හානි වීම",
+        "විශේෂ නෂ්ට වීම - නෂ්ට වූ ජීවීන්ගේ විවිධ මට්ටම්",
+        "තර්ජනයට ලක් වූ ජීවීන්ගේ විවිධ මට්ටම්",
+        "ජීවීන්ගේ වෙනත් විවිධ මට්ටම්",
+        "සංරක්ෂණය",
+        "ගෝලීය උණුසුම හා දේශගුණ විපර්යාස",
+        "ගෝලීය උණුසුම හා දේශගුණික විපර්යාසයේ බලපෑම්",
+        "ඕසෝන් ස්ථරය ක්ෂය වීම",
+        "කාන්තාර කරණය",
+        "අම්ල වැසි",
+        "පරිසර සංරක්ෂණයට අදාළ සම්මුති",
+        "ශ්‍රී ලංකාවේ පාරිසරික නීති පද්ධතිය හා ප්‍රතිපත්ති"
+      ]
+    },
+    {
+      "id": "u9",
+      "number": "09",
+      "icon": "fa-virus",
+      "title": "Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව",
+      "englishTitle": "Microbiology",
+      "topics": [
+        "ක්ෂුද්‍ර ජීවීන්ගේ ස්වභාවය",
+        "ක්ෂුද්‍ර ජීවීන්ගේ විවිධත්වය",
+        "ක්ෂුද්‍ර ජීවී ආකාර - බැක්ටීරියා",
+        "සයනොබැක්ටීරියා",
+        "දිලීර",
+        "ඒක සෛලික ප්‍රෝටිස්ටාවන්",
+        "මොලිකියුටයන්",
+        "වෛරස",
+        "වෛරොයිඩ හා ප්‍රියෝන",
+        "ජීවානු හරණ ක්‍රම",
+        "රෝපණ මාධ්‍ය",
+        "ජීවානුහරණය කරන ලද රෝපණ මාධ්‍ය වගා බඳුනට මාරු කිරීම",
+        "ක්ෂුද්‍ර ජීවීහු හා රෝග",
+        "ආසාදන රෝග වලට අදාල යෙදුම් හා ව්‍යාධිජනකයන් සදහා ප්‍රවේශ මාර්ග",
+        "ව්‍යාධිජනක ක්ෂුද්‍ර ජීවින්ගේ ලාක්ෂණික",
+        "ධූලක",
+        "ක්ෂුද්‍ර ජීවීන් මගින් මිනිසාට ඇති කරන රෝග",
+        "ක්ෂුද්‍ර ජීවී රෝග මඟහැරීම හා වැළැක්වීම - ඒ්පුනිපුනක හා ව්‍යාපාරික",
+        "ප්‍රතිජීවක භාවිතය",
+        "ප්‍රතිශක්තීකරණ එන්නත්",
+        "ක්ෂුද්‍ර ජීවීන්ගේ භාවිතය",
+        "ක්ෂුද්‍ර ජීවීන් කාර්මික ක්ෂේත්‍රයේ යොදා ගැනීම",
+        "පරිසර කලමනාකරණයේදී ක්ෂුද්‍ර ජීවීන් යෙදීම",
+        "කෘෂිකර්මාන්තයේදී ක්ෂුද්‍ර ජීවීන් යෙදීම",
+        "පාංශු ක්ෂුද්‍ර ජීවීන් - ඛනිජ භවනය",
+        "C චක්‍රය",
+        "N චක්‍රය",
+        "ශාක වර්ධනය හා අදාළව පාංශු ක්ෂුද්‍ර ජීවීන්ගේ අන්තර් ක්‍රියා",
+        "පානීය ජලය දූෂණය වන මාර්ග",
+        "ජලයේ ගුණාත්මක දර්ශකයක් ලෙස ක්ෂුද්‍ර ජීවීන් හා ජලයෙන් බෝවන රෝග",
+        "පානීය ජලය පිරිසම කිරීමේ ක්‍රියාවලිය",
+        "අප ජලය කළමනාකරණය",
+        "ඝණ අපද්‍රව්‍ය පිරිසම කිරීම",
+        "ක්ෂුද්‍ර ජීවීන් හා ආහාර",
+        "ආහාර නරක් වීම කෙරෙහි බලපාන සාධක",
+        "ආහාර නරක් වීම මානව සෞඛ්‍යයට ඇති කරන බලපෑම්"
+      ]
+    },
+    {
+      "id": "u10",
+      "number": "10",
+      "icon": "fa-wheat-awn",
+      "title": "Unit 10: ව්‍යවහාරික ජීව විද්‍යාව",
+      "englishTitle": "Applied Biology",
+      "topics": [
+        "ජල ජීවී වගාව",
+        "විසිතුරු මත්ස්‍ය වගාව",
+        "ගෘහස්ථ ජලාශයක් පවත්වා ගැනීම",
+        "ජලාශයේ ඇතිවිය හැකි ගැටලු",
+        "වගා කරන මිරිදිය විසිතුරු මසුන්ට සුලභව වැළඳෙන රෝග - බැක්ටීරියා රෝග",
+        "දිලීර රෝග",
+        "ඒක සෛලීය පරපෝෂිතයන් මගින් ඇතිවන රෝග",
+        "බහුසෛලීය බාහිර පරපෝෂීන් මගින් ඇතිවන රෝග",
+        "විසිතුරු මත්ස්‍ය වගාව නිසා ඇතිවිය හැකි පාරිසරික බලපෑම්",
+        "තවන් කලමනාකරණය හා ප්‍රචාරණය",
+        "ආරක්ෂිත ගෘහ",
+        "පටක රෝපණය",
+        "මල් වගාවේදී භාවිතා වන බද්ධ කිරීමේ හා වෙනත් ප්‍රචාරණ ක්‍රම",
+        "ආහාර පරිරක්ෂණය",
+        "පසු අස්වනු හානිය",
+        "ඩෙංගු",
+        "බරවා",
+        "නැනෝ තාක්ෂණය",
+        "මූලික සෛල චිකිත්සාව",
+        "මානව ජෙනෝම ව්‍යාපෘතිය"
+      ]
+    }
+  ],
+  "liveClasses": [],
+  "classCards": [],
+  "requests": [
+    {
+      "id": "req_1794474509327",
+      "studentId": "27784979",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "0762266917",
+      "studentSchool": "Nalanda college",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u5",
+      "targetTitle": "සත්ව ආකාරය සහ ක්‍රියාකාරීත්වය (දිනේෂ් මුතුගල (Dinesh Muthugala))",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-12T09:08:29.327Z",
+      "approvedAt": "2026-11-12T09:08:42.036Z"
+    },
+    {
+      "id": "req_1794473704745",
+      "studentId": "27784979",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "0762266917",
+      "studentSchool": "Nalanda college",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u4",
+      "targetTitle": "ශාක ආකාරය සහ ක්‍රියාකාරීත්වය (දිනේෂ් මුතුගල (Dinesh Muthugala))",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-12T08:55:04.745Z",
+      "approvedAt": "2026-11-12T08:55:09.496Z"
+    },
+    {
+      "id": "req_1794473536282",
+      "studentId": "27784979",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "0762266917",
+      "studentSchool": "Nalanda college",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u3",
+      "targetTitle": "පරිණාමය සහ ජෛව විවිධත්වය (දිනේෂ් මුතුගල (Dinesh Muthugala))",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-12T08:52:16.282Z",
+      "approvedAt": "2026-11-12T08:52:25.425Z"
+    },
+    {
+      "id": "req_1794464469464",
+      "studentId": "27784979",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "0762266917",
+      "studentSchool": "Nalanda college",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "sasanka-revision",
+      "targetTitle": "A/L Biology Revision Pack (ශශංක ධනුජය (Sasanka Danujaya))",
+      "tutorId": "sasanka",
+      "status": "approved",
+      "requestedAt": "2026-11-12T06:21:09.464Z",
+      "approvedAt": "2026-11-12T06:21:12.741Z"
+    },
+    {
+      "id": "req_1794464426248",
+      "studentId": "27784979",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "0762266917",
+      "studentSchool": "Nalanda college",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u2",
+      "targetTitle": "ජීවයේ රසායනික සහ සෛලීය පදනම (දිනේෂ් මුතුගල (Dinesh Muthugala))",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-12T06:20:26.248Z",
+      "approvedAt": "2026-11-12T06:20:47.755Z"
+    },
+    {
+      "id": "req_1794464014935",
+      "studentId": "27784979",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "0762266917",
+      "studentSchool": "Nalanda college",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u1",
+      "targetTitle": "ජීව විද්‍යාව හැඳින්වීම (දිනේෂ් මුතුගල)",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-12T06:13:34.935Z",
+      "approvedAt": "2026-11-12T06:13:53.146Z"
+    },
+    {
+      "id": "req_1794338651503",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794338641713",
+      "targetTitle": "2027 A/L November 2026 • ශශංක ධනුජය (Revision Only) (November 2026)",
+      "tutorId": "",
+      "status": "approved",
+      "requestedAt": "2026-11-10T19:24:11.504Z",
+      "approvedAt": "2026-11-10T19:24:13.917Z"
+    },
+    {
+      "id": "req_1794338592690",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794338578527",
+      "targetTitle": "2027 A/L November 2026 මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "approved",
+      "requestedAt": "2026-11-10T19:23:12.690Z",
+      "approvedAt": "2026-11-10T19:23:22.403Z"
+    },
+    {
+      "id": "req_1794337402078",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794337276813",
+      "targetTitle": "2027 A/L November 2026 මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "approved",
+      "requestedAt": "2026-11-10T19:03:22.078Z",
+      "approvedAt": "2026-11-10T19:03:36.949Z"
+    },
+    {
+      "id": "req_1794334199845",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "077 123 4567",
+      "studentSchool": "Royal College",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794334141491",
+      "targetTitle": "2027 A/L November 2026 මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "approved",
+      "requestedAt": "2026-11-10T18:09:59.845Z",
+      "approvedAt": "2026-11-10T18:10:37.684Z"
+    },
+    {
+      "id": "req_1794334155534",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "077 123 4567",
+      "studentSchool": "Royal College",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794334141491",
+      "targetTitle": "2027 A/L November 2026 මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "approved",
+      "requestedAt": "2026-11-10T18:09:15.534Z",
+      "approvedAt": "2026-11-10T18:09:45.329Z"
+    },
+    {
+      "id": "req_1794331991623",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794319608028",
+      "targetTitle": "2027 A/L නොවැම්බර් මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "approved",
+      "requestedAt": "2026-11-10T17:33:11.623Z",
+      "approvedAt": "2026-11-10T17:33:48.679Z"
+    },
+    {
+      "id": "req_1794322736054",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794319191513",
+      "targetTitle": "2027 A/L නොවැම්බර් මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "rejected",
+      "requestedAt": "2026-11-10T14:58:56.055Z",
+      "revokedAt": "2026-11-10T17:25:57.811Z"
+    },
+    {
+      "id": "req_1794319626974",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794319608028",
+      "targetTitle": "2027 A/L නොවැම්බර් මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "rejected",
+      "requestedAt": "2026-11-10T14:07:06.974Z",
+      "approvedAt": "2026-11-10T14:07:31.978Z",
+      "revokedAt": "2026-11-10T17:25:54.221Z"
+    },
+    {
+      "id": "req_1794319273112",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794319220381",
+      "targetTitle": "2027 A/L නොවැම්බර් මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "rejected",
+      "requestedAt": "2026-11-10T14:01:13.112Z",
+      "approvedAt": "2026-11-10T14:01:54.800Z",
+      "revokedAt": "2026-11-10T17:25:55.648Z"
+    },
+    {
+      "id": "req_1794317031876",
+      "studentId": "27801945",
+      "studentName": "Kasun Mendis",
+      "studentPhone": "0771234567",
+      "studentSchool": "Ananda College",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794154357419",
+      "targetTitle": "2027 A/L නොවැම්බර් • දිනේෂ් මුතුගල (Theory + Revision)",
+      "tutorId": "",
+      "status": "rejected",
+      "requestedAt": "2026-11-10T13:23:51.876Z"
+    },
+    {
+      "id": "req_1794314132246",
+      "studentId": "27341993",
+      "studentName": "nikila yoshitha",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794154357419",
+      "targetTitle": "2027 A/L නොවැම්බර් • දිනේෂ් මුතුගල (Theory + Revision) (November 2026)",
+      "tutorId": "",
+      "status": "rejected",
+      "requestedAt": "2026-11-10T12:35:32.247Z"
+    },
+    {
+      "id": "req_1794162512207",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "077 123 4567",
+      "studentSchool": "Royal College",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794162496882",
+      "targetTitle": "2027 A/L නොවැම්බර් මාසික Class Card (November 2026)",
+      "tutorId": "",
+      "status": "rejected",
+      "requestedAt": "2026-11-08T18:28:32.207Z",
+      "approvedAt": "2026-11-08T18:29:20.899Z",
+      "revokedAt": "2026-11-10T17:26:00.865Z"
+    },
+    {
+      "id": "req_1794160020965",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "",
+      "studentSchool": "",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u1",
+      "targetTitle": "Unit 01 (Dinesh Muthugala)",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-08T17:47:00.966Z",
+      "approvedAt": "2026-11-08T17:47:00.977Z"
+    },
+    {
+      "id": "req_1794157519263",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "077 123 4567",
+      "studentSchool": "Royal College",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u1",
+      "targetTitle": "ජීව විද්‍යාව හැඳින්වීම (දිනේෂ් මුතුගල (Dinesh Muthugala))",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-08T17:05:19.263Z",
+      "approvedAt": "2026-11-08T17:05:41.417Z"
+    },
+    {
+      "id": "req_1794156900527",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "077 123 4567",
+      "studentSchool": "Royal College",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u2",
+      "targetTitle": "Unit 02: Chemical Basis (Dinesh Muthugala)",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-08T16:55:00.528Z",
+      "approvedAt": "2026-11-08T16:55:00.540Z"
+    },
+    {
+      "id": "req_1",
+      "studentId": "27804192",
+      "studentName": "nikila",
+      "studentPhone": "077 123 4567",
+      "studentSchool": "Royal College",
+      "batch": "2027",
+      "type": "card",
+      "targetId": "card_1794154357419",
+      "targetTitle": "2027 A/L නොවැම්බර් මාසික Class Card",
+      "tutorId": "dinesh",
+      "status": "rejected",
+      "requestedAt": "2026-11-08T15:27:11.984Z",
+      "approvedAt": "2026-11-08T17:47:00.945Z",
+      "revokedAt": "2026-11-10T17:26:04.523Z"
+    },
+    {
+      "id": "req_2",
+      "studentId": "27801945",
+      "studentName": "Kasun Mendis",
+      "studentPhone": "071 987 6543",
+      "studentSchool": "Ananda College",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "u4",
+      "targetTitle": "Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය (දිනේෂ් මුතුගල සර්)",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-08T15:57:11.991Z",
+      "approvedAt": "2026-11-08T18:33:30.187Z"
+    }
+  ],
+  "monthlyFolders": [
+    {
+      "id": "mf-nov-2026",
+      "name": "November 2026",
+      "batch": "2027",
+      "isCurrent": true
+    },
+    {
+      "id": "mf-dec-2026",
+      "name": "December 2026",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-jan-2027",
+      "name": "January 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-feb-2027",
+      "name": "February 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-mar-2027",
+      "name": "March 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-apr-2027",
+      "name": "April 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-may-2027",
+      "name": "May 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-jun-2027",
+      "name": "June 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-jul-2027",
+      "name": "July 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-aug-2027",
+      "name": "August 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-sep-2027",
+      "name": "September 2027",
+      "batch": "2027",
+      "isCurrent": false
+    },
+    {
+      "id": "mf-oct-2027",
+      "name": "October 2027",
+      "batch": "2027",
+      "isCurrent": false
+    }
+  ],
+  "monthlyClasses": [
+    {
+      "id": "mcv_1794319478063",
+      "month": "November 2026",
+      "batch": "2027",
+      "tutorId": "dinesh",
+      "classType": "theory",
+      "title": "2027 Unit 05 Day 22",
+      "ytId": "UehLOIk-F_c",
+      "customThumbnail": "",
+      "date": "2026-11-10",
+      "duration": "2h 30m",
+      "desc": "",
+      "tuteUrl": "https://t.me/apexbiology_tutes",
+      "attachedUnitId": null,
+      "createdAt": "2026-11-10T14:04:38.063Z"
+    }
+  ],
+  "revisionVideos": [],
+  "admins": [
+    {
+      "id": "adm_super_nikila",
+      "name": "Super Admin",
+      "email": "dg.edits65@gmail.com",
+      "password": "Nikila2008326@",
+      "role": "super_admin",
+      "createdAt": "2026-11-12T13:39:23.727Z"
+    }
+  ],
+  "settings": {
+    "telegramBotToken": "9025129135:AAE-AJfcupq8iG5f5becDKcuF9vGhTJYbc4",
+    "telegramChatId": "6315010122",
+    "studyPackBotToken": "9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ",
+    "studyPackChatId": "6315010122"
+  },
+  "bioBank": {
+    "isBlurred": true,
+    "units": [
+      {
+        "id": "u1",
+        "num": "01",
+        "name": "ජීව විද්‍යාව හැඳින්වීම",
+        "eng": "Introduction to Biology",
+        "icon": "🌿",
+        "categories": {
+          "essays": [
+            {
+              "title": "ජීවයේ ලක්ෂණ සහ විද්‍යාත්මක ක්‍රමයේ පියවර රචනා ලකුණු රාමුව",
+              "pages": "4 Pages",
+              "format": "PDF",
+              "date": "2026 Edition"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "විද්‍යාත්මක විමර්ශන ක්‍රමවේදය Concept Flowchart",
+              "pages": "High-Res A4",
+              "format": "Vector Map",
+              "date": "Color Atlas"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ජීවයේ ප්‍රධාන ගුණාංග කෙටි සටහන (High-Yield Summary)",
+              "pages": "2 Pages",
+              "format": "PDF",
+              "date": "Verified"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 01 විභාග ඉලක්කගත MCQs 50 සහ සම්පූර්ණ විවරණය",
+              "pages": "8 Pages",
+              "format": "PDF",
+              "date": "Model Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u2",
+        "num": "02",
+        "name": "ජීවයේ රසායනික සහ සෛලීය පදනම",
+        "eng": "Chemical & Cellular Basis of Life",
+        "icon": "🔬",
+        "categories": {
+          "essays": [
+            {
+              "title": "ප්‍රෝටීන ව්‍යුහ මට්ටම් සහ එන්සයිම නිෂේධන ආකෘති Essay Points",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "2026 Edition"
+            },
+            {
+              "title": "ප්ලාස්ම පටලයේ තරල විචිත්‍ර ආකෘතිය හා පටල පරිවහන රචනා සටහන",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "Marking Scheme"
+            },
+            {
+              "title": "ප්‍රභාසංශ්ලේෂණ ආලෝක හා කැල්වින් චක්‍ර සම්පූර්ණ Essay Answer",
+              "pages": "8 Pages",
+              "format": "PDF",
+              "date": "Model Essay"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "ජෛව අණු (කාබෝහයිඩ්‍රේට, ලිපිඩ, ප්‍රෝටීන, න්‍යෂ්ටික අම්ල) Master Mind Map",
+              "pages": "Ultra HD 4K",
+              "format": "Mind Map",
+              "date": "Color Print"
+            },
+            {
+              "title": "සෛලීය ශ්වසන පථ (Glycolysis, Krebs, ETC) Flowchart Atlas",
+              "pages": "Ultra HD",
+              "format": "Flowchart",
+              "date": "Visual Map"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ජලයේ සුවිශේෂී ගුණාංග සහ ජීවයට ඇති වැදගත්කම Short Sheet",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "High Yield"
+            },
+            {
+              "title": "අනූනන හා ඌනන විභාජන සංසන්දනාත්මක වගුව",
+              "pages": "4 Pages",
+              "format": "PDF",
+              "date": "Summary"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 02 පසුගිය විභාග MCQs 250 සහ ප්‍රශ්න වර්ගීකරණය",
+              "pages": "24 Pages",
+              "format": "PDF",
+              "date": "Target Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u3",
+        "num": "03",
+        "name": "පරිණාමය සහ ජෛව විවිධත්වය",
+        "eng": "Evolution and Biodiversity",
+        "icon": "🌳",
+        "categories": {
+          "essays": [
+            {
+              "title": "ශාක රාජධානියේ ප්‍රධාන වංශවල ජීවන චක්‍ර සංසන්දනාත්මක Essay",
+              "pages": "7 Pages",
+              "format": "PDF",
+              "date": "Exam Target"
+            },
+            {
+              "title": "අපෘෂ්ඨවංශී වංශ 8 ලක්ෂණ සහ නිදර්ශක යතුරු Essay Guide",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "NIE Reference"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "භූ විද්‍යාත්මක කාල පරිමාණය සහ ජීවයේ සම්භවය Mind Map",
+              "pages": "Poster A3",
+              "format": "Mind Map",
+              "date": "Visual Tree"
+            },
+            {
+              "title": "අධිරාජධානි 3 වර්ගීකරණ පද්ධතිය Complete Taxonomy Chart",
+              "pages": "Poster A3",
+              "format": "Classification",
+              "date": "Color Atlas"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "Pogonatum, Neprolepis, Cycus ජීවන චක්‍ර කෙටි සටහන්",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "Quick Review"
+            },
+            {
+              "title": "දිලීර රාජධානියේ වංශ සංසන්දනාත්මක සටහන",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Short Note"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "ජෛව විවිධත්වය ඉලක්කගත MCQs 180 විවරණ සහිතව",
+              "pages": "16 Pages",
+              "format": "PDF",
+              "date": "Target Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u4",
+        "num": "04",
+        "name": "ශාක ආකාරය සහ ක්‍රියාකාරීත්වය",
+        "eng": "Plant Form & Physiology",
+        "icon": "🌱",
+        "categories": {
+          "essays": [
+            {
+              "title": "ශාක ජල සබඳතා, සංසක්ති-ආතති වාදය හා රසෝද්ගමන Essay Points",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "2026 Model"
+            },
+            {
+              "title": "පූටිකා විවෘත වීම හා වැසීමේ K+ අයන ප්‍රවාහ කල්පිතය Essay Guide",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "Marking Scheme"
+            },
+            {
+              "title": "ශාක කඳේ හා මුලේ ද්විතියික වර්ධනය විභාග රචනා සටහන",
+              "pages": "7 Pages",
+              "format": "PDF",
+              "date": "Essay Standard"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "ශාක හෝමෝන 5 (Auxin, Gibberellin, Cytokinin, ABA, Ethylene) Function Map",
+              "pages": "High-Res A4",
+              "format": "Mind Map",
+              "date": "Master Map"
+            },
+            {
+              "title": "ප්ලෝයමීය පීඩන ප්‍රවාහ කල්පිතය Diagrammatic Flowchart",
+              "pages": "A4 Vector",
+              "format": "Flowchart",
+              "date": "Diagram Chart"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ශාක පටක වර්ගීකරණය සහ සෛල ව්‍යුහ කෙටි සටහන්",
+              "pages": "4 Pages",
+              "format": "PDF",
+              "date": "Summary Note"
+            },
+            {
+              "title": "දීප්ති කාලීනතාව සහ ශාක ප්‍රතිචාර High-Yield Review",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Pocket Note"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 04 ශාක කායික විද්‍යාව MCQs 200 ප්‍රශ්න බැංකුව",
+              "pages": "18 Pages",
+              "format": "PDF",
+              "date": "Exam Bank"
+            }
+          ]
+        },
+        "folders": [
+          {
+            "id": "fld_1794472500052_4bt5",
+            "unitId": "u4",
+            "parentFolderId": null,
+            "name": "ප්‍රභාසංශ්ලේෂණ සම්පූර්ණ රූප සටහන්",
+            "items": [
+              {
+                "id": "item_1794472510884_cbh3",
+                "unitId": "u4",
+                "folderId": "fld_1794472500052_4bt5",
+                "type": "image",
+                "title": "Calvin චක්‍රය සහ ආලෝක ප්‍රතික්‍රියා රූප සටහන්",
+                "url": "",
+                "images": [
+                  "/hero.jpg"
+                ],
+                "pages": "Image",
+                "format": "WEBP",
+                "textContent": "",
+                "desc": "NIE Resource Book standard diagram",
+                "date": "2026-11-12"
+              }
+            ],
+            "createdAt": 1794472500052
+          }
+        ]
+      },
+      {
+        "id": "u5",
+        "num": "05",
+        "name": "සත්ව ආකාරය සහ ක්‍රියාකාරීත්වය",
+        "eng": "Animal Physiology & Human Systems",
+        "icon": "🫀",
+        "categories": {
+          "essays": [
+            {
+              "title": "මානව හෘදයේ ක්‍රියාකාරීත්වය, හෘද චක්‍රය හා ECG තරංග Essay Model",
+              "pages": "8 Pages",
+              "format": "PDF",
+              "date": "High Yield"
+            },
+            {
+              "title": "වෘක්කාණුව සහ මුත්‍රා සෑදීමේ ප්‍රතිධාරා ගුණක යාන්ත්‍රණය Essay",
+              "pages": "7 Pages",
+              "format": "PDF",
+              "date": "Marking Standard"
+            },
+            {
+              "title": "ස්නායු ආවේග සම්ප්‍රේෂණය හා රසායනික උපාගමික පරිවහන Essay",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "Model Answer"
+            },
+            {
+              "title": "මානව අන්තරාසර්ග හෝමෝන සහ ප්‍රතිශක්තිකරණ පද්ධතිය Essay Points",
+              "pages": "8 Pages",
+              "format": "PDF",
+              "date": "Full Marks"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "මානව දේහ පද්ධති 8 (හෘදය, වෘක්ක, ස්නායු, ආමාශය) Master Mind Maps",
+              "pages": "Ultra HD Set",
+              "format": "Atlas Set",
+              "date": "Full Color"
+            },
+            {
+              "title": "ක්‍රියා විභවය සහ ස්නායු සම්ප්‍රේෂණ Action Potential Flowchart",
+              "pages": "High-Res A4",
+              "format": "Flowchart",
+              "date": "Concept Map"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ආශ්වාස ප්‍රාශ්වාස සමස්ථිතික යාමනය කෙටි සටහන",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Cheat Sheet"
+            },
+            {
+              "title": "හෝමෝන හා ඉලක්ක ඉන්ද්‍රිය සම්පූර්ණ සංක්ෂිප්ත වගුව",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "Exam Ready"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 05 මානව කායික විද්‍යාව MCQs 300 විශේෂ ප්‍රශ්න සංග්‍රහය",
+              "pages": "28 Pages",
+              "format": "PDF",
+              "date": "Target Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u6",
+        "num": "06",
+        "name": "ප්‍රවේණිය",
+        "eng": "Genetics & Heredity",
+        "icon": "🧬",
+        "categories": {
+          "essays": [
+            {
+              "title": "මෙන්ඩලීය ආවේණිය, ද්විසංකරණ හා පෙළපත් සටහන් Essay Strategy",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "2026 Edition"
+            },
+            {
+              "title": "ලිංග ප්‍රතිබද්ධ උරුමය හා වර්ණදේහ විකෘතිතා රචනා විවරණය",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "Marking Scheme"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "පෙළපත් සටහන් (Pedigrees) විනාඩි 2න් විසඳන Algorithm Mind Map",
+              "pages": "A4 Vector",
+              "format": "Strategy Map",
+              "date": "Shortcuts"
+            },
+            {
+              "title": "ප්‍රවේණික රටා සහ බහු ඇලීලතා (ABO Blood Group) Concept Map",
+              "pages": "High-Res A4",
+              "format": "Concept Map",
+              "date": "Color Atlas"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ප්‍රවේණි විද්‍යා අර්ථ දැක්වීම් සහ සූත්‍ර කෙටි සටහන",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Formula Sheet"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "ප්‍රවේණිය හා පෙළපත් ගැටළු MCQs 150 විවරණ සහිතව",
+              "pages": "14 Pages",
+              "format": "PDF",
+              "date": "MCQ Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u7",
+        "num": "07",
+        "name": "අණුක ජීව විද්‍යාව සහ rDNA තාක්ෂණය",
+        "eng": "Molecular Biology & Biotechnology",
+        "icon": "🧪",
+        "categories": {
+          "essays": [
+            {
+              "title": "DNA අනුබලනය (Replication), Transcription හා Translation Essay",
+              "pages": "7 Pages",
+              "format": "PDF",
+              "date": "Exam Target"
+            },
+            {
+              "title": "ප්‍රතිසංයෝජිත DNA (rDNA) හා PCR තාක්ෂණය සම්පූර්ණ Essay Points",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "Modern Tech"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "මධ්‍ය ප්‍රවාහය (Central Dogma) & Protein Synthesis Mind Map",
+              "pages": "High-Res A4",
+              "format": "Mind Map",
+              "date": "Full Map"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ජෙල් ඉලෙක්ට්‍රොෆොරෙසිස් සහ DNA Fingerprinting පියවර සටහන",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Short Guide"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 07 අණුක ජීව විද්‍යාව MCQs 120 ප්‍රශ්න බැංකුව",
+              "pages": "12 Pages",
+              "format": "PDF",
+              "date": "Target Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u8",
+        "num": "08",
+        "name": "පාරිසරික ජීව විද්‍යාව",
+        "eng": "Environmental Biology",
+        "icon": "🌍",
+        "categories": {
+          "essays": [
+            {
+              "title": "පරිසර පද්ධති ශක්ති ප්‍රවාහය හා පාරිසරික පිරමිඩ Essay Points",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "NIE Standard"
+            },
+            {
+              "title": "ශ්‍රී ලංකාවේ ජෛව විවිධත්වය සහ සංරක්ෂණ උපාය මාර්ග Essay Answer",
+              "pages": "6 Pages",
+              "format": "PDF",
+              "date": "Model Essay"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "ජෛව රසායනික චක්‍ර (කාබන්, නයිට්‍රජන්, ජලය) Master Flowchart",
+              "pages": "A4 Vector",
+              "format": "Cycle Map",
+              "date": "High Res"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ශ්‍රී ලංකාවේ ප්‍රධාන වෘක්ෂලතා කලාප සහ ආවේණික ජීවී විශේෂ",
+              "pages": "4 Pages",
+              "format": "PDF",
+              "date": "Quick Notes"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "පාරිසරික විද්‍යාව MCQs 100 විවරණ සහිතව",
+              "pages": "10 Pages",
+              "format": "PDF",
+              "date": "Question Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u9",
+        "num": "09",
+        "name": "ක්ෂුද්‍ර ජීව විද්‍යාව",
+        "eng": "Microbiology",
+        "icon": "🦠",
+        "categories": {
+          "essays": [
+            {
+              "title": "ක්ෂුද්‍රජීවී වර්ධන වක්‍රය සහ වන්ධ්‍යාකරණ ක්‍රමවේද Essay Model",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "High Yield"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "බැක්ටීරියා, වයිරස සහ දිලීර රෝගකාරක Mind Map",
+              "pages": "High-Res A4",
+              "format": "Pathogen Map",
+              "date": "Visual Chart"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "ආහාර ක්ෂුද්‍රජීව විද්‍යාව සහ කාර්මික යෙදවුම් කෙටි සටහන",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Summary"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 09 ක්ෂුද්‍රජීව විද්‍යාව Target MCQs 80",
+              "pages": "8 Pages",
+              "format": "PDF",
+              "date": "MCQ Bank"
+            }
+          ]
+        }
+      },
+      {
+        "id": "u10",
+        "num": "10",
+        "name": "ව්‍යවහාරික ජීව විද්‍යාව",
+        "eng": "Applied Biology",
+        "icon": "🌾",
+        "categories": {
+          "essays": [
+            {
+              "title": "පටක රෝපණ තාක්ෂණය සහ ජලජීවී වගාව විභාග රචනා සටහන",
+              "pages": "5 Pages",
+              "format": "PDF",
+              "date": "2026 Model"
+            }
+          ],
+          "mindmaps": [
+            {
+              "title": "කෘෂිකාර්මික පළිබෝධ පාලනය (IPM) සහ ජෛව පොහොර Mind Map",
+              "pages": "A4 Vector",
+              "format": "Agri Map",
+              "date": "Full Color"
+            }
+          ],
+          "shortnotes": [
+            {
+              "title": "නැනෝ තාක්ෂණය සහ කාර්මික ක්ෂුද්‍රජීවී නිෂ්පාදන සාරාංශය",
+              "pages": "3 Pages",
+              "format": "PDF",
+              "date": "Quick Guide"
+            }
+          ],
+          "mcqs": [
+            {
+              "title": "Unit 10 ව්‍යවහාරික ජීව විද්‍යාව Target MCQs 80",
+              "pages": "8 Pages",
+              "format": "PDF",
+              "date": "Target Bank"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "products": [],
+  "orders": [
+    {
+      "id": "ord_1794325993475",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "whatsapp": "0728266917",
+      "district": "Kandy",
+      "address": "No 45, Peradeniya Road, Kandy",
+      "productId": "prod_1",
+      "productTitle": "A/L Biology Complete Theory Pack (Vol. 1 & 2)",
+      "productPrice": 0,
+      "qty": 1,
+      "status": "pending",
+      "createdAt": "2026-11-10T15:53:13.475Z"
+    }
+  ],
+  "studyTasks": [
+    {
+      "id": "task_1794483704061_5udh",
+      "studentId": "27784979",
+      "text": "🔄 [SRS Revision] ජීව විද්‍යාව හැඳින්වීම සහ ජීවයේ ලක්ෂණ (Unit 01 • Day 0 Review)",
+      "title": "🔄 [SRS Revision] ජීව විද්‍යාව හැඳින්වීම සහ ජීවයේ ලක්ෂණ (Unit 01 • Day 0 Review)",
+      "completed": false,
+      "createdAt": 1794483704061
+    },
+    {
+      "id": "task_1794474597968_j1aa",
+      "studentId": "27784979",
+      "text": "Resource Book කියවීම (Unit 02 / Unit 05)",
+      "title": "Resource Book කියවීම (Unit 02 / Unit 05)",
+      "completed": true,
+      "createdAt": 1794474597968
+    }
+  ]
+}

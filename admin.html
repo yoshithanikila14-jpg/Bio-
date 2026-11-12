@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Biology Admin Panel • Management Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+  <!-- Fonts & Font Awesome 6 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="admin-body">
+
+  <div class="admin-layout">
+
+    
+
+        <section class="admin-tab-pane" id="tab-admins">
+
+          <!-- Card 1: Multi-Admin Accounts Management -->
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-users-gear"></i> Admin Team & Role Permissions (පරිපාලක ගිණුම් කළමනාකරණය)</h3>
+                <p>Manage Super Admin & Normal Admin accounts. Super Admin has full control; Normal Admin can only
+                  access Live & Monthly Classes.</p>
+              </div>
+              <button class="btn-primary-action small" onclick="openAddAdminModal()">
+                <i class="fa-solid fa-user-plus"></i> Add New Admin Account
+              </button>
+            </div>
+
+            <!-- Role Permissions Overview Chips -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0;">
+              <div
+                style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 14px 18px;">
+                <h4
+                  style="color: #10b981; margin: 0 0 6px 0; font-size: 0.96rem; display: flex; align-items: center; gap: 6px;">
+                  👑 <b>Super Admin (පූර්ණ අවසර)</b>
+                </h4>
+                <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;">
+                  සියලුම ශිෂ්‍ය දත්ත (නම්, දුරකථන, IDs), Monthly Card Requests, ගාස්තු කාඩ්පත්, ගුරුවරුන් හා Video
+                  Packs, Syllabus Tracker, සහ නව Admin ගිණුම් නිර්මාණය කිරීමේ පූර්ණ බලය ඇත.
+                </p>
+              </div>
+
+              <div
+                style="background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 12px; padding: 14px 18px;">
+                <h4
+                  style="color: #60a5fa; margin: 0 0 6px 0; font-size: 0.96rem; display: flex; align-items: center; gap: 6px;">
+                  🛡️ <b>Normal Admin (Moderator / Assistant)</b>
+                </h4>
+                <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;">
+                  <strong>සීමාසහිත අවසර:</strong> Live Classes විකාශනය සහ Monthly Classes කළමනාකරණය පමණි. ශිෂ්‍යයන්ගේ
+                  පෞද්ගලික තොරතුරු, මුදල් ඉල්ලීම් (Requests), ගුරුවරුන්ගේ වීඩියෝ පැක් හෝ Settings කිසිවක් නොපෙනේ.
+                </p>
+              </div>
+            </div>
+
+            <!-- Admins Table -->
+            <div class="table-container">
+              <table class="admin-data-table" id="admins-table">
+                <thead>
+                  <tr>
+                    <th>Admin Name</th>
+                    <th>Email Address</th>
+                    <th>Role Level</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admins-table-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Card 2: Telegram Bot Integration Settings -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-brands fa-telegram" style="color: #229ED9;"></i> Telegram Bot Alert System (කාඩ්පත්
+                  ඉල්ලුම් Alerts)</h3>
+                <p>සිසුන් Store එකෙන් Monthly Class Card එකක් ඉල්ලුම් කළ විගස ක්ෂණික Telegram Alert එකක් ඔබගේ Telegram
+                  Bot වෙත එවීමට Bot Token සහ Chat ID ඇතුළත් කරන්න.</p>
+              </div>
+            </div>
+
+            <div style="max-width: 680px; margin-top: 16px;">
+              <form onsubmit="handleSaveTelegramSettings(event)">
+                <div class="form-group">
+                  <label><i class="fa-solid fa-key"></i> Telegram Bot Token *</label>
+                  <input type="text" id="tg-bot-token"
+                    placeholder="e.g. 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ (BotFather වෙතින්)" autocomplete="off">
+                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
+                    Telegram @BotFather වෙතින් ලබාගත් HTTP API Bot Token එක මෙතනට ඇතුළත් කරන්න.
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fa-solid fa-hashtag"></i> Telegram Chat ID (හෝ Channel/Group ID) *</label>
+                  <input type="text" id="tg-chat-id" placeholder="e.g. 987654321 or -1001234567890" autocomplete="off">
+                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
+                    ඔබගේ පුද්ගලික Chat ID එක (@userinfobot වෙතින්) හෝ Alerts ලැබිය යුතු Channel / Group එකේ ID එක.
+                  </small>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-top: 14px;">
+                  <button type="submit" class="btn-primary-action">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Telegram Settings
+                  </button>
+                  <button type="button" class="btn-outline-action" onclick="handleTestTelegramAlert()"
+                    style="background: rgba(34, 158, 217, 0.15); border: 1px solid #229ED9; color: #229ED9;">
+                    <i class="fa-solid fa-paper-plane"></i> 🧪 Send Test Alert Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Card 2B: Video Pack Unlock Telegram Bot (@Bio_study_packbot) -->
+          <div class="section-card-box mt-4"
+            style="border: 1px solid rgba(16, 185, 129, 0.35); background: linear-gradient(145deg, rgba(16, 185, 129, 0.04), rgba(6, 78, 59, 0.08));">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-brands fa-telegram" style="color: #10b981;"></i> Video Pack Unlock Telegram Bot
+                  (@Bio_study_packbot)</h3>
+                <p>සිසුන් A/L Biology Video Lesson Packs Unlock කරන්න ඉල්ලුම් කළ විගස ඔබට මෙහි alert එකක් ලැබෙන අතර
+                  message එකේ ඇති <b>[ 🔓 Unlock Lesson Pack ]</b> බොත්තම ඔබා ක්ෂණිකව Unlock කළ හැක.</p>
+              </div>
+              <span class="badge-unlocked"
+                style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-weight: 700;">
+                <i class="fa-solid fa-bolt"></i> One-Click Unlock Active
+              </span>
+            </div>
+
+            <div
+              style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 12px 16px; border-radius: 8px; margin-top: 14px; font-size: 0.85rem; color: #ecfdf5;">
+              <i class="fa-solid fa-circle-info" style="color: #10b981; margin-right: 6px;"></i>
+              <strong>වැදගත් උපදෙස:</strong> Telegram ආරක්ෂණ නීති අනුව, bot ට alerts එවිය හැක්කේ ඔබ bot වෙත message එකක්
+              යවා ඇති විට පමණි. කරුණාකර ඔබගේ Telegram එකෙන් <strong><a href="https://t.me/Bio_study_packbot"
+                  target="_blank" style="color: #34d399; text-decoration: underline;">@Bio_study_packbot</a></strong>
+              වෙත ගොස් <strong>START</strong> ඔබන්න (හෝ <code>/start</code> යවන්න).
+            </div>
+
+            <div style="max-width: 680px; margin-top: 16px;">
+              <form onsubmit="handleSaveStudyPackTelegramSettings(event)">
+                <div class="form-group">
+                  <label><i class="fa-solid fa-key"></i> Study Pack Bot Token *</label>
+                  <input type="text" id="tg-studypack-bot-token" value="9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ"
+                    placeholder="e.g. 9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ" autocomplete="off">
+                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
+                    Bot: <strong>@Bio_study_packbot</strong> (Token: 9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ)
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label><i class="fa-solid fa-hashtag"></i> Admin Chat ID *</label>
+                  <input type="text" id="tg-studypack-chat-id" value="6315010122" placeholder="e.g. 6315010122"
+                    autocomplete="off">
+                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
+                    Nikila Yoshitha's Telegram Chat ID: <strong>6315010122</strong>
+                  </small>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+                  <button type="submit" class="btn-primary-action" style="background: #10b981;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Study Pack Bot Settings
+                  </button>
+                  <button type="button" class="btn-outline-action" onclick="handleTestStudyPackTelegramAlert()"
+                    style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #10b981;">
+                    <i class="fa-solid fa-paper-plane"></i> 🧪 Send Test Video Pack Alert
+                  </button>
+                  <a href="https://t.me/Bio_study_packbot" target="_blank" class="btn-outline-action"
+                    style="background: rgba(34, 158, 217, 0.15); border: 1px solid #229ED9; color: #229ED9; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fa-brands fa-telegram"></i> Open @Bio_study_packbot in Telegram
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Card 3: Firebase Firestore Cloud Integration Status -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-fire" style="color: #f59e0b;"></i> Firebase Firestore Cloud Database
+                  (apex-bio-aee21)</h3>
+                <p>Status of cloud database synchronization for Students, Requests, Cards, and Videos.</p>
+              </div>
+              <button class="btn-primary-action small" onclick="triggerFirestoreSyncAll()">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Sync All Data to Firestore Now
+              </button>
+            </div>
+
+            <div
+              style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 16px; margin-top: 16px;">
+              <div
+                style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                <div>
+                  <div style="font-weight: 700; color: #f8fafc; font-size: 0.95rem;">
+                    🔥 Connected Firebase Project: <span style="color: #f59e0b;">apex-bio-aee21</span>
+                  </div>
+                  <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 4px;">
+                    Auth Domain: <code>apex-bio-aee21.firebaseapp.com</code> • Storage:
+                    <code>apex-bio-aee21.firebasestorage.app</code>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span
+                    style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                  <span style="font-size: 0.82rem; font-weight: 700; color: #10b981;">Client Initialized & Active</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Firestore Security Rules Helper -->
+            <div style="margin-top: 18px;">
+              <h4 style="font-size: 0.88rem; color: #f8fafc; margin-bottom: 8px;">
+                📋 Firestore Security Rules (Firebase Console එකේ Rules වලට Paste කරන්න):
+              </h4>
+              <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">
+                Firebase Console ➔ Firestore Database ➔ <strong>Rules</strong> ටැබ් එකට ගොස් පහත කේතය Paste කර
+                <strong>Publish</strong> කරන්න:
+              </p>
+              <div
+                style="position: relative; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; font-family: monospace; font-size: 0.84rem; color: #38bdf8;">
+                <pre style="margin: 0; white-space: pre-wrap;">rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true; // Access enabled for Apex Biology platform
+    }
+  }
+}</pre>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+      </div>
+    </main>
+  </div>
+
+
+  <!-- ==============================================================
+       MODALS FOR ADMIN ACTIONS
+       ============================================================== -->
+
+  <!-- 1. Add Tutor Modal -->
+    
+
+<div class="modal-backdrop" id="modal-add-tutor">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-tutor')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-chalkboard-user"></i> Add New Tutor / Sir</h3>
+      <form onsubmit="handleSaveTutor(event)">
+        <div class="form-group">
+          <label>Tutor Full Name *</label>
+          <input type="text" id="tutor-name-input" placeholder="e.g. දිනේෂ් මුතුගල (Dinesh Muthugala)" required>
+        </div>
+        <div class="form-group">
+          <label>Subject / Specialty *</label>
+          <input type="text" id="tutor-subject-input" value="A/L Biology" required>
+        </div>
+        <div class="form-group">
+          <label>Tutor Photo (Image File or Image URL)</label>
+          <input type="file" id="tutor-photo-file" accept="image/*"
+            onchange="previewUploadImage(this, 'tutor-photo-preview', 'tutor-photo-url')">
+          <input type="text" id="tutor-photo-url" placeholder="Or paste image URL (e.g. /muthugala-sir.jpg)">
+          <div class="image-preview-box" id="tutor-photo-preview" style="display:none;"></div>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Save Tutor Profile</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Add Video Modal -->
+  <div class="modal-backdrop" id="modal-add-video">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-video')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 id="video-modal-title"><i class="fa-solid fa-circle-play"></i> Add Video to Unit or Revision</h3>
+      <form onsubmit="handleSaveVideo(event)">
+        <input type="hidden" id="edit-video-id">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Select Tutor (ගුරුවරයා තෝරන්න) *</label>
+            <select id="video-tutor-select" required onchange="handleModalVideoTutorChange(this.value)">
+              <!-- Loaded dynamically -->
+            </select>
+          </div>
+          <div class="form-group" id="video-category-group">
+            <label>Category (පන්ති වර්ගය) *</label>
+            <select id="video-category-select" required onchange="handleModalVideoCategoryChange(this.value)">
+              <option value="theory">🌿 Theory Unit (Units 01 - 10)</option>
+              <option value="revision">🎯 Revision Masterclass / Folder</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" id="video-unit-select-group">
+          <label>Select Theory Unit (පාඩම / ඒකකය) *</label>
+          <select id="video-unit-select">
+            <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+            <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+            <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+            <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u5">Unit 05: සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u6">Unit 06: ප්‍රවේණිය</option>
+            <option value="u7">Unit 07: අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය</option>
+            <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+            <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+            <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="video-rev-folder-group" style="display:none;">
+          <label>Revision Folder Name (Optional - Day / Topic Group)</label>
+          <input type="text" id="video-rev-folder-input"
+            placeholder="e.g. Day 01 Masterclasses or Paper Discussions (Leave empty for Direct Video)">
+        </div>
+        <div class="form-group">
+          <label>Video Title *</label>
+          <input type="text" id="video-title-input" placeholder="e.g. ප්‍රභාසංශ්ලේෂණය - ආලෝක ප්‍රතික්‍රියාව" required>
+        </div>
+        <div class="form-group">
+          <label>YouTube Link or Video ID *</label>
+          <input type="text" id="video-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required>
+          <input type="hidden" id="video-duration-input" value="HD Video">
+        </div>
+        <div class="form-group">
+          <label>Optional Short Description</label>
+          <input type="text" id="video-desc-input" placeholder="e.g. සම්පූර්ණ විභාග ගැටළු සාකච්ඡාව">
+        </div>
+        <div class="form-group">
+          <label>Tute / Notes (Telegram Channel Link or File URL)</label>
+          <input type="text" id="video-tute-input" placeholder="e.g. https://t.me/apexbiology_tutes or PDF link">
+        </div>
+        <div class="form-group-checkbox">
+          <label>
+            <input type="checkbox" id="video-lock-input">
+            <span><strong>🔒 Lock Video</strong> (Requires active monthly class card to watch)</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Save Video Lesson</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Add Live Class Modal -->
+  <div class="modal-backdrop" id="modal-add-live">
+    <div class="modal-card" style="max-width: 650px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-live')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 id="modal-live-title"><i class="fa-solid fa-tower-broadcast"></i> Create / Schedule Live Broadcast</h3>
+      <form onsubmit="handleSaveLiveClass(event)">
+        <input type="hidden" id="edit-live-id">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Target A/L Batch *</label>
+            <select id="live-batch-select" required>
+              <option value="2027">2027 A/L Batch</option>
+              <option value="2028">2028 A/L Batch</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Broadcast Platform *</label>
+            <select id="live-type-select" required onchange="handleLiveTypeChange(this.value)">
+              <option value="youtube">YouTube Live (Protected In-Portal Player)</option>
+              <option value="zoom">Zoom Live (Clean Join Button)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Target Teacher (ගුරුවරයා) *</label>
+            <select id="live-tutor-select" required>
+              <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+              <option value="sasanka">ශෂංක ධනුජය (Sasanka Danujaya)</option>
+              <option value="dhananjaya">ධනංජය ආරියදාස (Dhananjaya Ariyadasa)</option>
+              <option value="both">All Tutors (ගුරු මඩුල්ල)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Class Month Folder (මාසය) *</label>
+            <select id="live-month-select" required>
+              <option value="November 2026">November 2026</option>
+              <option value="December 2026">December 2026</option>
+              <option value="January 2027">January 2027</option>
+              <option value="February 2027">February 2027</option>
+              <option value="March 2027">March 2027</option>
+              <option value="April 2027">April 2027</option>
+              <option value="May 2027">May 2027</option>
+              <option value="June 2027">June 2027</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Class Type (පන්ති වර්ගය) *</label>
+            <select id="live-class-type" required>
+              <option value="theory">Theory Class (සිද්ධාන්ත)</option>
+              <option value="revision">Revision Class (පුනරීක්ෂණ)</option>
+              <option value="both">Theory + Revision (දෙකම)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Live Stream Status *</label>
+            <select id="live-status-select" required>
+              <option value="live">🔴 LIVE NOW (සජීවීව විකාශය වේ)</option>
+              <option value="upcoming">⏰ UPCOMING (ඉදිරියට පැවැත්වෙන)</option>
+              <option value="ended">🏁 ENDED (අවසන් වූ)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Class Title *</label>
+          <input type="text" id="live-title-input"
+            placeholder="e.g. 2027 A/L Bio Special Night Masterclass: Cell Division Live" required>
+        </div>
+
+        <div class="form-group">
+          <label id="live-link-label">YouTube Live ID or Link *</label>
+          <input type="text" id="live-link-input" placeholder="e.g. dQw4w9WgXcQ or Zoom meeting link" required>
+        </div>
+
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Tutor Display Name</label>
+            <input type="text" id="live-tutor-input" placeholder="e.g. දිනේෂ් මුතුගල සර්">
+          </div>
+          <div class="form-group">
+            <label>Scheduled Time / Badge Text</label>
+            <input type="text" id="live-time-input" placeholder="e.g. Tonight 8:30 PM - 11:00 PM"
+              value="Tonight 8:30 PM">
+          </div>
+        </div>
+
+        <div class="form-group-checkbox"
+          style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(16, 185, 129, 0.3); padding: 12px; border-radius: 10px; margin-bottom: 14px;">
+          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <input type="checkbox" id="live-card-required" checked
+              style="width: 18px; height: 18px; accent-color: #10b981;">
+            <span><strong style="color: #10b981;">🔒 Class Card Access Protection (LMS Restriction):</strong> සජීවී
+              පන්තිය නැරඹීමට අදාළ ගුරුවරයාගේ මාසික Card එක සක්‍රීයව (Active) තිබිය යුතුය. කාඩ්පත කල් ඉකුත් වූ හෝ නොමැති
+              සිසුන්ට Locked ලෙස පෙන්වයි.</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>Optional Short Description</label>
+          <input type="text" id="live-desc-input" placeholder="e.g. සිද්ධාන්ත ගැටළු හා Structured Essay සාකච්ඡාව">
+        </div>
+        <div class="form-group">
+          <label>Thumbnail Image (Auto-converts to WebP)</label>
+          <input type="file" id="live-thumb-file" accept="image/*"
+            onchange="previewUploadImage(this, 'live-thumb-preview', 'live-thumb-url')">
+          <input type="text" id="live-thumb-url" placeholder="Or paste image URL (default /hero.jpg)" value="/hero.jpg">
+          <div class="image-preview-box" id="live-thumb-preview" style="display:none;"></div>
+        </div>
+        <button type="submit" class="btn-primary-action w-100" id="btn-save-live-class">Broadcast Live Class</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3B. Modal: Archive Live Stream Recording to Folders -->
+  <div class="modal-backdrop" id="modal-archive-live">
+    <div class="modal-card" style="max-width: 680px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-archive-live')"><i class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-file-arrow-up" style="color:#10b981;"></i> Save Live Recording to Course Folders</h3>
+      <p style="color:#64748b; font-size:0.86rem; margin:-4px 0 16px;">Convert this finished live lecture into an official recorded video inside Student Video Packs or Monthly Class Folders.</p>
+      
+      <form onsubmit="handleConfirmArchiveLive(event)">
+        <input type="hidden" id="archive-live-id">
+
+        <!-- Selected Live Video Details Banner -->
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px 16px; margin-bottom:16px; display:flex; align-items:center; gap:14px;">
+          <img id="archive-live-thumb-preview" src="/hero.jpg" alt="Thumb" style="width:70px; height:46px; border-radius:6px; object-fit:cover;">
+          <div style="flex:1;">
+            <h4 id="archive-live-title-preview" style="font-size:0.92rem; color:#0f172a; margin:0 0 3px;">Title</h4>
+            <div style="font-size:0.75rem; color:#64748b;">
+              <span id="archive-live-stream-id" style="color:#ef4444; font-weight:700;"></span> &bull; 
+              <span id="archive-live-batch-preview" style="color:#059669; font-weight:700;"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Type Switcher Tabs -->
+        <div class="form-group">
+          <label>Choose Destination Folder Type *</label>
+          <div style="display:flex; gap:10px; margin-top:6px; flex-wrap:wrap;">
+            <button type="button" class="btn-filter-pill active" id="btn-dest-monthly" onclick="switchArchiveDest('monthly')">
+              <i class="fa-solid fa-calendar"></i> Monthly Class Folders
+            </button>
+            <button type="button" class="btn-filter-pill" id="btn-dest-unit" onclick="switchArchiveDest('unit')">
+              <i class="fa-solid fa-folder-open"></i> Video Packs (10 Units)
+            </button>
+            <button type="button" class="btn-filter-pill" id="btn-dest-revision" onclick="switchArchiveDest('revision')">
+              <i class="fa-solid fa-clock-rotate-left"></i> Revision Masterclasses
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. Fields for Monthly Classes -->
+        <div id="archive-dest-monthly-fields">
+          <div class="form-row-two">
+            <div class="form-group">
+              <label>Target Teacher *</label>
+              <select id="archive-mcv-tutor-select">
+                <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+                <option value="sasanka">ශෂංක ධනුජය (Sasanka Danujaya)</option>
+                <option value="dhananjaya">ධනංජය ආරියදාස (Dhananjaya Ariyadasa)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Month Folder *</label>
+              <select id="archive-mcv-month-select">
+                <option value="November 2026">November 2026</option>
+                <option value="December 2026">December 2026</option>
+                <option value="January 2027">January 2027</option>
+                <option value="February 2027">February 2027</option>
+                <option value="March 2027">March 2027</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-two">
+            <div class="form-group">
+              <label>Class Mode *</label>
+              <select id="archive-mcv-type-select">
+                <option value="theory">Theory Masterclass (සිද්ධාන්ත)</option>
+                <option value="revision">Revision Masterclass (පුනරීක්ෂණ)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Class Date *</label>
+              <input type="date" id="archive-mcv-date">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Fields for Unit Video Packs -->
+        <div id="archive-dest-unit-fields" style="display:none;">
+          <div class="form-row-two">
+            <div class="form-group">
+              <label>Target Teacher *</label>
+              <select id="archive-unit-tutor-select">
+                <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+                <option value="sasanka">ශෂංක ධනුජය (Sasanka Danujaya)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>National Unit Folder *</label>
+              <select id="archive-unit-select">
+                <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+                <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+                <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+                <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+                <option value="u5">Unit 05: සත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+                <option value="u6">Unit 06: ප්‍රවේණිය</option>
+                <option value="u7">Unit 07: අණුක ජීව විද්‍යාව</option>
+                <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+                <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+                <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group-checkbox">
+            <label>
+              <input type="checkbox" id="archive-unit-lock-checkbox" checked>
+              <span><strong>🔒 Lock Lesson</strong> (Requires Card / Video Pack Unlock)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3. Fields for Revision Hub -->
+        <div id="archive-dest-revision-fields" style="display:none;">
+          <div class="form-row-two">
+            <div class="form-group">
+              <label>Target Teacher *</label>
+              <select id="archive-rev-tutor-select">
+                <option value="sasanka">ශෂංක ධනුජය (Sasanka Danujaya)</option>
+                <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Revision Folder (Optional)</label>
+              <input type="text" id="archive-rev-folder-input" placeholder="e.g. Masterclass Discussions">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Lesson Title *</label>
+          <input type="text" id="archive-video-title" required>
+        </div>
+
+        <div class="form-group">
+          <label>Telegram Tute / Notes Link (Optional)</label>
+          <input type="text" id="archive-tute-link" placeholder="https://t.me/apexbiology_tutes" value="https://t.me/apexbiology_tutes">
+        </div>
+
+        <button type="submit" class="btn-primary-action w-100" style="background:#10b981; padding:12px; font-weight:800;">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Save & Archive Recording to LMS
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Add Monthly Fees Card Modal -->
+  <div class="modal-backdrop" id="modal-add-card">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-card')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-credit-card"></i> Create Monthly Class Fees Card</h3>
+      <form onsubmit="handleSaveCard(event)">
+        <input type="hidden" id="edit-card-id">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Target A/L Batch *</label>
+            <select id="card-batch-select" required>
+              <option value="2027">2027 A/L Batch</option>
+              <option value="2028">2028 A/L Batch</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Class Month / Folder (මාසික ෆෝල්ඩරය) *</label>
+            <div style="display:flex; gap:8px;">
+              <select id="card-month-select" style="flex:1;"
+                onchange="document.getElementById('card-month-input').value = this.value;">
+                <option value="November 2026">November 2026</option>
+                <option value="December 2026">December 2026</option>
+                <option value="January 2027">January 2027</option>
+                <option value="February 2027">February 2027</option>
+                <option value="March 2027">March 2027</option>
+                <option value="April 2027">April 2027</option>
+                <option value="May 2027">May 2027</option>
+                <option value="June 2027">June 2027</option>
+                <option value="July 2027">July 2027</option>
+                <option value="August 2027">August 2027</option>
+                <option value="September 2027">September 2027</option>
+                <option value="October 2027">October 2027</option>
+              </select>
+              <input type="text" id="card-month-input" placeholder="e.g. November 2026" value="November 2026" required
+                style="flex:1;">
+            </div>
+          </div>
+        </div>
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Target Tutor (ගුරුවරයා) *</label>
+            <select id="card-tutor-select" required onchange="handleCardTutorChange(this.value)">
+              <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+              <option value="sasanka">ශශංක ධනුජය (Sasanka Danujaya)</option>
+              <option value="dhananjaya">ධනංජය ආරියදාස (Dhananjaya Ariyadasa)</option>
+              <option value="both">All Tutors (ගුරුවරුන් සියලු දෙනාම)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Class Type (පන්ති වර්ගය) *</label>
+            <select id="card-type-select" required onchange="handleCardTypeChange(this.value)">
+              <option value="both" id="opt-type-both">Theory + Revision (සිද්ධාන්ත + පුනරීක්ෂණ)</option>
+              <option value="revision" id="opt-type-revision">Revision Only (පුනරීක්ෂණ පමණි)</option>
+              <option value="theory" id="opt-type-theory">Theory Only (සිද්ධාන්ත පමණි)</option>
+            </select>
+          </div>
+        </div>
+        <div id="card-tutor-hint"
+          style="display:none; font-size:0.78rem; color:#10b981; margin-top:-6px; margin-bottom:12px; font-weight:600;">
+          <i class="fa-solid fa-circle-info"></i> ගුරුවරයාට අදාළව Class Type එක නිදහසේ වෙනස් කළ හැක (Full flexibility).
+        </div>
+        <div class="form-group">
+          <label>Card Title *</label>
+          <input type="text" id="card-title-input"
+            placeholder="e.g. 2027 A/L නොවැම්බර් • දිනේෂ් මුතුගල (Theory + Revision)" required>
+        </div>
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Monthly Fee (LKR) *</label>
+            <input type="number" id="card-price-input" placeholder="3500" value="3500" required>
+          </div>
+          <div class="form-group">
+            <label>Valid From</label>
+            <input type="date" id="card-valid-from" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Valid To (Expiration Date) * <small style="color:#10b981;">(After this date, hidden from students,
+              visible to Admin)</small></label>
+          <input type="date" id="card-valid-to" required>
+        </div>
+        <div class="form-group">
+          <label>Class Details & Syllabus Covered</label>
+          <textarea id="card-desc-input" rows="3"
+            placeholder="e.g. Unit 04 ප්‍රභාසංශ්ලේෂණය + Unit 05 මානව රුධිර සංසරණ පද්ධතිය හා සම්පූර්ණ Tute Pack..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Card Banner Image (Auto-converts to WebP)</label>
+          <input type="file" id="card-image-file" accept="image/*"
+            onchange="previewUploadImage(this, 'card-image-preview', 'card-image-url')">
+          <input type="text" id="card-image-url" placeholder="Or image URL (default /hero.jpg)" value="/hero.jpg">
+          <div class="image-preview-box" id="card-image-preview" style="display:none;"></div>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Create & Publish Class Card</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Add Month Folder Modal -->
+  <div class="modal-backdrop" id="modal-add-month">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-month')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-folder-plus"></i> Add New Month Folder</h3>
+      <form onsubmit="handleSaveMonthFolder(event)">
+        <div class="form-group">
+          <label>Month Name (මාසය) *</label>
+          <input type="text" id="new-month-name-input" placeholder="e.g. December 2026 or January 2027" required>
+        </div>
+        <div class="form-group">
+          <label>Target A/L Batch *</label>
+          <select id="new-month-batch-select">
+            <option value="2027">2027 A/L</option>
+            <option value="2028">2028 A/L</option>
+            <option value="2026">2026 A/L</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Create Month Folder</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. Add Monthly Class Video Modal -->
+  <div class="modal-backdrop" id="modal-add-monthly-video">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-monthly-video')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 id="monthly-video-modal-title"><i class="fa-solid fa-circle-play"></i> Add Class Video Recording</h3>
+      <form onsubmit="handleSaveMonthlyVideo(event)">
+        <input type="hidden" id="edit-monthly-video-id">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Month (මාසය)</label>
+            <input type="text" id="mcv-month-display" readonly style="opacity:0.8;">
+          </div>
+          <div class="form-group">
+            <label>Teacher (ගුරුවරයා)</label>
+            <input type="text" id="mcv-tutor-display" readonly style="opacity:0.8;">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Class Title *</label>
+          <input type="text" id="mcv-title-input" placeholder="e.g. Day 01 - ශාක කායික විද්‍යාව (ජල විභවය හා ආසෘතිය)"
+            required>
+        </div>
+        <div class="form-group">
+          <label>YouTube Link or Video ID *</label>
+          <input type="text" id="mcv-yt-input"
+            placeholder="e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ or dQw4w9WgXcQ" required
+            oninput="previewYtThumbnail(this.value, 'mcv-thumb-preview')">
+        </div>
+        <!-- Live YouTube Thumbnail Preview Box -->
+        <div class="yt-thumb-preview-card" id="mcv-thumb-preview" style="display:none;">
+          <img id="mcv-thumb-preview-img" src="" alt="Thumbnail preview">
+          <span><i class="fa-solid fa-circle-check"></i> YouTube Thumbnail Auto-Detected</span>
+        </div>
+        <div class="form-group">
+          <label>Class Date *</label>
+          <input type="date" id="mcv-date-input" required>
+          <input type="hidden" id="mcv-duration-input" value="Class HD">
+        </div>
+        <div class="form-group">
+          <label>Telegram Tute Download Link</label>
+          <input type="text" id="mcv-tute-input" placeholder="https://t.me/apexbiology_tutes"
+            value="https://t.me/apexbiology_tutes">
+        </div>
+        <div class="form-group">
+          <label>Short Description (Optional)</label>
+          <textarea id="mcv-desc-input" rows="2"
+            placeholder="e.g. සිද්ධාන්ත ගැඹුරු සාකච්ඡාව සහ Structured Essay ලකුණු දෙන විධික්‍රමය."></textarea>
+        </div>
+        <button type="submit" class="btn-primary-action w-100" id="btn-save-monthly-video">Save Class Video</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. Attach Monthly Video to Video Pack Unit Modal -->
+  <div class="modal-backdrop" id="modal-attach-unit">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-attach-unit')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-paperclip"></i> Attach to Video Pack Unit (වීඩියෝ පැක් එකට එකතු කරන්න)</h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
+        මස අවසානයේදී මෙම පන්ති වීඩියෝව ස්ථිර Video Pack ඒකකයකට (Unit 01 - 10) ඇතුළත් කරන්න.
+      </p>
+      <form onsubmit="handleConfirmAttachUnit(event)">
+        <input type="hidden" id="attach-video-id">
+        <input type="hidden" id="attach-tutor-id">
+        <div class="form-group">
+          <label>Selected Video Title</label>
+          <input type="text" id="attach-video-title" readonly style="opacity:0.85;">
+        </div>
+        <div class="form-group">
+          <label>Choose Target Unit Folder (පාඩම් ඒකකය තෝරන්න) *</label>
+          <select id="attach-target-unit-select" required>
+            <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+            <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+            <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+            <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u5">Unit 05: සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u6">Unit 06: ප්‍රවේණිය</option>
+            <option value="u7">Unit 07: අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය</option>
+            <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+            <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+            <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">
+          <i class="fa-solid fa-check-double"></i> Confirm & Attach to Unit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Assign Cards to Student Modal -->
+  <div class="modal-backdrop" id="modal-assign-cards">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-assign-cards')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-id-card-clip"></i> Assign Class Cards to Student</h3>
+      <div class="assign-student-summary" id="assign-student-summary">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="assign-cards-list" id="assign-cards-list">
+        <!-- Checkboxes rendered dynamically -->
+      </div>
+      <button type="button" class="btn-primary-action w-100"
+        onclick="closeAdminModal('modal-assign-cards')">Done</button>
+    </div>
+  </div>
+
+  <!-- 6. Add Subtopic to Syllabus Unit Modal -->
+  <div class="modal-backdrop" id="modal-add-subtopic">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-subtopic')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-plus"></i> Add Subtopic to Unit</h3>
+      <form onsubmit="handleSaveSubtopic(event)">
+        <div class="form-group">
+          <label>Select Unit *</label>
+          <select id="subtopic-unit-select" required>
+            <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+            <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+            <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+            <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u5">Unit 05: සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u6">Unit 06: ප්‍රවේණිය</option>
+            <option value="u7">Unit 07: අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය</option>
+            <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+            <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+            <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>New Subtopic Name *</label>
+          <input type="text" id="subtopic-name-input" placeholder="e.g. ප්‍රභාප්‍රතික්‍රියාව සහ ATP සංශ්ලේෂණය" required>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Add Subtopic to Curriculum</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. Add Revision Video Modal -->
+  <div class="modal-backdrop" id="modal-add-revision-video">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-revision-video')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 id="rev-video-modal-title"><i class="fa-solid fa-circle-play"></i> Add Revision Video</h3>
+      <form onsubmit="handleSaveRevisionVideo(event)">
+        <input type="hidden" id="edit-rev-video-id">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Select Tutor (ගුරුවරයා) *</label>
+            <select id="rev-video-tutor-select" required onchange="handleRevVideoTutorChange(this.value)">
+              <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+              <option value="sasanka">ශශංක ධනුජය (Sasanka Danujaya)</option>
+              <option value="dhananjaya">ධනංජය ආරියදාස (Dhananjaya Ariyadasa)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Revision Folder (ෆෝල්ඩරය) *</label>
+            <select id="rev-video-folder-select">
+              <option value="">None (Direct Video / Folder රහිත)</option>
+              <!-- Dynamically populated with tutor's custom folders -->
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Video Title *</label>
+          <input type="text" id="rev-video-title-input" placeholder="e.g. 2023 A/L Biology Paper Discussion (MCQ 1-50)"
+            required>
+        </div>
+        <div class="form-group">
+          <label>YouTube Link or Video ID *</label>
+          <input type="text" id="rev-video-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required
+            oninput="previewYtThumbnail(this.value, 'rev-yt-thumb-preview')">
+          <input type="hidden" id="rev-video-duration-input" value="Revision HD">
+        </div>
+        <!-- Live YouTube Thumbnail Preview Box -->
+        <div class="yt-thumb-preview-card" id="rev-yt-thumb-preview" style="display:none;">
+          <img id="rev-yt-thumb-preview-img" src="" alt="Thumbnail preview">
+          <span><i class="fa-solid fa-circle-check"></i> YouTube Thumbnail Auto-Detected</span>
+        </div>
+        <div class="form-group">
+          <label>Optional Short Description</label>
+          <input type="text" id="rev-video-desc-input" placeholder="e.g. විභාග ප්‍රශ්න පත්‍රයේ සම්පූර්ණ විවරණය">
+        </div>
+        <div class="form-group">
+          <label>Telegram Tute Link</label>
+          <input type="text" id="rev-video-tute-input" placeholder="https://t.me/apexbiology_tutes"
+            value="https://t.me/apexbiology_tutes">
+        </div>
+        <div class="form-group-checkbox">
+          <label>
+            <input type="checkbox" id="rev-video-lock-input" checked>
+            <span><strong>🔒 Lock Video</strong> (Requires active monthly card to stream)</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Save Revision Video</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Add Revision Custom Folder Modal -->
+  <div class="modal-backdrop" id="modal-add-revision-folder">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-revision-folder')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-folder-plus"></i> Create Revision Folder</h3>
+      <form onsubmit="handleCreateRevisionFolder(event)">
+        <div class="form-group">
+          <label>Select Tutor (ගුරුවරයා) *</label>
+          <select id="new-rev-folder-tutor" required>
+            <option value="sasanka">ශශංක ධනුජය (Sasanka Danujaya)</option>
+            <option value="dhananjaya">ධනංජය ආරියදාස (Dhananjaya Ariyadasa)</option>
+            <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Folder Name (ෆෝල්ඩරයේ නම) *</label>
+          <input type="text" id="new-rev-folder-name"
+            placeholder="e.g. Past Paper Discussions (පසුගිය විභාග ප්‍රශ්න පත්‍ර)" required>
+        </div>
+        <div class="form-group">
+          <label>Description / Note (විකල්ප විස්තරය)</label>
+          <input type="text" id="new-rev-folder-desc" placeholder="e.g. 2018 - 2024 පසුගිය විභාග සාකච්ඡා">
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Create Folder</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 9. Add Free Lesson Modal -->
+  <div class="modal-backdrop" id="modal-add-free-lesson">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-free-lesson')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 id="fl-modal-title"><i class="fa-solid fa-play"></i> Add Free Biology Masterclass</h3>
+      <form onsubmit="handleSaveFreeLesson(event)">
+        <input type="hidden" id="edit-fl-id">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Select Tutor (ගුරුවරයා) *</label>
+            <select id="fl-tutor-select" required onchange="handleFlTutorChange(this.value)">
+              <option value="dinesh">දිනේෂ් මුතුගල (Dinesh Muthugala)</option>
+              <option value="sasanka">ශශංක ධනුජය (Sasanka Danujaya)</option>
+              <option value="dhananjaya">ධනංජය ආරියදාස (Dhananjaya Ariyadasa)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Category / Type (වර්ගය) *</label>
+            <select id="fl-type-select" required onchange="handleFlTypeChange(this.value)">
+              <option value="theory" id="fl-opt-theory">Theory Masterclass</option>
+              <option value="revision" id="fl-opt-revision">Revision Day Masterclass</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" id="fl-unit-group">
+          <label>Select Unit (පාඩම් ඒකකය) *</label>
+          <select id="fl-unit-select">
+            <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+            <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+            <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+            <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u5">Unit 05: සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u6">Unit 06: ප්‍රවේණිය</option>
+            <option value="u7">Unit 07: අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය</option>
+            <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+            <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+            <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+          </select>
+        </div>
+        <div class="form-group" id="fl-day-group" style="display:none;">
+          <label>Revision Day / Tag (e.g. Day 01) *</label>
+          <input type="text" id="fl-day-input" placeholder="e.g. Day 01" value="Day 01">
+        </div>
+        <div class="form-group">
+          <label>Video Title *</label>
+          <input type="text" id="fl-title-input"
+            placeholder="e.g. ප්‍රභාසංශ්ලේෂණය - ආලෝක ප්‍රතික්‍රියාව සහ ATP සංශ්ලේෂණය" required>
+        </div>
+        <div class="form-group">
+          <label>YouTube Link or Video ID *</label>
+          <input type="text" id="fl-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required
+            oninput="previewYtThumbnail(this.value, 'fl-yt-thumb-preview')">
+          <input type="hidden" id="fl-duration-input" value="Free HD">
+        </div>
+        <!-- Live YouTube Thumbnail Preview Box -->
+        <div class="yt-thumb-preview-card" id="fl-yt-thumb-preview" style="display:none;">
+          <img id="fl-yt-thumb-preview-img" src="" alt="Thumbnail preview">
+          <span><i class="fa-solid fa-circle-check"></i> YouTube Thumbnail Auto-Detected</span>
+        </div>
+        <div class="form-group">
+          <label>Telegram Tute Download Link</label>
+          <input type="text" id="fl-tute-input" placeholder="https://t.me/apexbiology_tutes"
+            value="https://t.me/apexbiology_tutes">
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Save Free Masterclass</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. Add Admin User Modal -->
+  <div class="modal-backdrop" id="modal-add-admin">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-admin')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-user-shield"></i> Add New Admin Account</h3>
+      <form onsubmit="handleSaveAdminUser(event)">
+        <div class="form-group">
+          <label>Admin Full Name *</label>
+          <input type="text" id="admin-user-name" placeholder="e.g. Kasun Fernando" required>
+        </div>
+        <div class="form-group">
+          <label>Admin Email Address *</label>
+          <input type="email" id="admin-user-email" placeholder="e.g. kasun@apex.lk" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label>Password *</label>
+          <input type="password" id="admin-user-password" placeholder="Create secure admin password" required
+            minlength="6">
+        </div>
+        <div class="form-group">
+          <label>Role & Access Level (කාර්යභාරය හා අවසර මට්ටම) *</label>
+          <select id="admin-user-role" required>
+            <option value="normal_admin">🛡️ Normal Admin (Assistant / Moderator - Live Classes & Monthly Classes ONLY)
+            </option>
+            <option value="super_admin">👑 Super Admin (Full Access to Everything)</option>
+          </select>
+        </div>
+        <div
+          style="font-size:0.78rem; color:#94a3b8; background:rgba(255,255,255,0.03); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); margin-bottom:12px;">
+          <strong style="color:#10b981;">🛡️ Normal Admin සීමාකිරීම්:</strong> සිසුන්ගේ පෞද්ගලික දත්ත (නම්, දුරකථන,
+          IDs), මුදල් ඉල්ලීම් (Requests & Cards), ගුරු මඩුල්ල සහ Tracker කළමනාකරණය නොපෙනේ. Live Classes සහ Monthly
+          Classes පමණක් කළමනාකරණය කළ හැක.
+        </div>
+        <button type="submit" class="btn-primary-action w-100">Create Admin Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN OVERLAY -->
+  <div class="admin-login-overlay" id="admin-login-overlay" style="display:none;">
+    <div class="admin-login-card">
+      <div class="admin-login-logo">
+        <div class="brand-icon-box"><i class="fa-solid fa-leaf"></i></div>
+        <h2>Apex Biology</h2>
+        <span class="badge-tag">● ADMIN STUDIO ACCESS</span>
+      </div>
+      <form onsubmit="handleAdminLoginSubmit(event)" id="admin-login-form">
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> Admin Email *</label>
+          <input type="email" id="admin-login-email" placeholder="admin@apexbiology.lk" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-lock"></i> Password *</label>
+          <div class="password-wrapper">
+            <input type="password" id="admin-login-password" placeholder="Enter admin password" required
+              autocomplete="current-password">
+            <button type="button" class="btn-toggle-eye" onclick="toggleAdminLoginPassword()"
+              aria-label="Toggle password view">
+              <i class="fa-solid fa-eye" id="admin-eye-icon"></i>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary-action w-100" id="btn-admin-login-submit" style="margin-top: 10px;">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Authenticate & Enter Admin Studio
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Hub -->
+  <div class="admin-toast-container" id="admin-toast-container"></div>
+
+  <!-- Admin Controller -->
+
+  <!-- 9. Add / Edit Product Modal -->
+  <div class="modal-backdrop" id="modal-add-product">
+    <div class="modal-card" style="max-width: 650px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-product')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3 id="modal-product-title"><i class="fa-solid fa-box-open"></i> Add Store Delivery Product</h3>
+      <form onsubmit="handleSaveProduct(event)">
+        <input type="hidden" id="product-edit-id">
+        <div class="form-group">
+          <label>Product Title (නිෂ්පාදන නාමය) *</label>
+          <input type="text" id="prod-title-input" placeholder="e.g. A/L Biology Complete Theory Pack (Vol. 1 & 2)"
+            required>
+        </div>
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Price in LKR (මිල) *</label>
+            <input type="number" id="prod-price-input" placeholder="2450" required>
+          </div>
+          <div class="form-group">
+            <label>Category (වර්ගය)</label>
+            <select id="prod-category-select">
+              <option value="Printed Tute Pack">Printed Tute Pack</option>
+              <option value="Color Atlas">Color Atlas</option>
+              <option value="Question Bank">Question Bank / 1000 MCQs</option>
+              <option value="Revision Cards">Revision Cards</option>
+              <option value="Model Paper Pack">Model Paper Pack</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Short Description (කෙටි විස්තරය) *</label>
+          <textarea id="prod-short-desc-input" rows="2" placeholder="Brief 1-2 sentence highlight shown in store..."
+            required></textarea>
+        </div>
+
+        <!-- Multi-Image Upload (Converts automatically to WebP) -->
+        <div class="form-group">
+          <label><i class="fa-solid fa-images"></i> Product Images (3-4 Images • Auto converted to WebP)</label>
+          <input type="file" id="prod-image-file-input" accept="image/*" multiple
+            onchange="handleProductMultipleImageUpload(event)">
+          <div id="prod-images-preview-grid" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
+        </div>
+
+        <button type="submit" class="btn-primary-action w-100" style="margin-top:12px;">
+          <i class="fa-solid fa-floppy-disk"></i> Save Product to Store
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- 10. Add Bio Bank Item / Note Modal -->
+  <div class="modal-backdrop" id="modal-add-biobank-item">
+    <div class="modal-card" style="max-width: 650px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-biobank-item')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-cloud-arrow-up"></i> Add Bio Bank Material (Images / PDFs / Notes)</h3>
+      <form onsubmit="handleSaveBioBankItem(event)">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>Target Unit (පාඩම් ඒකකය) *</label>
+            <select id="biobank-unit-select" required onchange="updateBioBankFolderOptions()">
+              <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+              <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+              <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+              <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+              <option value="u5">Unit 05: සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+              <option value="u6">Unit 06: ප්‍රවේණිය</option>
+              <option value="u7">Unit 07: අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය</option>
+              <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+              <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+              <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Target Folder (ෆෝල්ඩරය) *</label>
+            <select id="biobank-folder-select">
+              <option value="">📁 Unit Root (Direct in Unit)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Material Type Switcher -->
+        <div class="form-group">
+          <label>Material Type (ද්‍රව්‍ය වර්ගය) *</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:4px;">
+            <button type="button" class="btn-subfolder-nav active" id="bb-type-btn-image"
+              onclick="setBioBankUploadType('image')" style="padding:8px; font-size:0.82rem; text-align:center;">
+              <i class="fa-solid fa-images"></i> Image Collection
+            </button>
+            <button type="button" class="btn-subfolder-nav" id="bb-type-btn-pdf" onclick="setBioBankUploadType('pdf')"
+              style="padding:8px; font-size:0.82rem; text-align:center;">
+              <i class="fa-solid fa-file-pdf"></i> PDF Document
+            </button>
+            <button type="button" class="btn-subfolder-nav" id="bb-type-btn-text" onclick="setBioBankUploadType('text')"
+              style="padding:8px; font-size:0.82rem; text-align:center;">
+              <i class="fa-solid fa-file-lines"></i> Text / Short Note
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Material Title (මාතෘකාව) *</label>
+          <input type="text" id="biobank-item-title"
+            placeholder="e.g. ප්‍රභාසංස්ලේෂණ ආලෝක ප්‍රතික්‍රියා සම්පූර්ණ රූප සටහන් පෙළ" required>
+        </div>
+
+        <!-- Section 1: Image Collection -->
+        <div id="bb-sec-image" style="display:block;">
+          <div class="form-group">
+            <label><i class="fa-solid fa-images"></i> Upload Image Collection (Auto-converts to WebP & Cloud
+              Link)</label>
+            <input type="file" id="biobank-images-file" accept="image/*" multiple
+              onchange="handleBioBankMultipleImageUpload(event)">
+            <div id="biobank-images-preview" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;"></div>
+          </div>
+        </div>
+
+        <!-- Section 2: PDF Document -->
+        <div id="bb-sec-pdf" style="display:none;">
+          <div class="form-row-two">
+            <div class="form-group">
+              <label>Pages / Format</label>
+              <input type="text" id="biobank-item-pages" placeholder="e.g. 8 Pages • PDF" value="4 Pages • PDF">
+            </div>
+            <div class="form-group">
+              <label>Upload PDF Document</label>
+              <input type="file" id="biobank-pdf-file" accept=".pdf,.doc,.docx"
+                onchange="handleBioBankFileUpload(event)">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>PDF Download / View Link (Auto-filled on upload or paste link)</label>
+            <input type="text" id="biobank-file-url" placeholder="https://... or auto-generated link">
+          </div>
+        </div>
+
+        <!-- Section 3: Text Note -->
+        <div id="bb-sec-text" style="display:none;">
+          <div class="form-group">
+            <label><i class="fa-solid fa-pen-nib"></i> Note Content (කෙටි සටහන / Quick Theory Summary)</label>
+            <textarea id="biobank-text-content" rows="6"
+              placeholder="ජීව විද්‍යා කෙටි සටහන හෝ කරුණු ලැයිස්තුව මෙහි ඇතුළත් කරන්න..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Optional Description</label>
+          <input type="text" id="biobank-item-desc" placeholder="e.g. Past paper essay marking point breakdown">
+        </div>
+
+        <button type="submit" class="btn-primary-action w-100" style="margin-top:14px;" id="btn-save-biobank-item">
+          <i class="fa-solid fa-plus-circle"></i> Save Material to Bio Bank
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 11. Create Bio Bank Folder Modal -->
+  <div class="modal-backdrop" id="modal-create-biobank-folder">
+    <div class="modal-card" style="max-width: 520px;">
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-create-biobank-folder')"><i
+          class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-folder-plus"></i> Create Folder / Subfolder</h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:14px;">
+        Add folders inside any unit to organize diagrams, summaries, short notes and past papers.
+      </p>
+      <form onsubmit="handleCreateBioBankFolder(event)">
+        <div class="form-group">
+          <label>Target Unit (පාඩම් ඒකකය) *</label>
+          <select id="create-folder-unit-select" required onchange="updateCreateFolderParentOptions()">
+            <option value="u1">Unit 01: ජීව විද්‍යාව හැඳින්වීම</option>
+            <option value="u2">Unit 02: ජීවයේ රසායනික සහ සෛලීය පදනම</option>
+            <option value="u3">Unit 03: පරිණාමය සහ ජෛව විවිධත්වය</option>
+            <option value="u4">Unit 04: ශාක ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u5">Unit 05: සත්ත්ව ආකාරය සහ ක්‍රියාකාරීත්වය</option>
+            <option value="u6">Unit 06: ප්‍රවේණිය</option>
+            <option value="u7">Unit 07: අණුක ජීව විද්‍යාව සහ DNA තාක්ෂණය</option>
+            <option value="u8">Unit 08: පාරිසරික ජීව විද්‍යාව</option>
+            <option value="u9">Unit 09: ක්ෂුද්‍ර ජීව විද්‍යාව</option>
+            <option value="u10">Unit 10: ව්‍යවහාරික ජීව විද්‍යාව</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Parent Folder (උප ෆෝල්ඩරයක් සාදන්නේ නම් තෝරන්න)</label>
+          <select id="create-folder-parent-select">
+            <option value="">📁 Root of Unit (ප්‍රධාන ඒකකය තුළ)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Folder Name (ෆෝල්ඩරයේ නම) *</label>
+          <input type="text" id="create-folder-name-input"
+            placeholder="e.g. ප්‍රභාසංශ්ලේෂණය රූප සටහන් / Resource Book Summaries" required>
+        </div>
+        <div class="form-group">
+          <label>Optional Description / Notes</label>
+          <input type="text" id="create-folder-desc-input" placeholder="e.g. High-res biological diagrams & charts">
+        </div>
+        <button type="submit" class="btn-primary-action w-100" style="margin-top:12px;">
+          <i class="fa-solid fa-folder-plus"></i> Create Folder Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Video Player Preview Modal for Admin -->
+  <div class="modal-backdrop" id="modal-admin-video-preview">
+    <div class="modal-card" style="max-width: 780px;">
+      <button class="modal-close-btn" onclick="closeAdminVideoPreview()"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="admin-preview-video-title" style="margin-bottom: 12px;"><i class="fa-solid fa-play"></i> Video Preview
+      </h3>
+      <div
+        style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;">
+        <iframe id="admin-preview-video-iframe" style="width:100%; height:100%; border:none;" src="about:blank"
+          allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+        <span id="admin-preview-video-meta" style="font-size:0.85rem; color:#10b981; font-weight:600;"></span>
+        <button class="btn-primary-action small" onclick="closeAdminVideoPreview()">Close Preview</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>

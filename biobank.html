@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Bio Bank | 100% Free A/L Biology Mind Maps, Essay Points & Short Notes</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="biobank-page-body">
+
+  <!-- Toast Notification System -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Header Nav -->
+  <header class="biobank-navbar">
+    <div class="biobank-nav-inner">
+      <a href="/" class="brand-logo" title="Apex Biology">
+        <div class="logo-mortarboard-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 6L4 17L24 28L44 17L24 6Z" fill="#ffffff"/>
+            <path d="M10 22.5V33C10 33 16 38 24 38C32 38 38 33 38 33V22.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M42 19V32" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="42" cy="33" r="2.5" fill="#facc15"/>
+            <path d="M24 9C24 9 19 13 20 18C21 22 25 21 26 18C27 15 24 9 24 9Z" fill="#10b981"/>
+          </svg>
+        </div>
+        <span class="logo-text">
+          <span class="logo-word-apex">Apex</span>
+          <span class="logo-word-biology">Bio Bank</span>
+        </span>
+      </a>
+
+      <div class="biobank-nav-right">
+        <span class="public-free-pill"><i class="fa-solid fa-lock-open"></i> 100% Free Public Vault</span>
+        <a href="/" class="btn-portal-pill">
+          <i class="fa-solid fa-graduation-cap"></i> Student Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bio Bank Main Body -->
+  <main class="biobank-main-wrap">
+    
+    <!-- Hero Banner -->
+    <section class="biobank-hero-section">
+      <div class="biobank-hero-card">
+        <div class="biobank-hero-content">
+          <span class="biobank-badge-pill"><i class="fa-solid fa-vault"></i> National Biology Resource Vault</span>
+          <h1>National A/L Bio Bank</h1>
+          <p>Mind Maps, Essay Points, Short Notes & Target MCQ Banks for All 10 Units. Free for all Sri Lankan A/L Biology Students.</p>
+          <div class="biobank-stats-row">
+            <div class="biobank-stat-chip"><i class="fa-solid fa-folder-tree"></i> 10 Syllabus Units</div>
+            <div class="biobank-stat-chip"><i class="fa-solid fa-brain"></i> Mind Maps</div>
+            <div class="biobank-stat-chip"><i class="fa-solid fa-pen-nib"></i> Essay Points</div>
+            <div class="biobank-stat-chip"><i class="fa-solid fa-file-pdf"></i> Color PDF Summaries</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bio Bank Content Explorer -->
+    <section class="biobank-explorer-section">
+      <div class="biobank-explorer-container" id="biobank-container">
+        <!-- Rendered dynamically by biobank.js or inline script -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="biobank-data.js"></script>
+  <script src="biobank.js"></script>
+</body>
+</html>
+

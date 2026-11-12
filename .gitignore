@@ -1,0 +1,6 @@
+node_modules/
+scratch/
+.env
+*.log
+.DS_Store
+Thumbs.db

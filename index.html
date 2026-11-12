@@ -1,0 +1,2547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Biology - Learn • Discover • Excel | A/L Biology Portal</title>
+  
+  <!-- Google Fonts: Fredoka & Poppins for 3D Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Cloudflare Turnstile Bot Protection -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=bio_tricks_v2">
+</head>
+<body>
+
+  <!-- Toast Notification System -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ==============================================================
+       VIEW 1: APEX BIOLOGY PUBLIC LANDING PAGE (Hero Presentation)
+       ============================================================== -->
+  <main class="page-view active" id="view-landing">
+    <section class="hero-full-screen" id="hero-section">
+      
+      <div class="hero-inner-container">
+
+        <!-- ==========================================================
+             1. CLEAN NAVBAR (Only Logo + Join Now Button)
+             ========================================================== -->
+        <nav class="navbar" id="navbar">
+          <!-- Logo: Mortarboard with Biology Leaf + Apex Biology -->
+          <a href="#" class="brand-logo" title="Apex Biology" onclick="showLandingView(); return false;">
+            <div class="logo-mortarboard-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Mortarboard Cap -->
+                <path d="M24 6L4 17L24 28L44 17L24 6Z" fill="#ffffff"/>
+                <path d="M10 22.5V33C10 33 16 38 24 38C32 38 38 33 38 33V22.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+                <path d="M42 19V32" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+                <circle cx="42" cy="33" r="2.5" fill="#facc15"/>
+                <!-- Green Biology Leaf in Center -->
+                <path d="M24 9C24 9 19 13 20 18C21 22 25 21 26 18C27 15 24 9 24 9Z" fill="#10b981"/>
+              </svg>
+            </div>
+            <span class="logo-text">
+              <span class="logo-word-apex">Apex</span>
+              <span class="logo-word-biology">Biology</span>
+            </span>
+          </a>
+
+          <!-- Right Action: ONLY Join Now Button (Clean & Focused) -->
+          <div class="nav-actions-cluster">
+            <button class="btn-join-pill" id="btn-nav-join" onclick="openModal('signup-modal')" title="Sign Up for A/L Biology">
+              Join Now <span class="btn-arrow">→</span>
+            </button>
+            <button class="btn-portal-pill" id="btn-nav-portal" onclick="showDashboardView()" style="display: none;" title="Go to Student Dashboard">
+              <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </button>
+          </div>
+        </nav>
+
+        <!-- ==========================================================
+             2. HERO BODY (Left 3D Text + Right Clean 3D Character)
+             ========================================================== -->
+        <div class="hero-body-content">
+          
+          <!-- Left Column: 3D Typography & CTAs -->
+          <div class="hero-left-pane">
+            
+            <!-- Glassmorphism Badge -->
+            <div class="hero-glass-badge">
+              <span class="badge-icon">🏆</span>
+              <span class="badge-caption">A/L Bio Success Starts Here!</span>
+            </div>
+
+            <!-- 3D Title: Apex Biology -->
+            <div class="hero-title-group">
+              <div class="title-word-apex">Apex</div>
+              <div class="title-word-biology">
+                Biology
+                <!-- Radiant 3D Sparks -->
+                <div class="burst-sparks" aria-hidden="true">
+                  <span class="spark-ray ray-left"></span>
+                  <span class="spark-ray ray-center"></span>
+                  <span class="spark-ray ray-right"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slogan: Learn • Discover • Excel -->
+            <div class="hero-slogan-line">
+              <span class="slogan-token">Learn</span>
+              <span class="slogan-separator">•</span>
+              <span class="slogan-token">Discover</span>
+              <span class="slogan-separator">•</span>
+              <span class="slogan-token">Excel</span>
+            </div>
+
+            <!-- Subtitle Description -->
+            <p class="hero-description-text">
+              Smart study plans, expert guidance,<br class="desktop-break">
+              and everything you need to ace your A/L Biology!
+            </p>
+
+            <!-- Action Buttons Pair -->
+            <div class="hero-buttons-pair">
+              <!-- Primary: Start Learning (Triggers Sign Up) -->
+              <button class="btn-primary-start" onclick="openModal('signup-modal')">
+                <div class="start-icon-round">
+                  <i class="fa-solid fa-play start-play-icon"></i>
+                </div>
+                <span class="start-btn-label">Start Learning</span>
+              </button>
+
+              <!-- Secondary: Download APK & PC App (Direct APK & View) -->
+              <button class="btn-secondary-explore" id="btn-hero-apk" onclick="showApkDownloadView()">
+                <i class="fa-solid fa-download" style="margin-right: 6px;"></i>
+                <span>Download APK &amp; App</span>
+                <span class="explore-arrow">→</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Right Column: 3D Student Character Graphic -->
+          <div class="hero-right-pane">
+            <div class="scene-3d-box" id="scene-character">
+              <img src="/hero-character-clean-hd.png" 
+                   alt="Apex Biology 3D Student with textbook and scientific tools" 
+                   class="clean-character-img"
+                   id="char-img"
+                   onerror="this.src='/public/hero-character-clean-hd.png';">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==============================================================
+       VIEW 2: APEX BIOLOGY STUDENT DASHBOARD (With Sidebar & Tabs)
+       ============================================================== -->
+  <main class="page-view" id="view-dashboard">
+    <div class="dashboard-layout">
+      
+      <!-- Mobile Sidebar Backdrop Overlay -->
+      <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleDashboardSidebar(false)"></div>
+
+      <!-- ==========================================================
+           DASHBOARD SIDEBAR (Emerald Bio Navigation)
+           ========================================================== -->
+      <aside class="dash-sidebar" id="dash-sidebar">
+        
+        <!-- Sidebar Brand -->
+        <div class="sidebar-brand-box">
+          <div class="logo-mortarboard-icon small">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6L4 17L24 28L44 17L24 6Z" fill="#ffffff"/>
+              <path d="M10 22.5V33C10 33 16 38 24 38C32 38 38 33 38 33V22.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+              <path d="M42 19V32" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+              <circle cx="42" cy="33" r="2.5" fill="#facc15"/>
+              <path d="M24 9C24 9 19 13 20 18C21 22 25 21 26 18C27 15 24 9 24 9Z" fill="#10b981"/>
+            </svg>
+          </div>
+          <div class="sidebar-brand-text">
+            <span class="brand-title">Apex Biology</span>
+            <span class="brand-subtitle">Student Portal</span>
+          </div>
+          <button class="sidebar-close-btn" onclick="toggleDashboardSidebar(false)" aria-label="Close sidebar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Student Mini Profile Card in Sidebar -->
+        <div class="sidebar-user-card">
+          <div class="user-avatar-box">
+            <span>🌱</span>
+            <span class="user-status-dot" title="Active Student"></span>
+          </div>
+          <div class="sidebar-user-info">
+            <div class="user-full-name" id="sb-user-name">Kasun Mendis</div>
+            <div class="user-id-badge" id="sb-user-id">ID: 27800412</div>
+            <div class="user-school-tag" id="sb-user-school">Ananda College</div>
+          </div>
+        </div>
+
+        <!-- Sidebar Navigation Menu Items - EXACT ORDER REQUESTED BY USER -->
+        <nav class="sidebar-nav-menu">
+          <div class="nav-section-label">MAIN MENU</div>
+
+          <!-- 1. Home / Overview -->
+          <button class="sidebar-link-btn active" data-tab="tab-home" onclick="switchDashboardTab('tab-home')">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </button>
+
+          <!-- 2. Live Classes -->
+          <button class="sidebar-link-btn" data-tab="tab-liveclasses" onclick="switchDashboardTab('tab-liveclasses')">
+            <i class="fa-solid fa-satellite-dish"></i>
+            <span>Live Classes</span>
+            <span class="nav-pill-badge pulse red" id="sidebar-live-pill" style="display:none;">LIVE</span>
+          </button>
+
+          <!-- 3. My Cards -->
+          <button class="sidebar-link-btn" data-tab="tab-mycards" onclick="switchDashboardTab('tab-mycards')">
+            <i class="fa-solid fa-id-card"></i>
+            <span>My Cards</span>
+          </button>
+
+          <!-- 4. Video Packs -->
+          <button class="sidebar-link-btn" data-tab="tab-studypacks" onclick="switchDashboardTab('tab-studypacks')">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Video Packs</span>
+          </button>
+
+          <!-- 5. Free Lessons -->
+          <button class="sidebar-link-btn" data-tab="tab-freelessons" onclick="switchDashboardTab('tab-freelessons')">
+            <i class="fa-solid fa-circle-play"></i>
+            <span>Free Lessons</span>
+          </button>
+
+          <!-- 6. Revision Wheel (SRS Hub) -->
+          <button class="sidebar-link-btn" data-tab="tab-revisionwheel" onclick="switchDashboardTab('tab-revisionwheel')">
+            <i class="fa-solid fa-arrows-spin"></i>
+            <span>Revision Wheel</span>
+          </button>
+
+          <!-- 7. Syllabus Tracker -->
+          <button class="sidebar-link-btn" data-tab="tab-syllabustracker" onclick="switchDashboardTab('tab-syllabustracker')">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Syllabus Tracker</span>
+          </button>
+
+          <!-- 8. Paper Tracker -->
+          <button class="sidebar-link-btn" data-tab="tab-papertracker" onclick="switchDashboardTab('tab-papertracker')">
+            <i class="fa-solid fa-scroll"></i>
+            <span>Paper Tracker</span>
+          </button>
+
+          <!-- 9. Bio Store -->
+          <button class="sidebar-link-btn" data-tab="tab-store" onclick="switchDashboardTab('tab-store')">
+            <i class="fa-solid fa-store"></i>
+            <span>Bio Store</span>
+          </button>
+
+          <div class="nav-section-label">NEURO HACKS &amp; DEEP WORK</div>
+
+          <!-- 10. Focus Studio (Pomodoro Timer & Deep Work) -->
+          <button class="sidebar-link-btn" data-tab="tab-focusstudio" onclick="switchDashboardTab('tab-focusstudio')">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Focus Studio</span>
+          </button>
+
+          <!-- 11. Bio Study Tricks (Psychology Hacks) -->
+          <button class="sidebar-link-btn" data-tab="tab-studytricks" onclick="switchDashboardTab('tab-studytricks')">
+            <i class="fa-solid fa-brain"></i>
+            <span>Bio Study Tricks</span>
+          </button>
+
+          <div class="nav-section-label">RESOURCES &amp; ACCOUNT</div>
+
+          <!-- 12. Bio Bank (Right Next to My Account as requested) -->
+          <button class="sidebar-link-btn" data-tab="tab-biobank" onclick="switchDashboardTab('tab-biobank')">
+            <i class="fa-solid fa-vault"></i>
+            <span>Bio Bank</span>
+          </button>
+
+          <!-- 13. My Account & Settings -->
+          <button class="sidebar-link-btn" data-tab="tab-account" onclick="switchDashboardTab('tab-account')">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>My Account</span>
+          </button>
+        </nav>
+
+        <!-- Sidebar Bottom Actions -->
+        <div class="sidebar-bottom-actions">
+          <button class="btn-sidebar-landing" onclick="showLandingView()" title="Back to Landing Page">
+            <i class="fa-solid fa-compass"></i>
+            <span>Landing Page</span>
+          </button>
+
+          <button class="btn-sidebar-logout" onclick="logoutStudent()" title="Logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- ==========================================================
+           MAIN CONTENT AREA
+           ========================================================== -->
+      <div class="dash-main-container">
+        
+        <!-- Floating 3D Biology Background Atmosphere -->
+        <div class="bio-floating-decorations" aria-hidden="true">
+          <div class="bio-float-item bio-leaf-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="bio-float-item bio-leaf-2"><i class="fa-solid fa-seedling"></i></div>
+          <div class="bio-float-item bio-dna-1"><i class="fa-solid fa-dna"></i></div>
+          <div class="bio-float-item bio-cell-1"><i class="fa-solid fa-circle-dot"></i></div>
+          <div class="bio-float-item bio-plant-1"><i class="fa-solid fa-plant-wilt"></i></div>
+        </div>
+
+        <!-- Top Header Bar -->
+        <header class="dash-top-header">
+          <div class="dash-top-left">
+            <button class="btn-sidebar-toggle" onclick="toggleDashboardSidebar()" aria-label="Toggle navigation menu">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="dash-page-title-group">
+              <span class="dash-greeting-badge">Biology Student Desk</span>
+              <h2 class="dash-page-title" id="dash-active-tab-title">Home Dashboard</h2>
+            </div>
+          </div>
+
+          <div class="dash-top-actions">
+            <!-- Student Verified Pill -->
+            <div class="top-verified-chip" id="top-verified-chip" style="display:none;">
+              <i class="fa-solid fa-circle-check"></i> <span>2027 Verified</span>
+            </div>
+
+            <!-- Student ID Chip -->
+            <div class="student-id-chip" id="student-id-chip" title="Your unique Student ID">
+              <i class="fa-solid fa-id-badge"></i>
+              <span id="top-student-id">ID: 27800412</span>
+            </div>
+
+            <!-- Search Quick Button -->
+            <button class="btn-top-icon" onclick="switchDashboardTab('tab-syllabustracker')" title="Search Syllabus">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <!-- Focus Studio Shortcut -->
+            <button class="btn-top-icon" onclick="switchDashboardTab('tab-focusstudio')" title="Focus Studio (Pomodoro)">
+              <i class="fa-solid fa-bullseye"></i>
+            </button>
+
+            <!-- Student Profile Avatar Menu -->
+            <div class="top-profile-menu" onclick="switchDashboardTab('tab-account')">
+              <div class="top-avatar">🌱</div>
+              <span class="top-student-name" id="top-student-name">Kasun</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Scrollable Dashboard Tabs View Area -->
+        <div class="dash-tabs-scroll-area">
+
+          <!-- ======================================================
+               TAB 1: HOME / OVERVIEW
+               ====================================================== -->
+          <section class="dash-tab-pane active" id="tab-home">
+            
+            <!-- Welcome Hero Banner -->
+            <div class="dash-welcome-banner">
+              <div class="banner-welcome-left">
+                <div class="banner-top-tags">
+                  <span class="banner-tag-pill active">
+                    <span class="pulse-green-dot"></span> LIVE ACADEMIC PORTAL
+                  </span>
+                  <span class="banner-tag-pill highlight">G.C.E. A/L BIOLOGY 2027/2028</span>
+                </div>
+
+                <!-- Dynamic Greeting Headline -->
+                <h1 class="greeting-headline" id="greeting-text">
+                  Good evening, <span id="greeting-student-name">Student</span>!
+                  <span id="student-verified-badge" class="student-verified-pill" style="display:none;" title="Verified A/L Biology Student">
+                    <i class="fa-solid fa-circle-check"></i> Verified Student
+                  </span> 👋
+                </h1>
+
+                <!-- Subtitle with Batch & Real Clock -->
+                <div class="greeting-sub-row">
+                  <span class="banner-batch-tag">🌱 <span id="banner-batch-name">2027 A/L Biological Science</span></span>
+                  <span class="banner-divider">•</span>
+                  <span class="banner-time-tag"><i class="fa-regular fa-clock"></i> <span id="dashboard-clock">00:00:00</span></span>
+                  <span class="banner-divider">•</span>
+                  <span class="banner-date-tag"><i class="fa-regular fa-calendar"></i> <span id="dashboard-date">Today</span></span>
+                </div>
+              </div>
+
+              <div class="banner-welcome-right">
+                <div class="national-rank-target-box">
+                  <span class="target-crown-icon">👑</span>
+                  <div class="target-info-text">
+                    <span class="target-sub-text">MISSION TARGET</span>
+                    <strong class="target-title-text">Island Top 10 • Medical Faculty</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OFFICIAL 2027 A/L EXAM COUNTDOWN TIMER -->
+            <div class="exam-countdown-card" id="home-exam-countdown">
+              <div class="countdown-card-header">
+                <div class="countdown-title-wrap">
+                  <span class="countdown-batch-badge">
+                    <i class="fa-solid fa-graduation-cap"></i> 2027 A/L BIOLOGY
+                  </span>
+                  <span class="countdown-official-pill">
+                    <span class="pulse-dot-green"></span> OFFICIAL EXAM COUNTDOWN
+                  </span>
+                </div>
+                <h3 class="countdown-main-heading">2027 A/L විභාගය ආරම්භ වීමට ඉතිරි කාලය</h3>
+                <p class="countdown-date-sub">
+                  <i class="fa-regular fa-calendar-check"></i> නිල ඉලක්කගත දිනය: <strong>2027 අගෝස්තු 01 වනදා (August 01, 2027 • 08:30 AM)</strong>
+                </p>
+              </div>
+
+              <!-- 5 Floating 3D Countdown Cubes -->
+              <div class="countdown-digits-row">
+                <div class="countdown-box">
+                  <div class="count-value" id="cd-months">08</div>
+                  <div class="count-label">මාස (MONTHS)</div>
+                </div>
+                <div class="countdown-colon">:</div>
+                <div class="countdown-box">
+                  <div class="count-value" id="cd-days">19</div>
+                  <div class="count-label">දින (DAYS)</div>
+                </div>
+                <div class="countdown-colon">:</div>
+                <div class="countdown-box">
+                  <div class="count-value" id="cd-hours">17</div>
+                  <div class="count-label">පැය (HOURS)</div>
+                </div>
+                <div class="countdown-colon">:</div>
+                <div class="countdown-box">
+                  <div class="count-value" id="cd-mins">58</div>
+                  <div class="count-label">මිනිත්තු (MINS)</div>
+                </div>
+                <div class="countdown-colon">:</div>
+                <div class="countdown-box seconds">
+                  <div class="count-value" id="cd-secs">21</div>
+                  <div class="count-label">තත්පර (SECS)</div>
+                </div>
+              </div>
+
+              <!-- Motivational Quote Pill -->
+              <div class="countdown-quote-banner">
+                <i class="fa-solid fa-bullseye"></i>
+                <span>"අද ඔබ කරන සුළු කැපවීම, හෙට දිනයේ ඔබේ Island Rank එක සහ වෛද්‍ය පීඨ සිහිනය තීරණය කරයි!"</span>
+              </div>
+            </div>
+
+            <!-- ==========================================
+                 HOME DASHBOARD CUTE SQUARE METRIC BOXES
+                 ========================================== -->
+            <div class="home-metrics-grid">
+              <!-- Metric Box 1: Syllabus Covered -->
+              <div class="home-metric-card" onclick="switchDashboardTab('tab-syllabustracker')">
+                <div class="home-metric-top">
+                  <div class="home-metric-icon-box green">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </div>
+                  <span class="home-metric-tag green" id="home-metric-unit-tag">Unit 04 Ongoing</span>
+                </div>
+                <div class="home-metric-title">Syllabus Covered</div>
+                <div class="home-metric-value" id="home-syllabus-pct">35%</div>
+                <div class="home-metric-progress-track">
+                  <div class="home-metric-progress-bar green" id="home-syllabus-progress-bar" style="width: 35%;"></div>
+                </div>
+                <div class="home-metric-sub">
+                  <span id="home-syllabus-subtext">35% Completed</span>
+                  <span class="home-metric-arrow">Open Tracker <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+
+              <!-- Metric Box 2: Paper Average -->
+              <div class="home-metric-card" onclick="switchDashboardTab('tab-papertracker')">
+                <div class="home-metric-top">
+                  <div class="home-metric-icon-box blue">
+                    <i class="fa-solid fa-chart-line"></i>
+                  </div>
+                  <span class="home-metric-tag blue" id="home-paper-count-tag">12 Papers Logged</span>
+                </div>
+                <div class="home-metric-title">Paper Average</div>
+                <div class="home-metric-value" id="home-paper-avg-val">78%</div>
+                <div class="home-metric-progress-track">
+                  <div class="home-metric-progress-bar blue" id="home-paper-progress-bar" style="width: 78%;"></div>
+                </div>
+                <div class="home-metric-sub">
+                  <span id="home-paper-summary-text">12 Papers • Avg: 78%</span>
+                  <span class="home-metric-arrow">View Papers <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+
+              <!-- Metric Box 3: Spaced Repetition (SRS Hub) -->
+              <div class="home-metric-card" onclick="switchDashboardTab('tab-revisionwheel')">
+                <div class="home-metric-top">
+                  <div class="home-metric-icon-box purple">
+                    <i class="fa-solid fa-arrows-spin"></i>
+                  </div>
+                  <span class="home-metric-tag purple">SRS Cycle</span>
+                </div>
+                <div class="home-metric-title">Revision Retention</div>
+                <div class="home-metric-value" id="home-srs-rate-val">100%</div>
+                <div class="home-metric-progress-track">
+                  <div class="home-metric-progress-bar purple" id="home-srs-progress-bar" style="width: 100%;"></div>
+                </div>
+                <div class="home-metric-sub">
+                  <span id="home-srs-summary-text">Active Retention</span>
+                  <span class="home-metric-arrow">Spin Wheel <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAILY STUDY PLANNER & TARGET TRACKER -->
+            <div class="daily-study-planner-card" id="home-daily-planner">
+              <div class="planner-card-header">
+                <div class="planner-title-group">
+                  <div class="planner-icon-badge">
+                    <i class="fa-solid fa-list-check"></i>
+                  </div>
+                  <div>
+                    <h3 class="planner-heading">Daily Study Planner &amp; Target Tracker</h3>
+                    <p class="planner-subheading">අද දවසේ ජීව විද්‍යා ඉලක්ක සටහන් කර සම්පූර්ණ කරන්න</p>
+                  </div>
+                </div>
+                <div class="planner-progress-box">
+                  <div class="planner-progress-info">
+                    <span id="planner-completed-text">0 of 0 Completed</span>
+                    <strong id="planner-percent-text">0%</strong>
+                  </div>
+                  <div class="planner-progress-bar-track">
+                    <div class="planner-progress-bar-fill" id="planner-progress-fill" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Add Preset Chips -->
+              <div class="planner-chips-row">
+                <span style="font-size: 0.74rem; font-weight: 800; color: #475569;">QUICK ADD:</span>
+                <button type="button" class="btn-planner-chip" onclick="quickAddPlannerTarget('Resource Book Reading (1 Unit)')">+ Resource Book</button>
+                <button type="button" class="btn-planner-chip" onclick="quickAddPlannerTarget('Timed 25 MCQs Practice')">+ 25 MCQs</button>
+                <button type="button" class="btn-planner-chip" onclick="quickAddPlannerTarget('Write 1 Full Structured/Essay')">+ 1 Essay</button>
+                <button type="button" class="btn-planner-chip" onclick="quickAddPlannerTarget('Apply 1 Bio Study Hack')">+ Study Trick</button>
+              </div>
+
+              <!-- Add New Target Form -->
+              <form class="planner-add-form" onsubmit="handleAddNewTarget(event)">
+                <input type="text" id="planner-new-input" class="planner-input" placeholder="අලුත් පාඩම් ඉලක්කයක් ඇතුළත් කරන්න (e.g. ප්‍රභාසංශ්ලේෂණය කෙටි සටහන ඇඳීම)...">
+                <button type="submit" class="btn-planner-add">
+                  <i class="fa-solid fa-plus"></i> Add Target
+                </button>
+              </form>
+
+              <!-- Daily Targets List Container -->
+              <div class="planner-targets-list" id="planner-targets-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Compact Real-time Live Alert Chip (Hidden when no live stream) -->
+            <div id="home-live-chip-container" class="home-live-chip-container"></div>
+
+          </section>
+
+          <!-- ======================================================
+               TAB 2: LIVE CLASSES (Dedicated Live Streaming Hub)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-liveclasses">
+            <div class="tab-header-banner">
+              <h2><i class="fa-solid fa-satellite-dish"></i> A/L Biology Live Masterclasses</h2>
+              <p>Real-time interactive live streams and discussions for your target A/L batch</p>
+            </div>
+
+            <div id="portal-live-classes-container" class="live-classes-container"></div>
+          </section>
+
+          <!-- ======================================================
+               TAB 3: MY CARDS (Active Monthly Passes & Classes)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-mycards">
+            <div class="tab-header-banner">
+              <h2><i class="fa-solid fa-id-card"></i> My Class Cards (මගේ මාසික කාඩ්පත්)</h2>
+              <p>Active monthly passes, recorded theory &amp; revision classes, and downloadable telegram tute materials</p>
+            </div>
+
+            <!-- Active Cards Section -->
+            <div class="mycards-display-wrap" id="mycards-display-wrap">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Card Month Classes Explorer (Populated when card selected) -->
+            <div class="mycard-classes-explorer" id="mycard-classes-explorer" style="display:none;">
+              <!-- Rendered dynamically -->
+            </div>
+          </section>
+
+          <!-- ======================================================
+               TAB 4: VIDEO PACKS (Tutor & Mode Selection Flow)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-studypacks">
+            <div class="tab-header-banner">
+              <h2><i class="fa-solid fa-folder-open"></i> A/L Biology Video Packs</h2>
+              <p>Comprehensive Theory and Revision video packs categorized by national syllabus units</p>
+            </div>
+
+            <!-- Dynamic Flow Container: Step 1 (Tutors) -> Step 2 (Mode) -> Step 3 (Theory 10 Leaf Folders or Revision Days) -->
+            <div id="flow-container-studypacks" class="flow-screen-container"></div>
+          </section>
+
+          <!-- ======================================================
+               TAB 5: FREE LESSONS (Tutor & Mode Selection Flow)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-freelessons">
+            <div class="tab-header-banner">
+              <h2><i class="fa-solid fa-circle-play"></i> Free Biology Masterclasses</h2>
+              <p>Watch full theory lectures and revision sessions by Sri Lanka's leading Biology educators</p>
+            </div>
+
+            <!-- Dynamic Flow Container: Step 1 (Tutors) -> Step 2 (Mode) -> Step 3 (Theory 10 Leaf Folders or Revision Days) -->
+            <div id="flow-container-freelessons" class="flow-screen-container"></div>
+          </section>
+
+          <!-- ======================================================
+               TAB 6: REVISION HUB / REVISION WHEEL (SPACED REPETITION SRS)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-revisionwheel">
+            <div class="rev-hub-wrapper">
+
+              <!-- Top Header Row -->
+              <div class="rev-hub-header">
+                <div class="rev-hub-title-group">
+                  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                    <span class="rev-hub-icon-badge"><i class="fa-solid fa-arrows-spin"></i></span>
+                    <h1 class="rev-hub-title">Revision Hub</h1>
+                  </div>
+                  <p class="rev-hub-subtitle">
+                    Spin the wheels to randomly select topics, past papers, or custom tasks. Add topics to the Spaced Repetition cycle for 100% memory retention.
+                  </p>
+                </div>
+
+                <!-- Mode Switcher Tabs (Syllabus | Past Papers | Custom) -->
+                <div class="rev-hub-mode-tabs">
+                  <button type="button" class="rev-hub-mode-tab active" data-mode="syllabus" onclick="switchRevisionWheelMode('syllabus')">
+                    SYLLABUS
+                  </button>
+                  <button type="button" class="rev-hub-mode-tab" data-mode="pastpapers" onclick="switchRevisionWheelMode('pastpapers')">
+                    PAST PAPERS
+                  </button>
+                  <button type="button" class="rev-hub-mode-tab" data-mode="custom" onclick="switchRevisionWheelMode('custom')">
+                    CUSTOM
+                  </button>
+                </div>
+              </div>
+
+              <!-- Main Grid Layout -->
+              <div class="rev-hub-grid">
+
+                <!-- Left Column: Controls & Spinning Wheel -->
+                <div class="rev-hub-left-col">
+
+                  <!-- 1. Syllabus Controls Card -->
+                  <div class="rev-hub-card" id="rev-mode-syllabus-card">
+                    <div class="form-group" style="margin-bottom: 14px;">
+                      <label class="rev-card-label">SELECT SUBJECT</label>
+                      <select id="rev-subject-select" class="rev-hub-select" onchange="onRevisionSubjectChange()">
+                        <option value="bio">🧬 Biology</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <label class="rev-card-label" style="margin: 0;">FILTER BY UNITS</label>
+                        <button type="button" class="btn-rev-all-units" onclick="toggleAllRevisionUnits()">
+                          ALL UNITS
+                        </button>
+                      </div>
+                      <div class="rev-units-checklist" id="rev-units-checklist">
+                        <!-- Populated dynamically with Unit 1 to 10 -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 2. Past Papers Controls Card -->
+                  <div class="rev-hub-card" id="rev-mode-pastpapers-card" style="display: none;">
+                    <div class="form-group" style="margin-bottom: 14px;">
+                      <label class="rev-card-label">SELECT SUBJECT</label>
+                      <select id="rev-pp-subject-select" class="rev-hub-select" onchange="onRevisionPPSubjectChange()">
+                        <!-- Dynamic subjects -->
+                      </select>
+                    </div>
+
+                    <div>
+                      <label class="rev-card-label">PAPER POOL OPTIONS</label>
+                      <div class="rev-units-checklist" id="rev-pp-pool-list">
+                        <!-- Dynamically filled with past papers -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 3. Custom Tasks Controls Card -->
+                  <div class="rev-hub-card" id="rev-mode-custom-card" style="display: none;">
+                    <label class="rev-card-label">CUSTOM WHEEL ITEMS (ONE PER LINE)</label>
+                    <textarea id="rev-custom-items-textarea" class="rev-custom-textarea" rows="4" placeholder="Resource Book Page 120-140&#10;Essay on Heart Structure&#10;Photosynthesis Chart&#10;2020 MCQ Paper" oninput="onCustomRevisionItemsChange()"></textarea>
+                    <button type="button" class="btn-flow-back" onclick="loadDefaultCustomRevisionItems()" style="margin-top: 8px; font-size: 0.74rem;">
+                      <i class="fa-solid fa-wand-magic-sparkles"></i> Load Bio Quick Presets
+                    </button>
+                  </div>
+
+                  <!-- THE SPINNING WHEEL STAGE -->
+                  <div class="rev-wheel-card">
+                    <div class="rev-wheel-outer-wrapper">
+                      <!-- Pointer Needle -->
+                      <div class="rev-wheel-pointer"></div>
+                      
+                      <!-- Canvas Wheel -->
+                      <canvas id="rev-wheel-canvas" width="420" height="420" class="rev-wheel-canvas"></canvas>
+
+                      <!-- Pedestal Stand -->
+                      <div class="rev-wheel-stand"></div>
+                    </div>
+
+                    <!-- Large Spin Button -->
+                    <button type="button" class="btn-rev-spin" id="btn-rev-spin" onclick="spinRevisionWheel()">
+                      <i class="fa-solid fa-play"></i> SPIN!
+                    </button>
+                  </div>
+
+                </div>
+
+                <!-- Right Column: Stats & Revision Tracker (SRS Spaced Repetition) -->
+                <div class="rev-hub-right-col">
+
+                  <!-- 3 Stat Cards -->
+                  <div class="rev-stats-grid">
+                    <div class="rev-stat-card">
+                      <div class="rev-stat-icon-wrap" style="color: #10b981; background: #ecfdf5;">
+                        <i class="fa-solid fa-brain"></i>
+                      </div>
+                      <div class="rev-stat-num" id="srs-total-topics">0</div>
+                      <div class="rev-stat-lbl">TOTAL TOPICS</div>
+                    </div>
+
+                    <div class="rev-stat-card">
+                      <div class="rev-stat-icon-wrap" style="color: #059669; background: #d1fae5;">
+                        <i class="fa-solid fa-circle-check"></i>
+                      </div>
+                      <div class="rev-stat-num" id="srs-fully-revised">0</div>
+                      <div class="rev-stat-lbl">FULLY REVISED</div>
+                    </div>
+
+                    <div class="rev-stat-card">
+                      <div class="rev-stat-icon-wrap" style="color: #0284c7; background: #e0f2fe;">
+                        <i class="fa-solid fa-trophy"></i>
+                      </div>
+                      <div class="rev-stat-num" id="srs-completion-rate">0%</div>
+                      <div class="rev-stat-lbl">COMPLETION</div>
+                    </div>
+                  </div>
+
+                  <!-- REVISION TRACKER Box -->
+                  <div class="rev-tracker-card">
+                    <div class="rev-tracker-header">
+                      <h3 class="rev-tracker-title">REVISION TRACKER</h3>
+                      <button type="button" class="btn-flow-back" onclick="clearCompletedSRSTasks()" style="font-size: 0.74rem; padding: 4px 10px; border-radius: 8px;">
+                        <i class="fa-solid fa-broom"></i> Clean Completed
+                      </button>
+                    </div>
+
+                    <!-- Active SRS Tasks List -->
+                    <div class="rev-tracker-body" id="rev-tracker-container">
+                      <!-- Rendered dynamically -->
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ======================================================
+               TAB 7: SYLLABUS TRACKER (10 Units & 3 Study Ticks)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-syllabustracker">
+            <div class="tab-header-banner">
+              <h2><i class="fa-solid fa-list-check"></i> National A/L Biology Syllabus Tracker</h2>
+              <p>ශ්‍රී ලංකා ජාතික අධ්‍යාපන ආයතන (NIE) A/L ජීව විද්‍යාව විෂය නිර්දේශයේ ඒකක 10 සහ සියලුම උප මාතෘකා සම්පූර්ණ කිරීමේ ප්‍රගතිය</p>
+            </div>
+
+            <!-- Hero Progress Card with Circular SVG Gauge -->
+            <div class="tracker-hero-card">
+              <div class="tracker-hero-left">
+                <div class="tracker-progress-circle-wrap">
+                  <svg class="tracker-progress-svg" viewBox="0 0 120 120">
+                    <circle class="tracker-circle-bg" cx="60" cy="60" r="50"></circle>
+                    <circle class="tracker-circle-fill" id="tracker-circle-fill" cx="60" cy="60" r="50"></circle>
+                  </svg>
+                  <div class="tracker-progress-label">
+                    <span class="tracker-big-percent" id="tracker-overall-percent">0%</span>
+                    <span class="tracker-sub-label">Syllabus</span>
+                  </div>
+                </div>
+
+                <div class="tracker-hero-info">
+                  <div class="tracker-status-tag" id="tracker-status-badge">
+                    <i class="fa-solid fa-seedling"></i> <span>Journey Started 🌱</span>
+                  </div>
+                  <h3 class="tracker-hero-title">A/L Biology Syllabus Mastery Tracker</h3>
+                  <p class="tracker-hero-sub">එක් tick එකක් දැමුවද උප මාතෘකාව සම්පූර්ණ ලෙස ගණනය වේ. පාඩම් 10ම අවසන් කර A එකකට යන්න!</p>
+                  <div class="tracker-legend-row">
+                    <span class="legend-chip chip-study"><i class="fa-solid fa-book-open"></i> 1st Study (1 වරක්)</span>
+                    <span class="legend-chip chip-rev"><i class="fa-solid fa-crosshairs"></i> 2nd Revision (2 වරක්)</span>
+                    <span class="legend-chip chip-master"><i class="fa-solid fa-star"></i> Mastery (හොඳටම මතකයි ⭐)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tracker-hero-right">
+                <div class="tracker-quick-stats">
+                  <div class="stat-mini-pill">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div>
+                      <strong id="tracker-completed-count">0</strong>
+                      <span>Completed</span>
+                    </div>
+                  </div>
+                  <div class="stat-mini-pill">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <div>
+                      <strong id="tracker-total-count">0</strong>
+                      <span>Total Topics</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn-tracker-reset" onclick="resetTrackerConfirm()">
+                  <i class="fa-solid fa-arrow-rotate-left"></i> Reset Tracker
+                </button>
+              </div>
+            </div>
+
+            <!-- Filter & Search Bar -->
+            <div class="tracker-filter-bar">
+              <div class="tracker-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="tracker-search-input" placeholder="උප මාතෘකාව හෝ පාඩම සොයන්න (e.g. ප්‍රභාසංශ්ලේෂණය, DNA, එන්සයිම)..." oninput="filterSyllabusTopics(this.value)">
+              </div>
+              <div class="tracker-filter-buttons">
+                <button class="tracker-filter-btn active" onclick="filterTrackerUnits('all', this)"><i class="fa-solid fa-border-all"></i> සියලුම ඒකක (All 10)</button>
+                <button class="tracker-filter-btn" onclick="filterTrackerUnits('part1', this)">ඒකක 01 - 05</button>
+                <button class="tracker-filter-btn" onclick="filterTrackerUnits('part2', this)">ඒකක 06 - 10</button>
+                <button class="tracker-filter-btn" onclick="expandAllAccordions(true)"><i class="fa-solid fa-angles-down"></i> Expand All</button>
+                <button class="tracker-filter-btn" onclick="expandAllAccordions(false)"><i class="fa-solid fa-angles-up"></i> Collapse All</button>
+              </div>
+            </div>
+
+            <!-- Accordions Container (Populated by JS) -->
+            <div class="syllabus-accordions-list" id="syllabus-accordions-list">
+              <!-- Rendered dynamically by renderSyllabusTracker() -->
+            </div>
+          </section>
+
+          <!-- ======================================================
+               TAB 8: PAST PAPERS TRACKER (CLEAN & MODERN UI MATCHING SCREENSHOT)
+               ====================================================== -->
+          <!-- ======================================================
+               TAB: MULTI-SUBJECT A/L PAPER TRACKER & ANALYTICS WORKSPACE
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-papertracker">
+            <!-- Header Banner with Action Buttons -->
+            <div class="tab-header-banner" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+              <div>
+                <h2><i class="fa-solid fa-chart-line" style="color:#10b981;"></i> National A/L Paper Tracker &amp; Analytics Workspace</h2>
+                <p>Multi-Subject Past Paper Mastery, Part I vs Part II Gap Analysis &amp; Root-Cause Mistake Diagnosis</p>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <button type="button" class="btn-flow-back" onclick="resetPaperTrackerDemoData()" style="background:rgba(255,255,255,0.08); color:#cbd5e1; border:1px solid rgba(255,255,255,0.2); padding:8px 14px; font-size:0.82rem; border-radius:12px; cursor:pointer;" title="Reset sample test papers">
+                  <i class="fa-solid fa-rotate-left"></i> Reset Demo Data
+                </button>
+                <button type="button" class="btn-paper-action-primary" onclick="openLogPaperModal()" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:#ffffff; font-weight:800; border:none; padding:10px 20px; border-radius:14px; display:inline-flex; align-items:center; gap:8px; cursor:pointer; box-shadow:0 6px 18px rgba(16,185,129,0.3);">
+                  <i class="fa-solid fa-plus"></i> + Log New Paper
+                </button>
+              </div>
+            </div>
+
+            <!-- 1. Multi-Subject Dynamic Switcher Bar -->
+            <div class="subject-engine-wrapper">
+              <div class="subject-engine-tabs" id="paper-subject-tabs">
+                <!-- Dynamically rendered: Biology | Chemistry | Physics | Custom Subjects | + Add Subject -->
+              </div>
+            </div>
+
+            <!-- 2. Top Analytics KPI Bar (5 Smart Cards) -->
+            <div class="paper-kpi-grid">
+              <!-- Card 1: Target Readiness Grade & Moving Average -->
+              <div class="paper-kpi-card" id="kpi-card-grade">
+                <div class="paper-kpi-icon-box grade" id="kpi-grade-badge">A</div>
+                <div class="paper-kpi-details">
+                  <span class="paper-kpi-title">Current Readiness Grade</span>
+                  <div class="paper-kpi-main-val" id="kpi-grade-val">A (78.0%)</div>
+                  <span class="paper-kpi-sub" id="kpi-grade-sub">Last 5 Papers Moving Avg</span>
+                  <div class="paper-kpi-tag" id="kpi-grade-target">🎯 Distinction Target Maintained</div>
+                </div>
+              </div>
+
+              <!-- Card 2: Part I vs Part II Split & Gap Analysis -->
+              <div class="paper-kpi-card">
+                <div class="paper-kpi-icon-box split">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div class="paper-kpi-details">
+                  <span class="paper-kpi-title">Part I vs Part II Split</span>
+                  <div class="paper-split-bars-wrap">
+                    <div class="split-bar-row">
+                      <div class="split-bar-label"><span>Part I (MCQ)</span> <strong id="kpi-mcq-avg">38.5 / 50</strong></div>
+                      <div class="split-progress-track"><div class="split-progress-fill mcq" id="kpi-mcq-bar" style="width:77%;"></div></div>
+                    </div>
+                    <div class="split-bar-row">
+                      <div class="split-bar-label"><span>Part II (Essay)</span> <strong id="kpi-essay-avg">34.2 / 50</strong></div>
+                      <div class="split-progress-track"><div class="split-progress-fill essay" id="kpi-essay-bar" style="width:68%;"></div></div>
+                    </div>
+                  </div>
+                  <div class="paper-kpi-tag" id="kpi-split-gap-msg" style="color:#0284c7; background:#f0f9ff; border:1px solid #bae6fd;">Balanced Pacing</div>
+                </div>
+              </div>
+
+              <!-- Card 3: Time Efficiency Score -->
+              <div class="paper-kpi-card">
+                <div class="paper-kpi-icon-box time">
+                  <i class="fa-solid fa-stopwatch"></i>
+                </div>
+                <div class="paper-kpi-details">
+                  <span class="paper-kpi-title">Time Efficiency Score</span>
+                  <div class="paper-kpi-main-val" id="kpi-time-val">1.6 min/MCQ</div>
+                  <span class="paper-kpi-sub" id="kpi-time-sub">Average Paper Speed</span>
+                  <div class="paper-kpi-tag" id="kpi-time-tag" style="color:#059669; background:#ecfdf5; border:1px solid #a7f3d0;">On-Time Pacing</div>
+                </div>
+              </div>
+
+              <!-- Card 4: Papers Completed -->
+              <div class="paper-kpi-card">
+                <div class="paper-kpi-icon-box papers">
+                  <i class="fa-solid fa-file-circle-check"></i>
+                </div>
+                <div class="paper-kpi-details">
+                  <span class="paper-kpi-title">Papers Completed</span>
+                  <div class="paper-kpi-main-val" id="kpi-papers-total">5 Papers</div>
+                  <span class="paper-kpi-sub" id="kpi-papers-breakdown">4 Past • 1 Model</span>
+                  <div class="paper-kpi-tag" style="color:#7c3aed; background:#f5f3ff; border:1px solid #ddd6fe;">Active Practice</div>
+                </div>
+              </div>
+
+              <!-- Card 5: Primary Score Killer -->
+              <div class="paper-kpi-card">
+                <div class="paper-kpi-icon-box killer">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="paper-kpi-details">
+                  <span class="paper-kpi-title">Primary Score Killer</span>
+                  <div class="paper-kpi-main-val" id="kpi-killer-title" style="font-size:0.95rem; color:#b91c1c;">Keywords Missed</div>
+                  <span class="paper-kpi-sub" id="kpi-killer-sub">58% of lost marks</span>
+                  <div class="paper-kpi-tag" style="color:#b91c1c; background:#fef2f2; border:1px solid #fecaca;">Action Priority</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Performance Trend & Part I vs Part II Chart -->
+            <div class="paper-workspace-card" style="margin-bottom:22px;">
+              <div class="paper-card-header">
+                <div>
+                  <h3 class="paper-card-title"><i class="fa-solid fa-chart-line" style="color:#10b981;"></i> Score Progression &amp; Part I vs Part II Trend</h3>
+                  <p class="paper-card-sub">Dynamic SVG progression tracking Total Score, MCQ Part I, and Essay Part II against the 75% A-Distinction benchmark.</p>
+                </div>
+                <div class="chart-legend-row">
+                  <span class="legend-item"><span class="legend-dot" style="background:#10b981;"></span> Total %</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#0284c7;"></span> Part I MCQ %</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span> Part II Essay %</span>
+                  <span class="legend-item"><span class="legend-line-dashed"></span> 75% Target A</span>
+                </div>
+              </div>
+              <div class="paper-svg-chart-wrapper" id="paper-chart-container">
+                <!-- Pure Responsive Interactive SVG Chart -->
+              </div>
+            </div>
+
+            <!-- 4. 2015 - 2025 Past Paper Mastery Matrix (11 Years) -->
+            <div class="paper-workspace-card" style="margin-bottom:22px;">
+              <div class="paper-card-header">
+                <div>
+                  <h3 class="paper-card-title"><i class="fa-solid fa-table-cells-large" style="color:#059669;"></i> 2015 – 2025 Official Past Paper Mastery Matrix</h3>
+                  <p class="paper-card-sub">11-Year National A/L Checklist. Click any card to log marks, view score split, or trigger a re-attempt.</p>
+                </div>
+                <div class="matrix-filter-legend">
+                  <span class="badge-status-green"><i class="fa-solid fa-check"></i> Mastered (&ge;75%)</span>
+                  <span class="badge-status-amber"><i class="fa-solid fa-arrows-rotate"></i> Redo (&lt;65%)</span>
+                  <span class="badge-status-gray">● Not Attempted</span>
+                </div>
+              </div>
+              <div class="pastpaper-matrix-grid" id="pastpaper-matrix-container">
+                <!-- Rendered: 2015 to 2025 Cards -->
+              </div>
+            </div>
+
+            <!-- 5. Weak-Unit Heatmap & Mistake Root-Cause Diagnostics -->
+            <div class="paper-dual-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:20px; margin-bottom:22px;">
+              <!-- Unit Vulnerability Heatmap -->
+              <div class="paper-workspace-card">
+                <div class="paper-card-header">
+                  <div>
+                    <h3 class="paper-card-title"><i class="fa-solid fa-fire" style="color:#ef4444;"></i> Weak-Unit Vulnerability Heatmap</h3>
+                    <p class="paper-card-sub">Ranked units with the highest mark deduction frequency.</p>
+                  </div>
+                </div>
+                <div class="weak-unit-list" id="weak-unit-heatmap-container">
+                  <!-- Rendered: Unit progress bars with Critical/Warning/Safe badges -->
+                </div>
+              </div>
+
+              <!-- Root-Cause Mistake Diagnosis & Smart AI Advice -->
+              <div class="paper-workspace-card">
+                <div class="paper-card-header">
+                  <div>
+                    <h3 class="paper-card-title"><i class="fa-solid fa-brain" style="color:#8b5cf6;"></i> Mistake Root-Cause Diagnosis</h3>
+                    <p class="paper-card-sub">Categorized analysis of why marks were lost across papers.</p>
+                  </div>
+                </div>
+                <div class="mistake-breakdown-list" id="mistake-breakdown-container">
+                  <!-- Rendered: Progress bars for error tags -->
+                </div>
+                <!-- Smart Recommendation Banner -->
+                <div class="ai-recommendation-box" id="ai-paper-recommendation">
+                  <!-- Auto-generated guidance -->
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Detailed Paper History Table with Filters & Actions -->
+            <div class="paper-workspace-card">
+              <div class="paper-card-header" style="flex-wrap:wrap; gap:12px;">
+                <div>
+                  <h3 class="paper-card-title"><i class="fa-solid fa-clock-rotate-left" style="color:#0284c7;"></i> Logged Papers History &amp; Detailed Scores</h3>
+                  <p class="paper-card-sub">Filter and search all logged past, model, and provincial examination papers.</p>
+                </div>
+                <div class="paper-table-filters" style="display:flex; gap:10px; flex-wrap:wrap;">
+                  <input type="text" id="paper-search-input" placeholder="Search papers..." oninput="filterPaperHistory()" style="padding:8px 14px; border-radius:10px; border:1px solid #cbd5e1; font-size:0.85rem; width:180px;">
+                  <select id="paper-type-filter" onchange="filterPaperHistory()" style="padding:8px 12px; border-radius:10px; border:1px solid #cbd5e1; font-size:0.85rem;">
+                    <option value="all">All Paper Types</option>
+                    <option value="past">Past Papers</option>
+                    <option value="model">Model Papers</option>
+                    <option value="provincial">Provincial / Term</option>
+                  </select>
+                  <select id="paper-grade-filter" onchange="filterPaperHistory()" style="padding:8px 12px; border-radius:10px; border:1px solid #cbd5e1; font-size:0.85rem;">
+                    <option value="all">All Grades</option>
+                    <option value="A">Grade A (75%+)</option>
+                    <option value="B">Grade B (65-74%)</option>
+                    <option value="C">Grade C (50-64%)</option>
+                    <option value="S">Grade S (35-49%)</option>
+                    <option value="F">Grade F (&lt;35%)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="paper-table-responsive" style="overflow-x:auto;">
+                <table class="paper-history-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Paper Name &amp; Provider</th>
+                      <th>Type</th>
+                      <th>Part I (MCQ)</th>
+                      <th>Part II (Essay)</th>
+                      <th>Total % &amp; Grade</th>
+                      <th>Weak Units Tagged</th>
+                      <th>Primary Error Cause</th>
+                      <th style="text-align:right;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="paper-history-table-body">
+                    <!-- Rendered paper rows -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ======================================================
+               TAB 9: BIO STORE (Printed Tutes & Publications)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-store">
+            <div class="tab-header-banner">
+              <h2><i class="fa-solid fa-store"></i> Apex Bio Publications &amp; Tutes Store</h2>
+              <p>මුද්‍රිත නිබන්ධන, ප්‍රශ්නෝත්තර සංග්‍රහ සහ සම්පත් පොත් කට්ටල ඔබගේ නිවසටම ඩිලිවරි ගෙන්වා ගන්න</p>
+            </div>
+
+            <!-- Dynamic Store Products Grid -->
+            <div class="store-products-grid" id="student-store-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </section>
+
+<!-- ======================================================
+               TAB 7: BIO STUDY TRICKS & NEURO-PSYCHOLOGY HACKS
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-studytricks">
+            
+            <!-- Hero Banner -->
+            <div class="tricks-header-hero">
+              <div class="tricks-header-top-row">
+                <span class="tricks-tag-pill">
+                  <i class="fa-solid fa-dna banner-dna-spin"></i> Cognitive Neuroscience &amp; Bio-Psychology
+                </span>
+                <span class="tricks-stats-badge">
+                  <i class="fa-solid fa-brain"></i> 20 Evidence-Backed Hacks
+                </span>
+              </div>
+
+              <h2 class="tricks-header-title">
+                <span>A/L Biology Study Tricks &amp; Neuro Hacks</span>
+                <span class="tricks-header-title-si">ජීව විද්‍යාව සඳහා මනෝවිද්‍යාත්මක පාඩම් ක්‍රම 20</span>
+              </h2>
+
+              <p class="tricks-header-desc">
+                මතකය තහවුරු කරගැනීම, සංකීර්ණ ක්‍රියාවලි සරල කරගැනීම, විභාගයේදී කරුණු පැටලීම වැළැක්වීම සහ අවම කාලයකින් උපරිම ප්‍රතිඵල ලබාගැනීම සඳහා ලොව ප්‍රමුඛ ස්නායු විද්‍යාඥයින් හා සංජානන මනෝවිද්‍යාඥයින් විසින් තහවුරු කරන ලද උපක්‍රම 20.
+              </p>
+            </div>
+
+            <!-- Controls: Live Search & Category Filter Pills -->
+            <div class="tricks-controls-bar">
+              <div class="tricks-search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="tricks-search-input" class="tricks-search-input" placeholder="Search hacks (e.g. Feynman, Recall, Sleep, නින්ද...)" oninput="handleStudyTricksSearch(this.value)">
+              </div>
+
+              <div class="tricks-filter-buttons">
+                <button class="btn-trick-filter active" data-cat="all" onclick="filterStudyTricks('all', this)">
+                  <i class="fa-solid fa-layer-group"></i> All 20 Hacks
+                </button>
+                <button class="btn-trick-filter" data-cat="Comprehension" onclick="filterStudyTricks('Comprehension', this)">
+                  <i class="fa-solid fa-chalkboard-user"></i> Comprehension (අවබෝධය)
+                </button>
+                <button class="btn-trick-filter" data-cat="Recall" onclick="filterStudyTricks('Recall', this)">
+                  <i class="fa-solid fa-bolt"></i> Recall &amp; Retrieval (ආවර්ජනය)
+                </button>
+                <button class="btn-trick-filter" data-cat="Memory" onclick="filterStudyTricks('Memory', this)">
+                  <i class="fa-solid fa-landmark-dome"></i> Memory &amp; Palace (මතකය)
+                </button>
+                <button class="btn-trick-filter" data-cat="Strategy" onclick="filterStudyTricks('Strategy', this)">
+                  <i class="fa-solid fa-bullseye"></i> Exam Strategy (උපායමාර්ග)
+                </button>
+                <button class="btn-trick-filter" data-cat="Rhythm" onclick="filterStudyTricks('Rhythm', this)">
+                  <i class="fa-solid fa-stopwatch"></i> Rhythms &amp; Sleep (ජෛව රිද්ම)
+                </button>
+              </div>
+            </div>
+
+            <!-- Cards Grid Container -->
+            <div class="bio-tricks-grid" id="bio-tricks-grid">
+              <!-- Dynamically populated by renderStudyTricksTab() -->
+            </div>
+
+          </section>
+
+          <!-- ======================================================
+               TAB: FOCUS STUDIO (Pomodoro Timer, Deep Work & Ambient Soundscape)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-focusstudio">
+            
+            <div class="tab-header-banner">
+              <div style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:12px;">
+                <div>
+                  <h2><i class="fa-solid fa-bullseye"></i> Focus Studio &amp; Deep Work Timer</h2>
+                  <p>Deep work sessions, customizable Pomodoro timers, study streaks &amp; ambient soundscapes</p>
+                </div>
+                <div style="display:flex; gap:10px;">
+                  <button class="btn-focus-action" onclick="toggleFullFocusMode()">
+                    <i class="fa-solid fa-expand"></i> <span id="full-focus-btn-text">Full Focus Mode</span>
+                  </button>
+                  <button class="btn-focus-action secondary" onclick="toggleFocusSettingsModal()">
+                    <i class="fa-solid fa-sliders"></i> Settings
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Focus Studio Main Grid (Matching Image 3) -->
+            <div class="focus-studio-grid">
+              
+              <!-- Left Big Timer Card -->
+              <div class="focus-timer-card">
+                
+                <!-- Timer Mode Switcher Pills -->
+                <div class="focus-mode-pills-bar">
+                  <span class="focus-mode-label">TIMER</span>
+                  <div class="focus-mode-pills">
+                    <button class="btn-focus-mode active" id="btn-mode-pomodoro" onclick="setFocusMode('pomodoro')">
+                      🍅 Pomodoro
+                    </button>
+                    <button class="btn-focus-mode" id="btn-mode-shortbreak" onclick="setFocusMode('shortBreak')">
+                      ☕ Short Break
+                    </button>
+                    <button class="btn-focus-mode" id="btn-mode-longbreak" onclick="setFocusMode('longBreak')">
+                      🌴 Long Break
+                    </button>
+                    <button class="btn-focus-mode" id="btn-mode-openfocus" onclick="setFocusMode('openFocus')">
+                      ◎ Open Focus
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Timer Center Display -->
+                <div class="focus-clock-area">
+                  <div class="focus-status-tag" id="focus-session-type-label">FOCUS SESSION</div>
+                  
+                  <div class="focus-digital-timer" id="focus-digital-timer">25:00</div>
+                  
+                  <div class="focus-session-counter" id="focus-session-counter">
+                    <span>Session 1 of 4</span>
+                    <div class="focus-session-dots" id="focus-session-dots">
+                      <span class="session-dot active"></span>
+                      <span class="session-dot"></span>
+                      <span class="session-dot"></span>
+                      <span class="session-dot"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timer Controls Bar -->
+                <div class="focus-controls-bar">
+                  <button class="btn-focus-ctrl secondary" onclick="resetFocusTimer()" title="Reset Timer">
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+
+                  <button class="btn-focus-ctrl primary" id="btn-focus-play-pause" onclick="toggleFocusTimerPlay()">
+                    <i class="fa-solid fa-play" id="focus-play-icon"></i> <span id="focus-play-text">Start</span>
+                  </button>
+
+                  <button class="btn-focus-ctrl secondary" onclick="stopFocusTimer()" title="Stop Session">
+                    <i class="fa-solid fa-stop"></i>
+                  </button>
+
+                  <button class="btn-focus-ctrl secondary" onclick="skipFocusSession()" title="Skip to Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+                </div>
+
+                <!-- Ambient Soundscape Mini Selector -->
+                <div class="focus-ambient-bar">
+                  <span><i class="fa-solid fa-headphones"></i> Ambient Sound:</span>
+                  <div class="focus-ambient-pills">
+                    <button class="btn-ambient-pill active" data-sound="none" onclick="setAmbientSound('none')">Off</button>
+                    <button class="btn-ambient-pill" data-sound="rain" onclick="setAmbientSound('rain')">🌧️ Rain</button>
+                    <button class="btn-ambient-pill" data-sound="waves" onclick="setAmbientSound('waves')">🌊 Ocean</button>
+                    <button class="btn-ambient-pill" data-sound="alpha" onclick="setAmbientSound('alpha')">🧠 Alpha Waves</button>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right Analytics & Daily Goals Sidebar (Matching Image 3) -->
+              <div class="focus-stats-column">
+                
+                <!-- Stat Card 1: Today's Focus Time -->
+                <div class="focus-stat-card">
+                  <div class="focus-stat-icon-box blue">
+                    <i class="fa-regular fa-clock"></i>
+                  </div>
+                  <div>
+                    <div class="focus-stat-val" id="focus-today-time-val">0m</div>
+                    <div class="focus-stat-lbl">TODAY'S FOCUS TIME</div>
+                  </div>
+                </div>
+
+                <!-- Stat Card 2: Pomodoros Done -->
+                <div class="focus-stat-card">
+                  <div class="focus-stat-icon-box pink">
+                    <i class="fa-solid fa-apple-whole"></i>
+                  </div>
+                  <div>
+                    <div class="focus-stat-val" id="focus-pomodoros-done-val">0</div>
+                    <div class="focus-stat-lbl">POMODOROS DONE</div>
+                  </div>
+                </div>
+
+                <!-- Stat Card 3: Day Streak -->
+                <div class="focus-stat-card">
+                  <div class="focus-stat-icon-box orange">
+                    <i class="fa-solid fa-fire"></i>
+                  </div>
+                  <div>
+                    <div class="focus-stat-val" id="focus-day-streak-val">1</div>
+                    <div class="focus-stat-lbl">DAY STREAK</div>
+                  </div>
+                </div>
+
+                <!-- Goals Card: Today's Goals -->
+                <div class="focus-goals-card">
+                  <div class="focus-goals-header">
+                    <h4>TODAY'S GOALS</h4>
+                    <span class="focus-goals-count" id="focus-goals-count">0 / 2</span>
+                  </div>
+
+                  <div class="focus-goals-list" id="focus-goals-list">
+                    <!-- Goals rendered dynamically -->
+                  </div>
+
+                  <div class="focus-add-goal-row">
+                    <input type="text" id="focus-new-goal-input" placeholder="Add a new study goal..." onkeypress="if(event.key==='Enter')addFocusGoal()">
+                    <button class="btn-add-goal" onclick="addFocusGoal()"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <!-- ======================================================
+               TAB 8: MY STUDENT ACCOUNT & PROFILE SETTINGS
+               ====================================================== -->
+          
+          <!-- ======================================================
+               TAB 12: BIO BANK (In-Portal Resource Explorer - Next to My Account)
+               ====================================================== -->
+          <section class="dash-tab-pane" id="tab-biobank">
+            <div class="tab-header-banner">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h2><i class="fa-solid fa-vault"></i> Apex Bio Bank</h2>
+                  <p>A/L Biology Mind Maps, Essay Points, Short Notes &amp; Target MCQ Banks</p>
+                </div>
+                <a href="/biobank" target="_blank" class="btn-flow-back" style="text-decoration: none;">
+                  <i class="fa-solid fa-up-right-from-square"></i> Standalone Public Link (/biobank)
+                </a>
+              </div>
+            </div>
+            <div id="portal-biobank-container" class="biobank-explorer-container"></div>
+          </section>
+
+<section class="dash-tab-pane" id="tab-account">
+            
+            <div class="tab-header-banner">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h2><i class="fa-solid fa-user-gear"></i> My Student Account &amp; Profile Settings</h2>
+                  <p>Manage your student credentials, personal details, target A/L batch, and profile picture</p>
+                </div>
+                <div class="student-id-display-pill">
+                  <i class="fa-solid fa-id-badge"></i> <span id="acc-pill-student-id">ID: 27804192</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="account-profile-grid">
+              
+              <!-- Left Card: Profile Avatar & Quick Status -->
+              <div class="account-avatar-card">
+                <div class="avatar-wrapper">
+                  <div class="avatar-ring-container">
+                    <img id="account-avatar-img" class="account-avatar-img" style="display: none;" alt="Student Avatar">
+                    <div id="account-avatar-fallback" class="account-avatar-fallback">🌱</div>
+                    <label for="profile-photo-file-input" class="avatar-change-overlay" title="Click to upload WebP photo">
+                      <i class="fa-solid fa-camera"></i>
+                      <span>Upload</span>
+                    </label>
+                  </div>
+                  <!-- Hidden File Input for WebP upload -->
+                  <input type="file" id="profile-photo-file-input" accept="image/*" style="display: none;" onchange="handleProfilePhotoSelected(event)">
+                </div>
+
+                <h3 class="account-student-name" id="acc-card-name">Student Name</h3>
+                <p class="account-student-school" id="acc-card-school">School Name</p>
+
+                <div class="account-badges-row">
+                  <span class="account-batch-tag" id="acc-card-batch">2027 A/L</span>
+                  <span class="account-verified-tag" id="acc-card-verified"><i class="fa-solid fa-circle-check"></i> Verified Student</span>
+                </div>
+
+                <div class="avatar-action-buttons">
+                  <button type="button" class="btn-avatar-action upload" onclick="document.getElementById('profile-photo-file-input').click()">
+                    <i class="fa-solid fa-camera"></i> Change Photo (WebP)
+                  </button>
+                  <button type="button" class="btn-avatar-action delete" id="btn-delete-avatar" onclick="removeProfilePhoto()" style="display: none;">
+                    <i class="fa-solid fa-trash-can"></i> Remove Photo
+                  </button>
+                </div>
+
+                <div class="avatar-info-callout">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>ඔබ upload කරන ඡායාරූපය ස්වයංක්‍රීයව අධි-වේගී <strong>WebP</strong> ආකෘතියට optimize වී ආරක්ෂිතව link එකක් ලෙස save වේ.</span>
+                </div>
+              </div>
+
+              <!-- Right Card: Editable Details Form -->
+              <div class="account-details-form-card">
+                <div class="form-card-header">
+                  <i class="fa-solid fa-user-pen"></i>
+                  <div>
+                    <h4>Personal Credentials &amp; Examination Settings</h4>
+                    <p>ඔබගේ තොරතුරු නිවැරදිව පවත්වා ගන්න (Gmail ලිපිනය වෙනස් කළ නොහැක)</p>
+                  </div>
+                </div>
+
+                <form id="student-account-form" onsubmit="saveStudentProfile(event)">
+                  <div class="account-fields-grid">
+                    
+                    <!-- Full Name -->
+                    <div class="acc-form-group">
+                      <label for="acc-input-name"><i class="fa-regular fa-user"></i> Full Name (සම්පූර්ණ නම) *</label>
+                      <input type="text" id="acc-input-name" class="acc-form-input" required placeholder="Enter full name">
+                    </div>
+
+                    <!-- School -->
+                    <div class="acc-form-group">
+                      <label for="acc-input-school"><i class="fa-solid fa-school"></i> School (පාසල) *</label>
+                      <input type="text" id="acc-input-school" class="acc-form-input" required placeholder="Enter school name">
+                    </div>
+
+                    <!-- WhatsApp / Phone -->
+                    <div class="acc-form-group">
+                      <label for="acc-input-phone"><i class="fa-brands fa-whatsapp"></i> WhatsApp / Phone (දුරකථන අංකය) *</label>
+                      <input type="tel" id="acc-input-phone" class="acc-form-input" required placeholder="07XXXXXXXX">
+                    </div>
+
+                    <!-- Target A/L Batch -->
+                    <div class="acc-form-group">
+                      <label for="acc-input-batch"><i class="fa-solid fa-graduation-cap"></i> Target A/L Batch (විභාග වර්ෂය) *</label>
+                      <select id="acc-input-batch" class="acc-form-select">
+                        <option value="2027">2027 A/L (August 01, 2027)</option>
+                        <option value="2028">2028 A/L (August 01, 2028)</option>
+                      </select>
+                    </div>
+
+                    <!-- Gmail Address (Strictly Locked / Non-Editable) -->
+                    <div class="acc-form-group full-width">
+                      <label for="acc-input-email" style="display: flex; justify-content: space-between;">
+                        <span><i class="fa-regular fa-envelope"></i> Registered Gmail / Email (ලියාපදිංචි Gmail ලිපිනය)</span>
+                        <span class="locked-security-tag"><i class="fa-solid fa-lock"></i> Cannot be changed</span>
+                      </label>
+                      <div class="locked-input-wrapper">
+                        <input type="email" id="acc-input-email" class="acc-form-input locked" disabled readonly title="Gmail address is permanently bound to your account and cannot be modified">
+                        <i class="fa-solid fa-lock locked-field-icon" title="Locked for security"></i>
+                      </div>
+                      <span class="field-hint-text">ආරක්ෂක හේතූන් මත ලියාපදිංචි Gmail ලිපිනය වෙනස් කිරීමට අවසර නැත.</span>
+                    </div>
+
+                    <!-- Student ID (Readonly) -->
+                    <div class="acc-form-group">
+                      <label><i class="fa-solid fa-fingerprint"></i> Student ID (ශිෂ්‍ය අංකය)</label>
+                      <input type="text" id="acc-input-id" class="acc-form-input locked" disabled readonly>
+                    </div>
+
+                    <!-- Verification Status -->
+                    <div class="acc-form-group">
+                      <label><i class="fa-solid fa-certificate"></i> Account Status</label>
+                      <input type="text" id="acc-input-status" class="acc-form-input locked" disabled readonly value="Active Student">
+                    </div>
+
+                  </div>
+
+                  <div class="acc-form-actions">
+                    <button type="submit" class="btn-save-account" id="btn-save-account">
+                      <i class="fa-solid fa-floppy-disk"></i> Save Profile Changes (වෙනස්කම් සුරකින්න)
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          
+
+
+
+          
+
+                <!-- Floating Persistent Focus Mini-Timer (Active while browsing other tabs) -->
+        <div class="floating-focus-pip" id="floating-focus-pip" style="display:none;" onclick="switchDashboardTab('tab-focusstudio')">
+          <div class="pip-icon-pulse"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="pip-info">
+            <span class="pip-label" id="pip-mode-label">Focusing</span>
+            <strong class="pip-timer" id="pip-timer-display">25:00</strong>
+          </div>
+          <button class="btn-pip-toggle" onclick="event.stopPropagation(); toggleFocusTimerPlay();" title="Pause / Play">
+            <i class="fa-solid fa-pause" id="pip-play-icon"></i>
+          </button>
+          <button class="btn-pip-close" onclick="event.stopPropagation(); hideFocusPiP();" title="Minimize">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ==============================================================
+       SIGN UP MODAL (Registration Form)
+       ONLY 2027 A/L & 2028 A/L Options
+       Name • School (Private A/L option) • Year • Phone • Gmail • Password
+       ============================================================== -->
+  <div class="modal-backdrop" id="signup-modal">
+    <div class="modal-card modal-signup-card">
+      
+      <button class="modal-close-btn" onclick="closeModal('signup-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header-icon-box icon-green-leaf">
+        🌱
+      </div>
+
+      <h3 class="modal-title">Join Apex Biology</h3>
+      <p class="modal-subtitle">Create your student account to access your A/L Bio Portal</p>
+
+      <form id="signup-form" onsubmit="handleSignup(event)">
+        
+        <!-- 1. Full Name -->
+        <div class="form-group">
+          <label for="reg-name"><i class="fa-solid fa-user"></i> Full Name *</label>
+          <input type="text" id="reg-name" placeholder="e.g. Kasun Mendis" required autocomplete="name">
+        </div>
+
+        <!-- 2. School Name with Private A/L Option -->
+        <div class="form-group">
+          <div class="school-label-row">
+            <label for="reg-school"><i class="fa-solid fa-school"></i> School Name *</label>
+            <label class="private-candidate-checkbox">
+              <input type="checkbox" id="reg-is-private" onchange="togglePrivateCandidate(this)">
+              <span>Private Candidate (Private A/L)</span>
+            </label>
+          </div>
+          <input type="text" id="reg-school" placeholder="e.g. Ananda College, Colombo" required autocomplete="organization">
+        </div>
+
+        <!-- Sri Lanka 25 Districts Selection -->
+        <div class="form-group">
+          <label for="reg-district"><i class="fa-solid fa-map-location-dot"></i> District (දිස්ත්‍රික්කය) *</label>
+          <select id="reg-district" required style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; background: #ffffff; color: #1e293b; font-size: 0.95rem; font-weight: 600;">
+            <option value="" disabled selected>-- ඔබේ දිස්ත්‍රික්කය තෝරන්න (Select District) --</option>
+            <option value="Colombo">Colombo (කොළඹ)</option>
+            <option value="Gampaha">Gampaha (ගම්පහ)</option>
+            <option value="Kalutara">Kalutara (කළුතර)</option>
+            <option value="Kandy">Kandy (මහනුවර)</option>
+            <option value="Matale">Matale (මාතලේ)</option>
+            <option value="Nuwara Eliya">Nuwara Eliya (නුවරඑළිය)</option>
+            <option value="Galle">Galle (ගාල්ල)</option>
+            <option value="Matara">Matara (මාතර)</option>
+            <option value="Hambantota">Hambantota (හම්බන්තොට)</option>
+            <option value="Jaffna">Jaffna (යාපනය)</option>
+            <option value="Kilinochchi">Kilinochchi (කිලිනොච්චිය)</option>
+            <option value="Mannar">Mannar (මන්නාරම)</option>
+            <option value="Vavuniya">Vavuniya (වවුනියාව)</option>
+            <option value="Mullaitivu">Mullaitivu (මුලතිව්)</option>
+            <option value="Batticaloa">Batticaloa (මඩකලපුව)</option>
+            <option value="Ampara">Ampara (අම්පාර)</option>
+            <option value="Trincomalee">Trincomalee (ත්‍රිකුණාමලය)</option>
+            <option value="Kurunegala">Kurunegala (කුරුණෑගල)</option>
+            <option value="Puttalam">Puttalam (පුත්තලම)</option>
+            <option value="Anuradhapura">Anuradhapura (අනුරාධපුරය)</option>
+            <option value="Polonnaruwa">Polonnaruwa (පොළොන්නරුව)</option>
+            <option value="Badulla">Badulla (බදුල්ල)</option>
+            <option value="Monaragala">Monaragala (මොනරාගල)</option>
+            <option value="Ratnapura">Ratnapura (රත්නපුර)</option>
+            <option value="Kegalle">Kegalle (කෑගල්ල)</option>
+          </select>
+        </div>
+
+        <!-- 3. Two Columns: ONLY 2027 & 2028 A/L Options + Phone Number -->
+        <div class="form-row-two">
+          <!-- A/L Year: ONLY 2027 & 2028 as requested! -->
+          <div class="form-group">
+            <label for="reg-year"><i class="fa-solid fa-graduation-cap"></i> A/L Target Year *</label>
+            <select id="reg-year" required>
+              <option value="2027" selected>2027 A/L Batch (Prefix 27)</option>
+              <option value="2028">2028 A/L Batch (Prefix 28)</option>
+            </select>
+          </div>
+
+          <!-- Phone Number (WhatsApp) -->
+          <div class="form-group">
+            <label for="reg-phone"><i class="fa-brands fa-whatsapp"></i> Phone (WhatsApp) *</label>
+            <input type="tel" id="reg-phone" placeholder="07X XXX XXXX" required autocomplete="tel">
+          </div>
+        </div>
+
+        <!-- Gender Selection: Male / Female -->
+        <div class="form-group">
+          <label><i class="fa-solid fa-venus-mars"></i> Gender *</label>
+          <div class="gender-radio-row">
+            <label class="gender-radio-label">
+              <input type="radio" name="reg-gender" value="male" checked>
+              <span><i class="fa-solid fa-mars"></i> Male (ශිෂ්‍ය)</span>
+            </label>
+            <label class="gender-radio-label">
+              <input type="radio" name="reg-gender" value="female">
+              <span><i class="fa-solid fa-venus"></i> Female (ශිෂ්‍යාව)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 4. Gmail / Email -->
+        <div class="form-group">
+          <label for="reg-email"><i class="fa-solid fa-envelope"></i> Gmail / Email Address *</label>
+          <input type="email" id="reg-email" placeholder="e.g. kasun@gmail.com" required autocomplete="email">
+        </div>
+
+        <!-- 5. Password with Eye Toggle -->
+        <div class="form-group">
+          <label for="reg-password"><i class="fa-solid fa-lock"></i> Password *</label>
+          <div class="password-wrapper">
+            <input type="password" id="reg-password" placeholder="Create a secure password" required minlength="6" autocomplete="new-password">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility()" aria-label="Toggle password view">
+              <i class="fa-solid fa-eye" id="eye-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real Cloudflare Turnstile Bot Protection Widget (Sign Up) -->
+        <div class="turnstile-container-wrapper" style="margin: 14px 0; display: flex; justify-content: center; min-height: 65px;">
+          <div class="cf-turnstile" id="cf-turnstile-signup" data-sitekey="0x4AAAAAAAf9u_nqcEWIcqRqH" data-error-callback="handleTurnstileError" data-theme="dark"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-modal-action btn-submit-signup" id="btn-signup-submit">
+          <i class="fa-solid fa-circle-check"></i> Sign Up & Open Dashboard
+        </button>
+
+        <!-- Switch to Login -->
+        <div class="modal-switch-prompt" style="text-align: center; margin-top: 14px; font-size: 0.88rem; color: #94a3b8;">
+          Already have an account? <a href="javascript:void(0)" onclick="closeModal('signup-modal'); openModal('login-modal');" style="color: #10b981; font-weight: 700; text-decoration: underline;">Log In here</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       STUDENT LOGIN MODAL (Gmail + Password with 7-Day Session)
+       ============================================================== -->
+  <div class="modal-backdrop" id="login-modal">
+    <div class="modal-card modal-signup-card">
+      
+      <button class="modal-close-btn" onclick="closeModal('login-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header-icon-box icon-green-leaf">
+        🔐
+      </div>
+
+      <h3 class="modal-title">Student Login</h3>
+      <p class="modal-subtitle">Enter your registered Gmail & Password to access your Bio Portal</p>
+
+      <form id="student-login-form" onsubmit="handleStudentLogin(event)">
+        
+        <!-- Gmail / Email -->
+        <div class="form-group">
+          <label for="login-email"><i class="fa-solid fa-envelope"></i> Gmail / Email Address *</label>
+          <input type="email" id="login-email" placeholder="e.g. kasun@gmail.com" required autocomplete="email">
+        </div>
+
+        <!-- Password with Eye Toggle -->
+        <div class="form-group">
+          <label for="login-password"><i class="fa-solid fa-lock"></i> Password *</label>
+          <div class="password-wrapper">
+            <input type="password" id="login-password" placeholder="Enter your account password" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-eye" onclick="toggleLoginPasswordVisibility()" aria-label="Toggle password view">
+              <i class="fa-solid fa-eye" id="login-eye-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 7-Day Session Active Info -->
+        <div style="font-size: 0.78rem; color: #64748b; margin-top: -6px; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.08); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.2);">
+          <i class="fa-solid fa-clock-rotate-left" style="color: #10b981;"></i>
+          <span>දින 7ක් යනතුරු ඔබගේ Login Session එක සක්‍රීයව පවතී (Auto-stays logged in for 7 days).</span>
+        </div>
+
+        <!-- Real Cloudflare Turnstile Bot Protection Widget (Login) -->
+        <div class="turnstile-container-wrapper" style="margin: 14px 0; display: flex; justify-content: center; min-height: 65px;">
+          <div class="cf-turnstile" id="cf-turnstile-login" data-sitekey="0x4AAAAAAAf9u_nqcEWIcqRqH" data-error-callback="handleTurnstileError" data-theme="dark"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-modal-action btn-submit-signup" id="btn-login-submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Log In to Student Dashboard
+        </button>
+
+        <!-- Switch to Signup -->
+        <div class="modal-switch-prompt" style="text-align: center; margin-top: 14px; font-size: 0.88rem; color: #94a3b8;">
+          Don't have an account yet? <a href="javascript:void(0)" onclick="closeModal('login-modal'); openModal('signup-modal');" style="color: #10b981; font-weight: 700; text-decoration: underline;">Sign Up here</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       INTERACTIVE FOLDER MODAL (Video Lessons Inside Folder)
+       ============================================================== -->
+  <div class="modal-backdrop" id="folder-modal">
+    <div class="modal-card folder-modal-card">
+      <button class="modal-close-btn" onclick="closeModal('folder-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header-icon-box" id="folder-modal-icon">
+        📁
+      </div>
+
+      <h3 class="modal-title" id="folder-modal-title">Unit 01: Chemical Basis of Life</h3>
+      <p class="modal-subtitle" id="folder-modal-sub">8 Video Lessons • 16.5 Hours of Masterclasses</p>
+
+      <div class="folder-lessons-list" id="folder-lessons-list">
+        <!-- Lessons rendered dynamically by openFolderModal() -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       INTERACTIVE VIDEO PLAYER MODAL (1080p Player Simulation)
+       ============================================================== -->
+  <div class="modal-backdrop" id="video-player-modal">
+    <div class="modal-card video-player-modal-card">
+      <div id="video-focus-mini-chip" class="video-focus-chip" style="display:none;" onclick="switchDashboardTab('tab-focusstudio'); closeModal('video-player-modal');" title="Focus Session Active">
+          <i class="fa-solid fa-bullseye"></i> <span id="video-focus-timer-text">25:00</span>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('video-player-modal')" aria-label="Close video player">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="player-top-header">
+        <span class="player-unit-tag" id="player-unit-tag">02 පාඩම • Unit 02</span>
+        <h3 class="player-video-title" id="player-video-title">සෛල ව්‍යුහය, ඉන්ද්‍රයිකා සහ සූක්‍ෂම ව්‍යුහය</h3>
+      </div>
+
+            <!-- Protected Secure Video Player Container -->
+      <div class="secure-player-container" id="secure-player-container" oncontextmenu="return false;">
+        <!-- Anti-Inspect / Anti-Redirect YouTube Shields -->
+        <div class="yt-player-shield-top" oncontextmenu="return false;"></div>
+        <div class="yt-player-shield-middle" onclick="toggleSecurePlayback()" oncontextmenu="return false;">
+          <div class="secure-center-play-badge" id="secure-center-play-badge">
+            <i class="fa-solid fa-play"></i>
+          </div>
+        </div>
+        <div class="yt-player-shield-bottom-right" oncontextmenu="return false;"></div>
+
+        <!-- Embedded YouTube Frame (No YouTube branding or open links) -->
+        <iframe id="secure-yt-iframe" class="secure-player-iframe" src="about:blank" 
+                title="Apex Biology Protected Stream" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+
+        <!-- Custom Secure Controls Bar -->
+        <div class="secure-controls-bar">
+          <div class="secure-scrubber-track" onclick="seekSecureVideo(event)" title="Seek video">
+            <div class="secure-scrubber-fill" id="secure-scrubber-fill"></div>
+          </div>
+          <div class="secure-controls-row">
+            <div class="secure-controls-left">
+              <button type="button" class="btn-secure-ctrl" onclick="toggleSecurePlayback()" title="Play / Pause">
+                <i class="fa-solid fa-pause" id="secure-play-btn-icon"></i>
+              </button>
+              <button type="button" class="btn-secure-ctrl" onclick="toggleSecureMute()" title="Mute / Unmute">
+                <i class="fa-solid fa-volume-high" id="secure-vol-btn-icon"></i>
+              </button>
+              <span class="secure-time-counter" id="secure-time-counter">00:00 / 02:30:00</span>
+            </div>
+            <div class="secure-controls-right">
+              <!-- Video Quality Selector -->
+              <div class="player-setting-pill">
+                <i class="fa-solid fa-sliders" style="font-size:0.75rem;"></i>
+                <select id="secure-quality-select" onchange="changeSecureVideoQuality(this.value)" title="Change Video Quality">
+                  <option value="hd1080">1080p Full HD</option>
+                  <option value="hd720">720p HD</option>
+                  <option value="large">480p SD</option>
+                  <option value="medium">360p Data Saver</option>
+                  <option value="auto" selected>Auto Quality</option>
+                </select>
+              </div>
+
+              <!-- Playback Speed Selector -->
+              <div class="player-setting-pill">
+                <i class="fa-solid fa-gauge-high" style="font-size:0.75rem;"></i>
+                <select id="secure-speed-select" onchange="changeSecureVideoSpeed(this.value)" title="Playback Speed">
+                  <option value="0.75">0.75x</option>
+                  <option value="1.0" selected>1.0x Normal</option>
+                  <option value="1.25">1.25x</option>
+                  <option value="1.5">1.5x Fast</option>
+                  <option value="1.75">1.75x</option>
+                  <option value="2.0">2.0x 2x Speed</option>
+                </select>
+              </div>
+
+              <span class="secure-encryption-pill"><i class="fa-solid fa-lock"></i> Protected</span>
+              <button type="button" class="btn-secure-ctrl" onclick="toggleSecureFullscreen()" title="Fullscreen">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-footer-info">
+        <div class="player-teacher-tag">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Apex Biology • Island #1 Teaching Panel • National NIE Syllabus</span>
+        </div>
+        <button class="btn-download-tute-pdf" onclick="showToast('Downloading Lesson Theory & MCQ Notes PDF...')">
+          <i class="fa-solid fa-file-pdf"></i> Download Lesson Notes PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       INTERACTIVE MONTHLY CLASS CARD DETAILS MODAL
+       ============================================================== -->
+  <div class="modal-backdrop" id="class-card-modal">
+    <div class="modal-card" style="max-width: 500px;">
+      <button class="modal-close-btn" onclick="closeModal('class-card-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header-icon-box" style="font-size: 36px; text-align: center; margin-bottom: 12px;">
+        💳
+      </div>
+
+      <h3 class="modal-title" id="card-modal-title" style="text-align: center;">2027 A/L Monthly Class Card</h3>
+      <p class="modal-subtitle" id="card-modal-month" style="text-align: center; color: #10b981; font-weight: 700;">November 2026 Batch</p>
+
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; margin: 18px 0;">
+        <h4 style="font-size: 0.92rem; color: #f1f5f9; margin-bottom: 8px;"><i class="fa-solid fa-list-check" style="color: #10b981;"></i> විෂය නිර්දේශ ආවරණය (Syllabus Covered):</h4>
+        <p id="card-modal-desc" style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0;"></p>
+        
+        <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.82rem; color: #64748b;"><i class="fa-regular fa-calendar-check"></i> වලංගු කාලය (Validity):</span>
+          <strong id="card-modal-validity" style="font-size: 0.84rem; color: #facc15;">2026-11-01 to 2026-12-10</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <span style="font-size: 0.78rem; color: #64748b; text-transform: uppercase;">මාසික ගාස්තුව (Monthly Fee)</span>
+          <div id="card-modal-price" style="font-size: 1.6rem; font-weight: 900; color: #10b981;">Rs. 3,500</div>
+        </div>
+        <div id="card-modal-status-badge"></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" class="btn-modal-action" id="btn-card-modal-request" onclick="handleCardRequestSubmit()" style="background: linear-gradient(135deg, #10b981, #059669); font-size: 1rem; padding: 14px 20px; font-weight: 700;">
+          <i class="fa-solid fa-paper-plane"></i> Request Card Activation (කාඩ්පත ඉල්ලුම් කරන්න)
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       UNLOCK VIDEO PACK MODAL (Request Unlock from Admin)
+       ============================================================== -->
+  <!-- ==============================================================
+       PRODUCT DETAIL & DELIVERY ORDER MODAL (Buy Now)
+       ============================================================== -->
+  <div class="modal-backdrop" id="product-detail-modal">
+    <div class="modal-card" style="max-width: 620px;">
+      <button class="modal-close-btn" onclick="closeModal('product-detail-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="product-modal-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       BIO BANK IMAGE GALLERY & VIEWER MODAL
+       ============================================================== -->
+  <div class="modal-backdrop" id="biobank-gallery-modal">
+    <div class="modal-card" style="max-width: 800px; text-align: center;">
+      <button class="modal-close-btn" onclick="closeModal('biobank-gallery-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 id="gallery-modal-title" style="margin-bottom: 12px; color: #10b981;">Material Image Collection</h3>
+      <div id="gallery-images-container" style="display:flex; flex-direction:column; gap:16px; max-height:70vh; overflow-y:auto; padding:10px;">
+        <!-- Images rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="unlock-pack-modal">
+    <div class="modal-card" style="max-width: 480px; text-align: center;">
+      <button class="modal-close-btn" onclick="closeModal('unlock-pack-modal')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header-icon-box" style="font-size: 38px; margin-bottom: 12px;">
+        🔒
+      </div>
+
+      <h3 class="modal-title" id="unlock-modal-title">Video Pack is Locked</h3>
+      <p class="modal-subtitle" id="unlock-modal-tutor" style="color: #10b981; font-weight: 700;">A/L Biology Masterclasses</p>
+
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; margin: 18px 0; text-align: left;">
+        <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5; margin: 0;">
+          මෙම Video Pack එක නැරඹීමට Admin වෙතින් Unlock කරගත යුතුය. පහත <strong>Request Unlock (Unlock It)</strong> බොත්තම ක්ලික් කරන්න. එවිට Admin පැනලයට ඔබගේ ඉල්ලීම යොමුවී Unlock කර දෙනු ඇත.
+        </p>
+      </div>
+
+      <button type="button" class="btn-modal-action" id="btn-submit-unlock-req" onclick="submitVideoPackUnlockRequest()">
+        <i class="fa-solid fa-unlock"></i> Request Unlock (Unlock It)
+      </button>
+    </div>
+  </div>
+
+
+    <!-- ==============================================================
+       BIO STUDY TRICKS DETAIL BREAKDOWN MODAL
+       ============================================================== -->
+  <div class="modal-backdrop" id="study-trick-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeStudyTrickModal()" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Header with Icon & Bilingual Titles -->
+      <div class="trick-modal-header">
+        <div class="trick-modal-icon-badge" id="modal-trick-icon-badge">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="trick-modal-title-area">
+          <div class="trick-modal-top-tags">
+            <span class="trick-num-badge" id="modal-trick-num">#01</span>
+            <span class="trick-category-pill" id="modal-trick-category">Cognitive Technique</span>
+            <span class="trick-category-pill" id="modal-trick-badge" style="color: #34d399; border-color: rgba(16, 185, 129, 0.3);">Nobel Strategy</span>
+          </div>
+          <h3 class="trick-modal-title-si" id="modal-trick-title-si">ෆෙයින්මන් ක්‍රමය</h3>
+          <p class="trick-modal-title-en" id="modal-trick-title-en">The Feynman Technique</p>
+        </div>
+      </div>
+
+      <!-- Language Filter / Switcher Bar -->
+      <div class="trick-lang-selector-bar">
+        <div class="trick-lang-pills">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #64748b; margin-right: 4px;">VIEW:</span>
+          <button class="btn-trick-lang active" data-lang="both" onclick="setTrickLangView('both')">
+            <i class="fa-solid fa-globe"></i> Both (දෙකම)
+          </button>
+          <button class="btn-trick-lang" data-lang="si" onclick="setTrickLangView('si')">
+            🇱🇰 සිංහල පමණි
+          </button>
+          <button class="btn-trick-lang" data-lang="en" onclick="setTrickLangView('en')">
+            🇬🇧 English Only
+          </button>
+        </div>
+        <button class="btn-trick-copy-summary" onclick="copyCurrentTrickSummary()">
+          <i class="fa-regular fa-copy"></i> Copy Summary
+        </button>
+      </div>
+
+      <!-- Main Explanation Blocks -->
+      <div class="trick-content-container">
+        
+        <!-- Sinhala Description Box -->
+        <div class="trick-desc-card sinhala-box" id="modal-trick-box-si">
+          <div class="trick-box-header">
+            <i class="fa-solid fa-book-bookmark"></i> සිංහල සම්පූර්ණ විස්තරය &amp; ක්‍රමවේදය
+          </div>
+          <p class="trick-box-text" id="modal-trick-desc-si"></p>
+        </div>
+
+        <!-- English Description Box -->
+        <div class="trick-desc-card english-box" id="modal-trick-box-en">
+          <div class="trick-box-header">
+            <i class="fa-solid fa-graduation-cap"></i> English Cognitive Breakdown
+          </div>
+          <p class="trick-box-text" id="modal-trick-desc-en"></p>
+        </div>
+
+        <!-- Memorable Golden Rule Quote -->
+        <div class="trick-quote-banner" id="modal-trick-quote-banner">
+          <i class="fa-solid fa-quote-left"></i>
+          <span id="modal-trick-quote"></span>
+        </div>
+
+        <!-- Bottom Insights: A/L Biology Practical Example & Neuroscience Mechanism -->
+        <div class="trick-meta-insights">
+          <div class="trick-insight-card bio-app">
+            <div class="trick-insight-icon"><i class="fa-solid fa-dna"></i></div>
+            <div class="trick-insight-content">
+              <h4>🎯 A/L Biology High-Yield Practical Application</h4>
+              <p id="modal-trick-bio-app"></p>
+            </div>
+          </div>
+
+          <div class="trick-insight-card neuro-mech">
+            <div class="trick-insight-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="trick-insight-content">
+              <h4>🧠 Neuroscience &amp; Cognitive Mechanism</h4>
+              <p id="modal-trick-neuro-mech"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer (Previous, Counter, Next) -->
+      <div class="trick-modal-nav-footer">
+        <button class="btn-trick-nav" id="btn-prev-trick" onclick="navigateStudyTrick(-1)">
+          <i class="fa-solid fa-arrow-left"></i> Previous Hack
+        </button>
+        <span class="trick-counter-badge" id="modal-trick-counter">01 / 20</span>
+        <button class="btn-trick-nav" id="btn-next-trick" onclick="navigateStudyTrick(1)">
+          Next Hack <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==============================================================
+       MODAL: LOG / EDIT PAPER (Paper Tracker)
+       ============================================================== -->
+  <!-- ==============================================================
+       CLEAN MODAL: ADD / EDIT PAST PAPER (MATCHING USER SCREENSHOT)
+       ============================================================== -->
+  <!-- ==============================================================
+       MODAL: ADD CUSTOM SUBJECT (Dynamic Multi-Subject)
+       ============================================================== -->
+  <div class="modal-backdrop" id="modal-add-subject">
+    <div class="modal-card" style="max-width: 460px;">
+      <button class="modal-close-btn" onclick="closeModal('modal-add-subject')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+          <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.15rem; color: #0f172a; font-weight: 800;">Add Your Subject</h3>
+          <p style="margin: 2px 0 0; font-size: 0.8rem; color: #64748b;">ඔබ හදාරන ඕනෑම විෂයක් මෙතැනින් ඇතුළත් කරන්න.</p>
+        </div>
+      </div>
+
+      <form onsubmit="handleSaveCustomSubject(event)">
+        <!-- Quick Preset Suggestions -->
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.76rem; font-weight: 700; color: #64748b; margin-bottom: 6px;">QUICK SUGGESTIONS (කෙටි මඟින් තෝරාගන්න):</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <button type="button" class="subject-preset-chip" onclick="quickFillSubject('Biology', '🧬')">🧬 Biology</button>
+            <button type="button" class="subject-preset-chip" onclick="quickFillSubject('Chemistry', '🧪')">🧪 Chemistry</button>
+            <button type="button" class="subject-preset-chip" onclick="quickFillSubject('Physics', '⚛️')">⚛️ Physics</button>
+            <button type="button" class="subject-preset-chip" onclick="quickFillSubject('Combined Maths', '📐')">📐 Combined Maths</button>
+            <button type="button" class="subject-preset-chip" onclick="quickFillSubject('ICT', '💻')">💻 ICT</button>
+            <button type="button" class="subject-preset-chip" onclick="quickFillSubject('Agricultural Science', '🌾')">🌾 Agri</button>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 6px;">Subject Name (විෂයේ නම) *</label>
+          <input type="text" id="new-subject-name" required placeholder="e.g. Biology, Chemistry, Physics..." style="width: 100%; padding: 10px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.92rem; font-weight: 600;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 6px;">Subject Icon / Emoji (අයිකනය) *</label>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="new-subject-icon" required value="📚" style="width: 60px; text-align: center; font-size: 1.3rem; padding: 6px; border-radius: 12px; border: 1.5px solid #cbd5e1;">
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='🧬'">🧬</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='🧪'">🧪</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='⚛️'">⚛️</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='📐'">📐</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='💻'">💻</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='🌾'">🌾</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='📚'">📚</span>
+              <span style="cursor: pointer; font-size: 1.2rem; padding: 4px;" onclick="document.getElementById('new-subject-icon').value='✍️'">✍️</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary-action w-100" style="background: #10b981; color: #ffffff; padding: 12px 20px; font-weight: 800; border-radius: 12px; font-size: 0.95rem; cursor: pointer; border: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);">
+          <i class="fa-solid fa-plus"></i> Add Subject
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==============================================================
+       CLEAN MODAL: ADD / EDIT PAST PAPER (FULL BREAKDOWN & MULTI-REASONS)
+       ============================================================== -->
+  <div class="modal-backdrop" id="modal-clean-paper">
+    <div class="modal-card" style="max-width: 620px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close-btn" onclick="closeModal('modal-clean-paper')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(13, 148, 136, 0.15); color: #0d9488; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">
+          <i class="fa-solid fa-file-circle-plus"></i>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.15rem; color: #0f172a; font-weight: 800;" id="clean-paper-modal-heading">Add Past Paper</h3>
+          <p style="margin: 2px 0 0; font-size: 0.8rem; color: #64748b;">Record MCQ, Structured, Essay marks and diagnose why marks were lost.</p>
+        </div>
+      </div>
+
+      <form onsubmit="handleSaveCleanPaper(event)">
+        <input type="hidden" id="clean-paper-id">
+
+        <!-- Title -->
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 5px;">Paper Name / Title *</label>
+          <input type="text" id="clean-paper-title" required placeholder="e.g. 2024 A/L Past Paper (Full/Part I)" style="width: 100%; padding: 10px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.9rem;">
+        </div>
+
+        <!-- Paper Format / Type -->
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 0.78rem; font-weight: 700; color: #475569; margin-bottom: 5px;">PAPER FORMAT / TYPE (ප්‍රශ්න පත්‍ර ආකෘතිය) *</label>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;" id="clean-paper-type-row">
+            <button type="button" class="paper-type-pill-btn active" data-type="full" onclick="setCleanPaperType('full')">Full Paper</button>
+            <button type="button" class="paper-type-pill-btn" data-type="mcq" onclick="setCleanPaperType('mcq')">MCQ Only</button>
+            <button type="button" class="paper-type-pill-btn" data-type="structured" onclick="setCleanPaperType('structured')">Structured</button>
+            <button type="button" class="paper-type-pill-btn" data-type="essay" onclick="setCleanPaperType('essay')">Essay Only</button>
+          </div>
+          <input type="hidden" id="clean-paper-type" value="full">
+        </div>
+
+        <!-- Subject & Marks Inputs -->
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 12px; margin-bottom: 12px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: #334155; margin: 0;">Subject *</label>
+              <button type="button" onclick="openAddSubjectModal()" style="background: none; border: none; color: #0d9488; font-size: 0.76rem; font-weight: 700; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 3px;">
+                <i class="fa-solid fa-plus"></i> Add New
+              </button>
+            </div>
+            <select id="clean-paper-subject" style="width: 100%; padding: 10px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-family: inherit; font-weight: 600; font-size: 0.88rem;">
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #0f766e; margin-bottom: 5px;">Final Score (%) *</label>
+            <input type="number" id="clean-paper-score" min="0" max="100" required placeholder="0 - 100" style="width: 100%; padding: 10px 14px; border-radius: 12px; border: 1.5px solid #0d9488; font-family: inherit; font-weight: 800; font-size: 1.05rem; background: #f0fdfa; color: #0f766e;">
+          </div>
+        </div>
+
+        <!-- Component Marks Row (MCQ / Structured / Essay) -->
+        <div id="clean-paper-breakdown-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; background: #f8fafc; padding: 12px 14px; border-radius: 14px; border: 1px solid #e2e8f0;">
+          <div id="col-mcq-score">
+            <label style="display: block; font-size: 0.74rem; font-weight: 700; color: #334155; margin-bottom: 4px;">MCQ (Part I)</label>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <input type="number" id="clean-paper-mcq" min="0" max="50" placeholder="0-50" oninput="autoCalcCleanPaperScore()" style="width: 100%; padding: 8px 10px; border-radius: 10px; border: 1.5px solid #cbd5e1; font-weight: 700; font-size: 0.88rem;">
+              <span style="font-size: 0.72rem; color: #64748b; font-weight: 700;">/50</span>
+            </div>
+          </div>
+          <div id="col-struct-score">
+            <label style="display: block; font-size: 0.74rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Structured</label>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <input type="number" id="clean-paper-struct" min="0" max="100" placeholder="0-100" oninput="autoCalcCleanPaperScore()" style="width: 100%; padding: 8px 10px; border-radius: 10px; border: 1.5px solid #cbd5e1; font-weight: 700; font-size: 0.88rem;">
+              <span style="font-size: 0.72rem; color: #64748b; font-weight: 700;">%</span>
+            </div>
+          </div>
+          <div id="col-essay-score">
+            <label style="display: block; font-size: 0.74rem; font-weight: 700; color: #334155; margin-bottom: 4px;">Essay (Part II)</label>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <input type="number" id="clean-paper-essay" min="0" max="100" placeholder="0-100" oninput="autoCalcCleanPaperScore()" style="width: 100%; padding: 8px 10px; border-radius: 10px; border: 1.5px solid #cbd5e1; font-weight: 700; font-size: 0.88rem;">
+              <span style="font-size: 0.72rem; color: #64748b; font-weight: 700;">%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The user's explicit requirement: Multi-Reason Selection + Unlimited Custom Reasons -->
+        <div class="form-group" style="margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label style="font-size: 0.82rem; font-weight: 800; color: #b91c1c; margin: 0;">
+              <i class="fa-solid fa-triangle-exclamation"></i> ලකුණු අඩුවීමට හේතු (Reasons Why Marks Were Lost) *
+            </label>
+            <span style="font-size: 0.72rem; color: #64748b;">(ඕනෑම හේතු ගණනක් තෝරන්න)</span>
+          </div>
+
+          <!-- Multi-Select Checkboxes Grid -->
+          <div class="clean-reasons-multiselect" id="clean-reasons-multiselect">
+            <!-- Dynamically populated checkboxes -->
+          </div>
+
+          <!-- Add Any Custom Reason -->
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <input type="text" id="custom-reason-input" placeholder="+ වෙනත් ඕනෑම අලුත් හේතුවක් ලියන්න (Add Custom Reason)..." style="flex: 1; padding: 7px 12px; border-radius: 10px; border: 1.5px dashed #fca5a5; background: #fffdfd; font-size: 0.82rem;">
+            <button type="button" class="btn-flow-back" onclick="addCustomReasonToSelection()" style="padding: 7px 14px; font-size: 0.8rem; border-radius: 10px; background: #fee2e2; border-color: #fca5a5; color: #991b1b; font-weight: 700;">
+              <i class="fa-solid fa-plus"></i> Add Reason
+            </button>
+          </div>
+          <div id="custom-reasons-chips-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;"></div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label style="display: block; font-size: 0.8rem; font-weight: 700; color: #334155; margin-bottom: 6px;">
+            විශේෂ සටහන (Note on Weak Points / අමතක වූ පාඩම් කොටස්)
+          </label>
+          <textarea id="clean-paper-note" rows="2" placeholder="උදා: Unit 04 පූටිකා යාන්ත්‍රණය සහ සම්පත් පොතේ වචන ලිවීම මදි විය..." style="width: 100%; padding: 10px 14px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.84rem;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary-action w-100" style="background: #0d9488; color: #ffffff; padding: 12px 20px; font-weight: 800; border-radius: 12px; font-size: 0.95rem; cursor: pointer; border: none; box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);">
+          <i class="fa-solid fa-check"></i> Save Paper
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="biobank-data.js?v=bio_tricks_v2"></script>
+  <script src="studytricks-data.js?v=bio_tricks_v2"></script>
+  <script src="app.js?v=bio_tricks_v2"></script>
+
+
+
+  <!-- WINNER POPUP MODAL (Matching Image 5) -->
+  <div class="modal-backdrop" id="modal-rev-winner">
+    <div class="modal-card" style="max-width: 440px; text-align: center; padding: 36px 30px;">
+      <button class="modal-close-btn" onclick="closeModal('modal-rev-winner')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="rev-winner-trophy-wrap">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+
+      <div class="rev-winner-subject-tag" id="rev-winner-subject-badge">BIOLOGY</div>
+
+      <h2 class="rev-winner-topic-name" id="rev-winner-topic-name">අන්වීක්ෂය</h2>
+
+      <p style="font-size: 0.82rem; color: #64748b; margin: 0 0 24px 0;">
+        අද දින මෙම පාඩම් කොටස ආවර්ජනය කර Spaced Repetition චක්‍රයට එක් කරන්න.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px;">
+        <button type="button" class="btn-rev-skip" onclick="closeModal('modal-rev-winner')">
+          Skip for now
+        </button>
+        <button type="button" class="btn-rev-add-srs" onclick="addWinnerToSRSCycle()">
+          <i class="fa-solid fa-plus"></i> Add to SRS Cycle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+
+        <div style="display:flex; align-items:center; gap:14px;">
+          <!-- Timer Countdown Badge -->
+          <div class="player-timer-pill" id="player-timer-box" style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.2); padding:6px 14px; border-radius:999px; display:flex; align-items:center; gap:8px; font-family:monospace; font-size:1.1rem; font-weight:800; color:#34d399;">
+            <i class="fa-solid fa-stopwatch"></i>
+            <span id="player-timer-display">45:00</span>
+          </div>
+
+          <!-- Close / Exit Button -->
+          <button type="button" onclick="confirmExitExamPlayer()" style="background:rgba(255,255,255,0.12); border:none; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center;" title="Exit Exam">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Player Body: Split Left (Question + Choices) & Right (Palette) -->
+      <div class="exam-player-body" style="display:grid; grid-template-columns:1fr 280px; flex:1; overflow:hidden; background:#f8fafc;">
+        
+        <!-- Left: Question & Answers Scroll View -->
+        <div class="exam-question-pane" style="padding:24px 30px; overflow-y:auto; display:flex; flex-direction:column; justify-content:space-between;">
+          <div id="player-question-container">
+            <!-- Dynamic Question Content -->
+          </div>
+
+          <!-- Bottom Control Bar -->
+          <div class="player-control-row" style="display:flex; align-items:center; justify-content:space-between; margin-top:24px; padding-top:16px; border-top:1px solid #e2e8f0; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; gap:8px;">
+              <button type="button" class="btn-player-nav" id="btn-player-prev" onclick="navPlayerQuestion(-1)">
+                <i class="fa-solid fa-arrow-left"></i> Previous
+              </button>
+              <button type="button" class="btn-player-nav" id="btn-player-next" onclick="navPlayerQuestion(1)">
+                Next <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div style="display:flex; gap:8px;">
+              <button type="button" class="btn-player-clear" onclick="clearCurrentQuestionAnswer()">
+                Clear Selection
+              </button>
+              <button type="button" class="btn-player-submit" onclick="confirmSubmitExam()">
+                <i class="fa-solid fa-paper-plane"></i> Submit Exam
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Question Palette Grid & Legend -->
+        <div class="exam-palette-pane" style="background:#fff; border-left:1px solid #e2e8f0; padding:20px; display:flex; flex-direction:column; overflow-y:auto;">
+          <div style="font-size:0.85rem; font-weight:800; color:#0f172a; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+            <span>Question Palette</span>
+            <span id="player-progress-count" style="color:#059669; font-weight:800;">0 / 50</span>
+          </div>
+
+          <div class="player-palette-grid" id="player-palette-grid" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; margin-bottom:20px;">
+            <!-- 1 to 50 numbered bubbles -->
+          </div>
+
+          <div class="player-legend" style="border-top:1px solid #f1f5f9; padding-top:14px; font-size:0.75rem; color:#64748b; display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; background:#10b981;"></span> Answered</div>
+            <div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; background:#e2e8f0;"></span> Unanswered</div>
+            <div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; border:2px solid #3b82f6; background:#eff6ff;"></span> Current</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Result View Screen (Overlaid when exam is finished) -->
+      <div id="player-result-overlay" style="display:none; position:absolute; inset:0; background:#fff; z-index:20; padding:40px 24px; overflow-y:auto; text-align:center; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="max-width:540px; width:100%;">
+          <div style="width:72px; height:72px; border-radius:50%; background:#ecfdf5; color:#10b981; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 16px; box-shadow:0 8px 20px rgba(16,185,129,0.25);">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h2 style="font-size:1.6rem; font-weight:800; color:#064e3b; margin:0 0 6px;">Assessment Complete!</h2>
+          <p style="color:#64748b; font-size:0.9rem; margin:0 0 24px;">Your response has been graded and recorded to your progress analytics.</p>
+
+          <div style="background:linear-gradient(135deg, #f0fdf4, #ecfdf5); border:1px solid #a7f3d0; border-radius:18px; padding:24px; margin-bottom:24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+            <div>
+              <div style="font-size:0.8rem; color:#047857; font-weight:700;">TOTAL SCORE</div>
+              <div style="font-size:2rem; font-weight:900; color:#065f46;" id="res-score-display">42 / 50</div>
+            </div>
+            <div>
+              <div style="font-size:0.8rem; color:#047857; font-weight:700;">ACCURACY &amp; GRADE</div>
+              <div style="font-size:2rem; font-weight:900; color:#059669;" id="res-grade-display">84% (A)</div>
+            </div>
+            <div style="grid-column:1/-1; border-top:1px dashed #bbf7d0; padding-top:14px; font-size:0.85rem; color:#065f46; display:flex; justify-content:space-around;">
+              <span><i class="fa-solid fa-check" style="color:#10b981;"></i> Correct: <strong id="res-correct-count">42</strong></span>
+              <span><i class="fa-solid fa-xmark" style="color:#ef4444;"></i> Incorrect: <strong id="res-wrong-count">8</strong></span>
+              <span><i class="fa-regular fa-clock"></i> Time: <strong id="res-time-spent">32m 15s</strong></span>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <button type="button" class="btn-primary-action" onclick="closeStudentExamPlayer()"><i class="fa-solid fa-house"></i> Return to Portal</button>
+            <button type="button" class="btn-secondary" onclick="viewPaperTrackerFromExam()"><i class="fa-solid fa-chart-line"></i> View Paper Tracker</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==============================================================
+       APP & APK DOWNLOAD VIEW (Android APK & Desktop PC App)
+       ============================================================== -->
+  <main class="page-view" id="view-apk-download" style="display:none;">
+    <section class="apk-download-hero">
+      
+      <!-- Top Return Bar -->
+      <div class="apk-top-bar">
+        <button class="btn-apk-back" onclick="hideApkDownloadView()">
+          <i class="fa-solid fa-arrow-left"></i> <span>Back to Main Site</span>
+        </button>
+        <button class="btn-apk-portal" onclick="showDashboardView()">
+          <i class="fa-solid fa-chart-pie"></i> <span>Open Web Dashboard</span>
+        </button>
+      </div>
+
+      <div class="apk-content-container">
+        
+        <!-- Header Hero -->
+        <div class="apk-hero-header">
+          <div class="apk-app-icon-badge">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <h1 class="apk-hero-title">Apex Biology Official App</h1>
+          <p class="apk-hero-subtitle">
+            G.C.E. A/L ජීව විද්‍යාව සියලුම වීඩියෝ පාඩම්, සජීවී පන්ති සහ Paper Tracker ඔබගේ Android දුරකථනයට හෝ පරිගණකයට පහසුවෙන් බාගත කර ස්ථාපනය කරගන්න.
+          </p>
+          <div class="apk-tags-row">
+            <span class="apk-pill-tag">🌱 2027 &amp; 2028 A/L</span>
+            <span class="apk-pill-tag">⚡ v2.4.0 (Latest Release)</span>
+            <span class="apk-pill-tag">🛡️ 100% Virus Free &amp; Verified</span>
+          </div>
+        </div>
+
+        <!-- Download Cards Grid (Android APK + PC Web App) -->
+        <div class="apk-download-cards-grid">
+          
+          <!-- Card 1: Android APK Download -->
+          <div class="apk-download-card featured">
+            <div class="apk-card-badge">RECOMMENDED FOR MOBILE</div>
+            <div class="apk-card-icon android">
+              <i class="fa-brands fa-android"></i>
+            </div>
+            <h3>Android APK Direct Installer</h3>
+            <p>Direct APK package for Samsung, Xiaomi, Vivo, Oppo, Huawei &amp; all Android smartphones (Android 8.0+).</p>
+            
+            <div class="apk-specs-box">
+              <div><strong>Package:</strong> com.apexbiology.app</div>
+              <div><strong>Version:</strong> 2.4.0 (2027 A/L)</div>
+              <div><strong>File Size:</strong> 18.4 MB</div>
+              <div><strong>Price:</strong> 100% Free Download</div>
+            </div>
+
+            <a href="ApexBiology_v2.4.apk" download="ApexBiology_v2.4.apk" class="btn-apk-download-action" onclick="trackApkDownload('android')">
+              <i class="fa-solid fa-download"></i> Download Android APK (18.4 MB)
+            </a>
+
+            <!-- Quick Install Guide Dropdown -->
+            <details class="apk-install-guide">
+              <summary><i class="fa-solid fa-circle-question"></i> How to Install APK on Android (ස්ථාපනය කරන්නේ කෙසේද?)</summary>
+              <ol>
+                <li>Click the download button above to download <code>ApexBiology_v2.4.apk</code>.</li>
+                <li>When prompted by Chrome, tap <strong>"Download Anyway"</strong>.</li>
+                <li>Open the downloaded APK and select <strong>"Install"</strong> (Allow unknown apps if requested).</li>
+                <li>Login with your registered Gmail and password!</li>
+              </ol>
+            </details>
+          </div>
+
+          <!-- Card 2: PC / Laptop Desktop App (PWA) -->
+          <div class="apk-download-card">
+            <div class="apk-card-badge desktop">WINDOWS &amp; MAC DESKTOP</div>
+            <div class="apk-card-icon pc">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3>PC / Windows / Mac Desktop App</h3>
+            <p>Install Apex Biology as a standalone desktop application on your PC or Laptop with 1 click.</p>
+            
+            <div class="apk-specs-box">
+              <div><strong>Platform:</strong> Windows 10/11, macOS, Linux</div>
+              <div><strong>Tech:</strong> Progressive Web App (PWA)</div>
+              <div><strong>Display:</strong> Fullscreen Masterclass Player</div>
+              <div><strong>Offline:</strong> Offline Bio Bank Notes</div>
+            </div>
+
+            <button type="button" class="btn-apk-download-action desktop" onclick="triggerPwaInstall()">
+              <i class="fa-solid fa-desktop"></i> Install Desktop App (1-Click)
+            </button>
+
+            <details class="apk-install-guide">
+              <summary><i class="fa-solid fa-circle-question"></i> How to Install on PC (පරිගණකයට ස්ථාපනය)</summary>
+              <ol>
+                <li>Click <strong>"Install Desktop App"</strong> above.</li>
+                <li>In Chrome / Edge address bar, click the <strong>Install</strong> icon (or menu &gt; Install Apex Biology).</li>
+                <li>Launch directly from your desktop icon anytime without opening a browser!</li>
+              </ol>
+            </details>
+          </div>
+
+        </div>
+
+        <!-- App Key Features Grid -->
+        <div class="apk-features-section">
+          <h3><i class="fa-solid fa-wand-magic-sparkles"></i> App Key Advantages (ඇප් එකේ විශේෂ වාසි)</h3>
+          <div class="apk-features-grid">
+            <div class="apk-feat-card">
+              <div class="apk-feat-icon"><i class="fa-solid fa-bolt"></i></div>
+              <h4>Ultra Low Data Usage</h4>
+              <p>Ad-free streaming with data saver mode for zoom and theory video masterclasses.</p>
+            </div>
+            <div class="apk-feat-card">
+              <div class="apk-feat-icon"><i class="fa-solid fa-bell"></i></div>
+              <h4>Instant Notifications</h4>
+              <p>Never miss a live class or new past paper discussion with direct alert sounds.</p>
+            </div>
+            <div class="apk-feat-card">
+              <div class="apk-feat-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+              <h4>Offline Bio Bank Access</h4>
+              <p>Read government resource books and short notes even without an active internet connection.</p>
+            </div>
+            <div class="apk-feat-card">
+              <div class="apk-feat-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <h4>Integrated Focus Studio</h4>
+              <p>Built-in Pomodoro timers to boost study retention and track daily revision goals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:36px;">
+          <button class="btn-apk-back secondary" onclick="hideApkDownloadView()">
+            <i class="fa-solid fa-house"></i> Return to Homepage
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- MODAL: DESKTOP & WEB APP 1-CLICK INSTALLATION (YouTube Style) -->
+  <div class="modal-backdrop" id="modal-desktop-app-install" style="display:none; z-index:10000; align-items:center; justify-content:center; padding:16px;">
+    <div class="modal-card" style="max-width: 480px; text-align: center; padding: 32px 24px; border-radius: 24px; box-shadow: 0 25px 60px rgba(0,0,0,0.35);">
+      <button class="modal-close-btn" onclick="closeModal('modal-desktop-app-install')" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 16px; box-shadow: 0 10px 25px rgba(16,185,129,0.35);">
+        <i class="fa-solid fa-laptop-code"></i>
+      </div>
+
+      <h3 style="font-size: 1.35rem; font-weight: 800; color: #064e3b; margin: 0 0 8px;">Install Apex Biology Desktop</h3>
+      <p style="font-size: 0.88rem; color: #64748b; line-height: 1.5; margin: 0 0 20px;">
+        Install Apex Biology as a native desktop application on your PC, Windows Laptop, or Mac. Runs fullscreen without browser tabs!
+      </p>
+
+      <div style="background: #f0fdf4; border: 1.5px solid #a7f3d0; border-radius: 16px; padding: 16px; text-align: left; margin-bottom: 22px;">
+        <div style="font-weight: 800; color: #065f46; font-size: 0.85rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-circle-info" style="color: #10b981;"></i> Easy 1-Click Install Guide:
+        </div>
+        <ol style="margin: 0; padding-left: 20px; font-size: 0.82rem; color: #334155; line-height: 1.6;">
+          <li>In your Chrome or Edge address bar at the top right, look for the <strong>Install App icon (⊕ or 💻)</strong>.</li>
+          <li>Click <strong>"Install"</strong> to add the official desktop app icon to your Desktop &amp; Start Menu.</li>
+          <li>Or click Chrome Menu (⋮) &gt; <strong>"Save and share"</strong> &gt; <strong>"Install Apex Biology"</strong>.</li>
+        </ol>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" class="btn-primary-action" onclick="downloadApkDirectly(); closeModal('modal-desktop-app-install');" style="width: 100%; padding: 14px; font-weight: 700; border-radius: 12px; font-size: 0.95rem;">
+          <i class="fa-solid fa-download"></i> Download Android APK Instead (18.4 MB)
+        </button>
+        <button type="button" class="btn-secondary" onclick="closeModal('modal-desktop-app-install')" style="width: 100%; padding: 12px; border-radius: 12px; font-size: 0.88rem;">
+          Got it, Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

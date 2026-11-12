@@ -1,0 +1,24 @@
+{
+  "name": "apex-tuition",
+  "version": "1.0.0",
+  "description": "Apex Tuition - Modern 3D Educational Web Platform for A/L Success",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "apex-tuition",
+    "advanced-level",
+    "education",
+    "sri-lanka"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  },
+  "dependencies": {
+    "firebase": "^13.2.0"
+  }
+}
