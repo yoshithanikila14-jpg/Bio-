@@ -1,38 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apex Biology Admin Panel • Management Studio</title>
   <link rel="icon" type="image/svg+xml" href="/logo.svg">
-
+  
   <!-- Fonts & Font Awesome 6 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  
   <link rel="stylesheet" href="admin.css">
 </head>
-
 <body class="admin-body">
 
   <div class="admin-layout">
-
     
+    <!-- ==========================================================
+         SIDEBAR NAVIGATION
+         ========================================================== -->
+    <aside class="admin-sidebar">
+      
+      <!-- Brand Logo -->
+      <div class="admin-brand-box">
+        <div class="brand-logo-gem">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div class="brand-text">
+          <h2>Apex Biology</h2>
+          <span class="badge-admin-tag">● ADMIN STUDIO</span>
+        </div>
+      </div>
 
+      <!-- Admin Status Pill -->
+      <div class="admin-profile-pill">
+        <div class="admin-avatar">
+          <i class="fa-solid fa-user-shield" id="sidebar-admin-icon"></i>
+        </div>
+        <div class="admin-info">
+          <strong class="admin-name" id="sidebar-admin-name">Super Admin</strong>
+          <span class="admin-role" id="sidebar-admin-role">Full Access Management</span>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="admin-nav-list">
+        <div class="admin-nav-group-title" id="nav-group-core">CORE MANAGEMENT</div>
+
+        <button class="admin-nav-item active" data-tab="tab-overview" id="nav-tab-overview" onclick="switchAdminTab('tab-overview')">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Overview & Stats</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-students" id="nav-tab-students" onclick="switchAdminTab('tab-students')">
+          <i class="fa-solid fa-user-graduate"></i>
+          <span>Students & Verification</span>
+          <span class="admin-badge-count" id="count-students-badge">0</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-tutors-videos" id="nav-tab-tutors-videos" onclick="switchAdminTab('tab-tutors-videos')">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <span>Tutors & Video Packs</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-live-classes" id="nav-tab-live-classes" onclick="switchAdminTab('tab-live-classes')">
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>Live Classes</span>
+          <span class="admin-live-pulse">LIVE</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-fees-cards" id="nav-tab-fees-cards" onclick="switchAdminTab('tab-fees-cards')">
+          <i class="fa-solid fa-id-card"></i>
+          <span>Monthly Fees Cards</span>
+          <span class="admin-badge-count" id="count-cards-badge">0</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-monthly-classes" id="nav-tab-monthly-classes" onclick="switchAdminTab('tab-monthly-classes')">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Monthly Classes</span>
+          <span class="admin-badge-count green" id="count-monthly-classes-badge">0</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-freelessons-mgr" id="nav-tab-freelessons-mgr" onclick="switchAdminTab('tab-freelessons-mgr')">
+          <i class="fa-solid fa-circle-play"></i>
+          <span>Free Lessons Mgr</span>
+          <span class="admin-badge-count green" id="count-freelessons-badge">0</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-requests" id="nav-tab-requests" onclick="switchAdminTab('tab-requests')">
+          <i class="fa-solid fa-bell"></i>
+          <span>Requests & Unlocks</span>
+          <span class="admin-badge-count green" id="count-requests-badge">0</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-syllabus-mgr" id="nav-tab-syllabus-mgr" onclick="switchAdminTab('tab-syllabus-mgr')">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Syllabus Tracker Mgr</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-products" id="nav-tab-products" onclick="switchAdminTab('tab-products')">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span>Store Products & Orders</span>
+          <span class="admin-badge-count green" id="count-products-badge">0</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-admin-biobank" id="nav-tab-admin-biobank" onclick="switchAdminTab('tab-admin-biobank')">
+          <i class="fa-solid fa-vault"></i>
+          <span>Bio Bank Manager</span>
+          <span class="admin-badge-count" id="badge-biobank-status">BLURRED</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-online-exams" id="nav-tab-online-exams"
+          onclick="switchAdminTab('tab-online-exams')">
+          <i class="fa-solid fa-file-signature"></i>
+          <span>Online Exams Manager</span>
+          <span class="admin-badge-count green" id="badge-online-exams-count">Active</span>
+        </button>
+
+        <button class="admin-nav-item" data-tab="tab-admins" id="nav-tab-admins" onclick="switchAdminTab('tab-admins')">
+          <i class="fa-solid fa-user-gear"></i>
+          <span>Admin Roles & Settings</span>
+        </button>
+
+        <div class="admin-nav-group-title">QUICK LINKS</div>
+
+        <a href="/" target="_blank" class="admin-nav-link">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>Open Student Portal</span>
+        </a>
+
+        <a href="/biobank" target="_blank" class="admin-nav-link">
+          <i class="fa-solid fa-vault"></i>
+          <span>Open Public Bio Bank</span>
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <button class="btn-refresh-db" onclick="refreshAdminData(true)" style="margin-bottom:8px;">
+          <i class="fa-solid fa-rotate"></i> Sync Database
+        </button>
+        <button class="btn-admin-logout" onclick="logoutAdmin()" style="width: 100%; padding: 8px; border-radius: 8px; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); cursor: pointer; font-weight: 600; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout Admin
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- ==========================================================
+         MAIN CONTENT AREA
+         ========================================================== -->
+    <main class="admin-main">
+      
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <h1 class="page-main-heading" id="admin-page-heading">Dashboard Overview</h1>
+          <p class="page-sub-heading" id="admin-page-subheading">Real-time statistics & platform management control</p>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Real-time Clock -->
+          <div class="admin-clock-box">
+            <i class="fa-regular fa-clock"></i>
+            <span id="admin-clock">00:00:00</span>
+          </div>
+
+          <button class="btn-primary-action" onclick="openCreateForCurrentTab()">
+            <i class="fa-solid fa-plus"></i> <span id="quick-add-btn-label">Quick Action</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Scrollable Tab Container -->
+      <div class="admin-content-pane">
+
+        <!-- ======================================================
+             TAB 1: OVERVIEW & STATS
+             ====================================================== -->
+        <section class="admin-tab-pane active" id="tab-overview">
+          
+          <!-- Key Metric Cards Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon-box green">
+                <i class="fa-solid fa-user-graduate"></i>
+              </div>
+              <div class="metric-details">
+                <span class="metric-title">Registered Students</span>
+                <strong class="metric-number" id="metric-total-students">0</strong>
+                <span class="metric-meta" id="metric-students-breakdown">0 (2027) • 0 (2028)</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box emerald">
+                <i class="fa-solid fa-circle-play"></i>
+              </div>
+              <div class="metric-details">
+                <span class="metric-title">Video Masterclasses</span>
+                <strong class="metric-number" id="metric-total-videos">0</strong>
+                <span class="metric-meta">Across 10 Theory & Revision Units</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box red">
+                <i class="fa-solid fa-tower-broadcast"></i>
+              </div>
+              <div class="metric-details">
+                <span class="metric-title">Active Live Classes</span>
+                <strong class="metric-number" id="metric-total-live">0</strong>
+                <span class="metric-meta" id="metric-live-breakdown">Zoom & YouTube Streams</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-icon-box gold">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <div class="metric-details">
+                <span class="metric-title">Monthly Fees Cards</span>
+                <strong class="metric-number" id="metric-total-cards">0</strong>
+                <span class="metric-meta">Store Access Passes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Database & Storage Capacity Monitor -->
+          <div class="admin-glass-panel" style="margin-bottom: 24px; border: 1.5px solid rgba(16, 185, 129, 0.3); background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(240,253,250,0.95) 100%);">
+            <div class="panel-header" style="border-bottom: 1px solid rgba(16, 185, 129, 0.15); padding-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+                  <i class="fa-solid fa-hard-drive"></i>
+                </div>
+                <div>
+                  <h3 style="margin: 0; font-size: 1.05rem; color: #0f172a; font-weight: 800; display:flex; align-items:center; gap:8px;">
+                    Database & Cloud Storage Capacity Monitor
+                    <span style="font-size: 0.72rem; font-weight: 700; color: #059669; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 2px 8px; border-radius: 20px;">100% Real-Time</span>
+                  </h3>
+                  <p style="margin: 2px 0 0; font-size: 0.8rem; color: #64748b;">පද්ධතියේ db.json දත්ත ගොනුව, uploads ෆෝල්ඩරයේ මාධ්‍ය සහ සර්වර් මතක ධාරිතාව (Safe Storage Allocation: 500 MB)</p>
+                </div>
+              </div>
+              <button class="btn-panel-action" id="btn-refresh-storage" onclick="fetchStorageStats(true)" title="Recalculate live disk space">
+                <i class="fa-solid fa-arrows-rotate" id="storage-refresh-icon"></i> Recalculate Storage
+              </button>
+            </div>
+            
+            <div class="panel-body" style="padding-top: 14px;">
+              <!-- Progress Bar Row -->
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 0.86rem; font-weight: 700;">
+                  <span style="color: #334155;">
+                    <i class="fa-solid fa-database" style="color: #10b981;"></i> Disk Usage: 
+                    <strong id="storage-used-text" style="color: #0f172a;">Calculating...</strong> of 
+                    <span id="storage-quota-text" style="color: #64748b;">500 MB</span>
+                  </span>
+                  <span id="storage-status-badge" style="background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; padding: 2px 10px; border-radius: 12px; font-size: 0.76rem; font-weight: 800;">
+                    Optimal (<span id="storage-percent-text">0%</span> Used)
+                  </span>
+                </div>
+                <div style="width: 100%; height: 12px; background: #e2e8f0; border-radius: 10px; overflow: hidden; position: relative; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
+                  <div id="storage-progress-bar" style="width: 1%; height: 100%; background: linear-gradient(90deg, #10b981 0%, #059669 100%); border-radius: 10px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                </div>
+              </div>
+
+              <!-- Storage Sub-Metrics Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: #eff6ff; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                    <i class="fa-solid fa-file-code"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.74rem; color: #64748b; font-weight: 600;">DB JSON Data</div>
+                    <div id="storage-db-size" style="font-size: 0.96rem; font-weight: 800; color: #0f172a;">-- KB</div>
+                    <div style="font-size: 0.68rem; color: #94a3b8;">Structured Records</div>
+                  </div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: #fdf4ff; color: #a855f7; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                    <i class="fa-solid fa-photo-film"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.74rem; color: #64748b; font-weight: 600;">Uploads & Slips</div>
+                    <div id="storage-uploads-size" style="font-size: 0.96rem; font-weight: 800; color: #0f172a;">-- MB</div>
+                    <div id="storage-uploads-count" style="font-size: 0.68rem; color: #94a3b8;">0 Files stored</div>
+                  </div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: #f0fdf4; color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                    <i class="fa-solid fa-microchip"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.74rem; color: #64748b; font-weight: 600;">Server RAM Heap</div>
+                    <div id="storage-ram-usage" style="font-size: 0.96rem; font-weight: 800; color: #0f172a;">-- MB</div>
+                    <div style="font-size: 0.68rem; color: #94a3b8;">Node.js Live Process</div>
+                  </div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.02);">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: #fffbeb; color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1rem;">
+                    <i class="fa-solid fa-chart-pie"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.74rem; color: #64748b; font-weight: 600;">Free Disk Margin</div>
+                    <div id="storage-free-space" style="font-size: 0.96rem; font-weight: 800; color: #059669;">-- MB</div>
+                    <div id="storage-total-records" style="font-size: 0.68rem; color: #94a3b8;">Ready to scale</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Panels Grid -->
+          <div class="overview-panels-grid">
+            
+            <!-- Recent Students Panel -->
+            <div class="admin-glass-panel">
+              <div class="panel-header">
+                <h3><i class="fa-solid fa-users"></i> Recent Student Signups</h3>
+                <button class="btn-panel-action" onclick="switchAdminTab('tab-students')">View All</button>
+              </div>
+              <div class="panel-body">
+                <div class="recent-students-list" id="overview-students-list">
+                  <!-- Loaded dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Live Streams Panel -->
+            <div class="admin-glass-panel">
+              <div class="panel-header">
+                <h3><i class="fa-solid fa-satellite-dish"></i> Live Streams Status</h3>
+                <button class="btn-panel-action" onclick="switchAdminTab('tab-live-classes')">Manage Live</button>
+              </div>
+              <div class="panel-body">
+                <div class="live-status-list" id="overview-live-list">
+                  <!-- Loaded dynamically -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB: STORE PRODUCTS & DELIVERY ORDERS
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-products">
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-boxes-stacked"></i> Store Products & Delivery Kits (වෙළඳසැල් නිෂ්පාදන)</h3>
+                <p>Add theory tutorial packs, color atlases, printed books with WebP multi-images & pricing</p>
+              </div>
+              <button class="btn-primary-action small" onclick="openAddProductModal()">
+                <i class="fa-solid fa-plus-circle"></i> Add New Product
+              </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="cards-admin-grid" id="admin-products-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Physical Delivery Orders Section -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-truck-fast"></i> Delivery Orders Received (ඇණවුම් ලැයිස්තුව)</h3>
+                <p>Real-time delivery orders submitted by students with address and WhatsApp contact</p>
+              </div>
+              <span class="admin-badge-count green" id="badge-orders-count">0 Orders</span>
+            </div>
+
+            <div class="table-responsive-wrapper">
+              <table class="admin-data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Student Name & ID</th>
+                    <th>WhatsApp & District</th>
+                    <th>Delivery Address</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders-table-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ======================================================
+             TAB: BIO BANK MANAGER (Folders, Short Notes & Visibility)
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-admin-biobank">
+          <div class="section-card-box">
+            <div class="section-header-row" style="flex-wrap: wrap; gap: 14px;">
+              <div>
+                <h3><i class="fa-solid fa-vault"></i> Apex Bio Bank Resource Manager (ඒකක 10 ෆෝල්ඩර්)</h3>
+                <p>Manage Unit 01 - 10 Folders, Short Notes, Mind Maps, Image Collections & Student Visibility</p>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <!-- Visibility Coming Soon Toggle Button -->
+                <button id="btn-toggle-biobank-blur" class="btn-primary-action small" onclick="toggleAdminBioBankBlur()" style="background:#eab308; border-color:#ca8a04;">
+                  <i class="fa-solid fa-eye-slash"></i> <span id="biobank-blur-btn-text">Coming Soon Mode: ON (Blurred)</span>
+                </button>
+                <button class="btn-primary-action small" onclick="openCreateBioBankFolderModal()" style="background:#0284c7; border-color:#0369a1;">
+                  <i class="fa-solid fa-folder-plus"></i> + New Folder
+                </button>
+                <button class="btn-primary-action small" onclick="openAddBioBankItemModal()">
+                  <i class="fa-solid fa-cloud-arrow-up"></i> + Upload Material (Image / PDF / Text)
+                </button>
+              </div>
+            </div>
+
+            <!-- Unit Folders Grid -->
+            <div class="biobank-admin-units-grid" id="admin-biobank-units-grid">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Unit Items Detail Viewer -->
+            <div id="admin-biobank-unit-detail" style="margin-top:24px; display:none;">
+              <!-- Rendered dynamically when unit folder clicked -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ======================================================
+             TAB 8: ADMIN ROLES & SYSTEM SETTINGS
+             Only accessible to Super Admin
+             ====================================================== -->
         <section class="admin-tab-pane" id="tab-admins">
-
+          
           <!-- Card 1: Multi-Admin Accounts Management -->
           <div class="section-card-box">
             <div class="section-header-row">
               <div>
                 <h3><i class="fa-solid fa-users-gear"></i> Admin Team & Role Permissions (පරිපාලක ගිණුම් කළමනාකරණය)</h3>
-                <p>Manage Super Admin & Normal Admin accounts. Super Admin has full control; Normal Admin can only
-                  access Live & Monthly Classes.</p>
+                <p>Manage Super Admin & Normal Admin accounts. Super Admin has full control; Normal Admin can only access Live & Monthly Classes.</p>
               </div>
               <button class="btn-primary-action small" onclick="openAddAdminModal()">
                 <i class="fa-solid fa-user-plus"></i> Add New Admin Account
@@ -41,27 +459,21 @@
 
             <!-- Role Permissions Overview Chips -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0;">
-              <div
-                style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 14px 18px;">
-                <h4
-                  style="color: #10b981; margin: 0 0 6px 0; font-size: 0.96rem; display: flex; align-items: center; gap: 6px;">
+              <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 14px 18px;">
+                <h4 style="color: #10b981; margin: 0 0 6px 0; font-size: 0.96rem; display: flex; align-items: center; gap: 6px;">
                   👑 <b>Super Admin (පූර්ණ අවසර)</b>
                 </h4>
                 <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;">
-                  සියලුම ශිෂ්‍ය දත්ත (නම්, දුරකථන, IDs), Monthly Card Requests, ගාස්තු කාඩ්පත්, ගුරුවරුන් හා Video
-                  Packs, Syllabus Tracker, සහ නව Admin ගිණුම් නිර්මාණය කිරීමේ පූර්ණ බලය ඇත.
+                  සියලුම ශිෂ්‍ය දත්ත (නම්, දුරකථන, IDs), Monthly Card Requests, ගාස්තු කාඩ්පත්, ගුරුවරුන් හා Video Packs, Syllabus Tracker, සහ නව Admin ගිණුම් නිර්මාණය කිරීමේ පූර්ණ බලය ඇත.
                 </p>
               </div>
 
-              <div
-                style="background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 12px; padding: 14px 18px;">
-                <h4
-                  style="color: #60a5fa; margin: 0 0 6px 0; font-size: 0.96rem; display: flex; align-items: center; gap: 6px;">
+              <div style="background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 12px; padding: 14px 18px;">
+                <h4 style="color: #60a5fa; margin: 0 0 6px 0; font-size: 0.96rem; display: flex; align-items: center; gap: 6px;">
                   🛡️ <b>Normal Admin (Moderator / Assistant)</b>
                 </h4>
                 <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;">
-                  <strong>සීමාසහිත අවසර:</strong> Live Classes විකාශනය සහ Monthly Classes කළමනාකරණය පමණි. ශිෂ්‍යයන්ගේ
-                  පෞද්ගලික තොරතුරු, මුදල් ඉල්ලීම් (Requests), ගුරුවරුන්ගේ වීඩියෝ පැක් හෝ Settings කිසිවක් නොපෙනේ.
+                  <strong>සීමාසහිත අවසර:</strong> Live Classes විකාශනය සහ Monthly Classes කළමනාකරණය පමණි. ශිෂ්‍යයන්ගේ පෞද්ගලික තොරතුරු, මුදල් ඉල්ලීම් (Requests), ගුරුවරුන්ගේ වීඩියෝ පැක් හෝ Settings කිසිවක් නොපෙනේ.
                 </p>
               </div>
             </div>
@@ -89,10 +501,8 @@
           <div class="section-card-box mt-4">
             <div class="section-header-row">
               <div>
-                <h3><i class="fa-brands fa-telegram" style="color: #229ED9;"></i> Telegram Bot Alert System (කාඩ්පත්
-                  ඉල්ලුම් Alerts)</h3>
-                <p>සිසුන් Store එකෙන් Monthly Class Card එකක් ඉල්ලුම් කළ විගස ක්ෂණික Telegram Alert එකක් ඔබගේ Telegram
-                  Bot වෙත එවීමට Bot Token සහ Chat ID ඇතුළත් කරන්න.</p>
+                <h3><i class="fa-brands fa-telegram" style="color: #229ED9;"></i> Telegram Bot Alert System (කාඩ්පත් ඉල්ලුම් Alerts)</h3>
+                <p>සිසුන් Store එකෙන් Monthly Class Card එකක් ඉල්ලුම් කළ විගස ක්ෂණික Telegram Alert එකක් ඔබගේ Telegram Bot වෙත එවීමට Bot Token සහ Chat ID ඇතුළත් කරන්න.</p>
               </div>
             </div>
 
@@ -100,8 +510,7 @@
               <form onsubmit="handleSaveTelegramSettings(event)">
                 <div class="form-group">
                   <label><i class="fa-solid fa-key"></i> Telegram Bot Token *</label>
-                  <input type="text" id="tg-bot-token"
-                    placeholder="e.g. 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ (BotFather වෙතින්)" autocomplete="off">
+                  <input type="text" id="tg-bot-token" placeholder="e.g. 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ (BotFather වෙතින්)" autocomplete="off">
                   <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
                     Telegram @BotFather වෙතින් ලබාගත් HTTP API Bot Token එක මෙතනට ඇතුළත් කරන්න.
                   </small>
@@ -119,8 +528,7 @@
                   <button type="submit" class="btn-primary-action">
                     <i class="fa-solid fa-floppy-disk"></i> Save Telegram Settings
                   </button>
-                  <button type="button" class="btn-outline-action" onclick="handleTestTelegramAlert()"
-                    style="background: rgba(34, 158, 217, 0.15); border: 1px solid #229ED9; color: #229ED9;">
+                  <button type="button" class="btn-outline-action" onclick="handleTestTelegramAlert()" style="background: rgba(34, 158, 217, 0.15); border: 1px solid #229ED9; color: #229ED9;">
                     <i class="fa-solid fa-paper-plane"></i> 🧪 Send Test Alert Message
                   </button>
                 </div>
@@ -129,36 +537,27 @@
           </div>
 
           <!-- Card 2B: Video Pack Unlock Telegram Bot (@Bio_study_packbot) -->
-          <div class="section-card-box mt-4"
-            style="border: 1px solid rgba(16, 185, 129, 0.35); background: linear-gradient(145deg, rgba(16, 185, 129, 0.04), rgba(6, 78, 59, 0.08));">
+          <div class="section-card-box mt-4" style="border: 1px solid rgba(16, 185, 129, 0.35); background: linear-gradient(145deg, rgba(16, 185, 129, 0.04), rgba(6, 78, 59, 0.08));">
             <div class="section-header-row">
               <div>
-                <h3><i class="fa-brands fa-telegram" style="color: #10b981;"></i> Video Pack Unlock Telegram Bot
-                  (@Bio_study_packbot)</h3>
-                <p>සිසුන් A/L Biology Video Lesson Packs Unlock කරන්න ඉල්ලුම් කළ විගස ඔබට මෙහි alert එකක් ලැබෙන අතර
-                  message එකේ ඇති <b>[ 🔓 Unlock Lesson Pack ]</b> බොත්තම ඔබා ක්ෂණිකව Unlock කළ හැක.</p>
+                <h3><i class="fa-brands fa-telegram" style="color: #10b981;"></i> Video Pack Unlock Telegram Bot (@Bio_study_packbot)</h3>
+                <p>සිසුන් A/L Biology Video Lesson Packs Unlock කරන්න ඉල්ලුම් කළ විගස ඔබට මෙහි alert එකක් ලැබෙන අතර message එකේ ඇති <b>[ 🔓 Unlock Lesson Pack ]</b> බොත්තම ඔබා ක්ෂණිකව Unlock කළ හැක.</p>
               </div>
-              <span class="badge-unlocked"
-                style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-weight: 700;">
+              <span class="badge-unlocked" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; font-weight: 700;">
                 <i class="fa-solid fa-bolt"></i> One-Click Unlock Active
               </span>
             </div>
 
-            <div
-              style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 12px 16px; border-radius: 8px; margin-top: 14px; font-size: 0.85rem; color: #ecfdf5;">
+            <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 12px 16px; border-radius: 8px; margin-top: 14px; font-size: 0.85rem; color: #ecfdf5;">
               <i class="fa-solid fa-circle-info" style="color: #10b981; margin-right: 6px;"></i>
-              <strong>වැදගත් උපදෙස:</strong> Telegram ආරක්ෂණ නීති අනුව, bot ට alerts එවිය හැක්කේ ඔබ bot වෙත message එකක්
-              යවා ඇති විට පමණි. කරුණාකර ඔබගේ Telegram එකෙන් <strong><a href="https://t.me/Bio_study_packbot"
-                  target="_blank" style="color: #34d399; text-decoration: underline;">@Bio_study_packbot</a></strong>
-              වෙත ගොස් <strong>START</strong> ඔබන්න (හෝ <code>/start</code> යවන්න).
+              <strong>වැදගත් උපදෙස:</strong> Telegram ආරක්ෂණ නීති අනුව, bot ට alerts එවිය හැක්කේ ඔබ bot වෙත message එකක් යවා ඇති විට පමණි. කරුණාකර ඔබගේ Telegram එකෙන් <strong><a href="https://t.me/Bio_study_packbot" target="_blank" style="color: #34d399; text-decoration: underline;">@Bio_study_packbot</a></strong> වෙත ගොස් <strong>START</strong> ඔබන්න (හෝ <code>/start</code> යවන්න).
             </div>
 
             <div style="max-width: 680px; margin-top: 16px;">
               <form onsubmit="handleSaveStudyPackTelegramSettings(event)">
                 <div class="form-group">
                   <label><i class="fa-solid fa-key"></i> Study Pack Bot Token *</label>
-                  <input type="text" id="tg-studypack-bot-token" value="9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ"
-                    placeholder="e.g. 9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ" autocomplete="off">
+                  <input type="text" id="tg-studypack-bot-token" value="9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ" placeholder="e.g. 9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ" autocomplete="off">
                   <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
                     Bot: <strong>@Bio_study_packbot</strong> (Token: 9072524602:AAE1KfFbQQM39yWpw7pyu6YVA5F5kH3RzXQ)
                   </small>
@@ -166,8 +565,7 @@
 
                 <div class="form-group">
                   <label><i class="fa-solid fa-hashtag"></i> Admin Chat ID *</label>
-                  <input type="text" id="tg-studypack-chat-id" value="6315010122" placeholder="e.g. 6315010122"
-                    autocomplete="off">
+                  <input type="text" id="tg-studypack-chat-id" value="6315010122" placeholder="e.g. 6315010122" autocomplete="off">
                   <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 4px;">
                     Nikila Yoshitha's Telegram Chat ID: <strong>6315010122</strong>
                   </small>
@@ -177,12 +575,10 @@
                   <button type="submit" class="btn-primary-action" style="background: #10b981;">
                     <i class="fa-solid fa-floppy-disk"></i> Save Study Pack Bot Settings
                   </button>
-                  <button type="button" class="btn-outline-action" onclick="handleTestStudyPackTelegramAlert()"
-                    style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #10b981;">
+                  <button type="button" class="btn-outline-action" onclick="handleTestStudyPackTelegramAlert()" style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #10b981;">
                     <i class="fa-solid fa-paper-plane"></i> 🧪 Send Test Video Pack Alert
                   </button>
-                  <a href="https://t.me/Bio_study_packbot" target="_blank" class="btn-outline-action"
-                    style="background: rgba(34, 158, 217, 0.15); border: 1px solid #229ED9; color: #229ED9; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                  <a href="https://t.me/Bio_study_packbot" target="_blank" class="btn-outline-action" style="background: rgba(34, 158, 217, 0.15); border: 1px solid #229ED9; color: #229ED9; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
                     <i class="fa-brands fa-telegram"></i> Open @Bio_study_packbot in Telegram
                   </a>
                 </div>
@@ -194,8 +590,7 @@
           <div class="section-card-box mt-4">
             <div class="section-header-row">
               <div>
-                <h3><i class="fa-solid fa-fire" style="color: #f59e0b;"></i> Firebase Firestore Cloud Database
-                  (apex-bio-aee21)</h3>
+                <h3><i class="fa-solid fa-fire" style="color: #f59e0b;"></i> Firebase Firestore Cloud Database (apex-bio-aee21)</h3>
                 <p>Status of cloud database synchronization for Students, Requests, Cards, and Videos.</p>
               </div>
               <button class="btn-primary-action small" onclick="triggerFirestoreSyncAll()">
@@ -203,22 +598,18 @@
               </button>
             </div>
 
-            <div
-              style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 16px; margin-top: 16px;">
-              <div
-                style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 16px; margin-top: 16px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
                 <div>
                   <div style="font-weight: 700; color: #f8fafc; font-size: 0.95rem;">
                     🔥 Connected Firebase Project: <span style="color: #f59e0b;">apex-bio-aee21</span>
                   </div>
                   <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 4px;">
-                    Auth Domain: <code>apex-bio-aee21.firebaseapp.com</code> • Storage:
-                    <code>apex-bio-aee21.firebasestorage.app</code>
+                    Auth Domain: <code>apex-bio-aee21.firebaseapp.com</code> • Storage: <code>apex-bio-aee21.firebasestorage.app</code>
                   </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
-                  <span
-                    style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                  <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
                   <span style="font-size: 0.82rem; font-weight: 700; color: #10b981;">Client Initialized & Active</span>
                 </div>
               </div>
@@ -230,11 +621,9 @@
                 📋 Firestore Security Rules (Firebase Console එකේ Rules වලට Paste කරන්න):
               </h4>
               <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">
-                Firebase Console ➔ Firestore Database ➔ <strong>Rules</strong> ටැබ් එකට ගොස් පහත කේතය Paste කර
-                <strong>Publish</strong> කරන්න:
+                Firebase Console ➔ Firestore Database ➔ <strong>Rules</strong> ටැබ් එකට ගොස් පහත කේතය Paste කර <strong>Publish</strong> කරන්න:
               </p>
-              <div
-                style="position: relative; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; font-family: monospace; font-size: 0.84rem; color: #38bdf8;">
+              <div style="position: relative; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; font-family: monospace; font-size: 0.84rem; color: #38bdf8;">
                 <pre style="margin: 0; white-space: pre-wrap;">rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -250,6 +639,457 @@ service cloud.firestore {
         </section>
 
 
+        <!-- ======================================================
+             TAB 2: STUDENTS & VERIFICATION
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-students">
+          
+          <div class="table-action-bar">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="student-search-input" placeholder="Search by name, ID, phone, school or email..." oninput="filterStudentsTable()">
+            </div>
+
+            <div class="filter-group">
+              <select id="student-batch-filter" onchange="filterStudentsTable()">
+                <option value="all">All Batches (2027 & 2028)</option>
+                <option value="2027">2027 A/L Only</option>
+                <option value="2028">2028 A/L Only</option>
+              </select>
+
+              <select id="student-status-filter" onchange="filterStudentsTable()">
+                <option value="all">All Statuses</option>
+                <option value="verified">Verified Badge Only</option>
+                <option value="active">Active Only</option>
+                <option value="suspended">Suspended Only</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Students Table -->
+          <div class="table-responsive-wrapper">
+            <table class="admin-data-table">
+              <thead>
+                <tr>
+                  <th>Student ID</th>
+                  <th>Student Name</th>
+                  <th>Batch & School</th>
+                  <th>Gender</th>
+                  <th>Phone / WhatsApp</th>
+                  <th>Email</th>
+                  <th>Verified Badge</th>
+                  <th>Account Status</th>
+                  <th>Class Cards</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="students-table-body">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB 3: TUTORS & VIDEO PACKS
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-tutors-videos">
+          
+          <!-- Tutors Section -->
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-user-tie"></i> Teaching Panel (Tutors)</h3>
+                <p>Manage Biology Teachers displayed on Free Lessons & Video Packs</p>
+              </div>
+              <button class="btn-primary-action small" onclick="openAddTutorModal()">
+                <i class="fa-solid fa-user-plus"></i> Add New Sir / Tutor
+              </button>
+            </div>
+
+            <div class="tutors-admin-grid" id="tutors-admin-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Video Packs Unit Folders Section (Tutor Specific) -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-folder-tree"></i> <span id="admin-selected-tutor-name">දිනේෂ් මුතුගල සර්ගේ Video Packs (Units 01 - 10)</span></h3>
+                <p>Manage videos, notes, PDFs, Telegram links and lock status under the selected teacher</p>
+              </div>
+              <div class="section-actions-cluster">
+                <!-- Tutor Switch Pills -->
+                <div class="tutor-switch-pills" id="admin-tutor-switch-pills"></div>
+                <button class="btn-primary-action small" onclick="openAddVideoModal()">
+                  <i class="fa-solid fa-video"></i> Add Video to This Tutor
+                </button>
+              </div>
+            </div>
+
+            <!-- Theory vs Revision Mode Switcher (For Tutors offering Theory + Revision) -->
+            <div class="admin-mode-toggle-bar" id="admin-tutor-mode-toggle-bar" style="margin: 16px 0; display: none; gap: 10px;">
+              <button class="mode-toggle-pill active" id="btn-admin-tutor-mode-theory" onclick="switchAdminTutorPackMode('theory')">
+                <i class="fa-solid fa-leaf"></i> 🌿 Units 01 - 10 (Botanical Theory Folders)
+              </button>
+              <button class="mode-toggle-pill" id="btn-admin-tutor-mode-revision" onclick="switchAdminTutorPackMode('revision')">
+                <i class="fa-solid fa-bolt"></i> 🎯 Revision Masterclasses & Day Folders
+              </button>
+            </div>
+
+            <!-- Unit Accordion / Folder Tabs for Selected Tutor -->
+            <div class="units-admin-container" id="units-admin-container">
+              <!-- Rendered dynamically for selected tutor -->
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB 4: LIVE CLASSES
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-live-classes">
+          
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-broadcast-tower"></i> Live Streaming Broadcast Manager</h3>
+                <p>Broadcast live classes for 2027 or 2028 batches via Zoom or YouTube Live</p>
+              </div>
+              <button class="btn-primary-action small" onclick="openAddLiveClassModal()">
+                <i class="fa-solid fa-tower-broadcast"></i> Create New Live Class
+              </button>
+            </div>
+
+            <div class="live-classes-admin-grid" id="live-classes-admin-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB 5: MONTHLY FEES CARDS & ACTIVATION
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-fees-cards">
+          
+          <!-- Class Cards Grid -->
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-credit-card"></i> Monthly Class Fees Cards Manager</h3>
+                <p>Create cards for 2027 / 2028 batches with validity periods, WebP images & descriptions</p>
+              </div>
+              <button class="btn-primary-action small" onclick="openAddCardModal()">
+                <i class="fa-solid fa-plus-circle"></i> Create Monthly Card
+              </button>
+            </div>
+
+            <div class="cards-admin-grid" id="cards-admin-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Section 2: Direct Student Card Activator -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-bolt"></i> Manual Student Card Activator (තෝරාගත් ශිෂ්‍යයාට Card එක Active කිරීම)</h3>
+                <p>Select any registered student by Name or ID, choose the monthly card, and activate access directly</p>
+              </div>
+            </div>
+
+            <form class="direct-activate-form-row" onsubmit="handleDirectCardActivation(event)">
+              <div class="form-group flex-1">
+                <label><i class="fa-solid fa-magnifying-glass"></i> Student ID Lookup (ශිෂ්‍ය ID එකෙන් සොයන්න)</label>
+                <input type="text" id="direct-student-id-search" class="admin-input" placeholder="Type Student ID (e.g. 27804192)..." oninput="handleStudentIdLookup(this.value)">
+              </div>
+
+              <div class="form-group flex-1">
+                <label>Select Student (හෝ නමෙන් තෝරන්න) *</label>
+                <select id="direct-student-select" required onchange="handleStudentSelectChange(this.value)">
+                  <!-- Populated dynamically with students -->
+                </select>
+              </div>
+
+              <div class="form-group flex-1">
+                <label>Select Monthly Card (කාඩ්පත තෝරන්න) *</label>
+                <select id="direct-card-select" required>
+                  <!-- Populated dynamically with cards -->
+                </select>
+              </div>
+
+              <div class="form-group form-action-align">
+                <button type="submit" class="btn-primary-action">
+                  <i class="fa-solid fa-circle-check"></i> Activate Card for Student
+                </button>
+              </div>
+            </form>
+            <div id="direct-student-preview-box" class="student-preview-chip-box" style="display:none; margin-top:12px;"></div>
+          </div>
+
+          <!-- Section 3: Pending Card Requests from Store -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row" style="flex-wrap: wrap; gap: 12px;">
+              <div>
+                <h3><i class="fa-solid fa-inbox"></i> Monthly Card Requests & Subscriptions (Store එකෙන් ළමයින් ඉල්ලූ Cards)</h3>
+                <p>Real-time queue of students requesting class cards from the Bio Store with month & student filters</p>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap: wrap;">
+                <input type="text" id="filter-card-req-search" placeholder="Search by Student ID / Name / Phone..." 
+                       oninput="filterCardRequestsTable()" style="padding:7px 14px; font-size:0.82rem; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#fff; min-width:220px;">
+                <select id="filter-card-req-month" onchange="filterCardRequestsTable()" style="padding:7px 12px; font-size:0.82rem; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#fff;">
+                  <option value="all">All Months (සියලු මාස)</option>
+                </select>
+                <select id="filter-card-req-status" onchange="filterCardRequestsTable()" style="padding:7px 12px; font-size:0.82rem; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#fff;">
+                  <option value="all">All Status</option>
+                  <option value="pending">Pending Only</option>
+                  <option value="approved">Approved Only</option>
+                  <option value="rejected">Rejected Only</option>
+                </select>
+                <span class="admin-badge-count green" id="card-requests-count-chip">0 Requests</span>
+              </div>
+            </div>
+
+            <div class="table-responsive-wrapper">
+              <table class="admin-data-table">
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Batch & Phone</th>
+                    <th>Requested Class Card</th>
+                    <th>Status</th>
+                    <th>Quick Action</th>
+                  </tr>
+                </thead>
+                <tbody id="card-requests-table-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB 6: REQUESTS & UNLOCKS (SEPARATED QUEUES)
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-requests">
+          
+          <!-- Section 1: Monthly Class Card Requests -->
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-credit-card"></i> 1. Monthly Class Card Requests (මාසික කාඩ්පත් ඉල්ලීම්)</h3>
+                <p>Real-time queue of students requesting access cards for 2027 / 2028 batches</p>
+              </div>
+              <span class="admin-badge-count green" id="badge-card-reqs-count">0 Card Requests</span>
+            </div>
+
+            <div class="table-responsive-wrapper">
+              <table class="admin-data-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Student Info</th>
+                    <th>Batch</th>
+                    <th>Requested Class Card</th>
+                    <th>Status</th>
+                    <th>Admin Action</th>
+                  </tr>
+                </thead>
+                <tbody id="card-requests-queue-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 2: Video Pack Unlock Requests -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-unlock-keyhole"></i> 2. Video Pack Unlock Requests (වීඩියෝ පැක් අන්ලොක් ඉල්ලීම්)</h3>
+                <p>Specific video packs and unit folders requested by students per teacher</p>
+              </div>
+              <span class="admin-badge-count green" id="badge-video-reqs-count">0 Unlock Requests</span>
+            </div>
+
+            <div class="table-responsive-wrapper">
+              <table class="admin-data-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Student Info</th>
+                    <th>Batch</th>
+                    <th>Target Video Pack / Unit</th>
+                    <th>Teacher</th>
+                    <th>Status</th>
+                    <th>Admin Action</th>
+                  </tr>
+                </thead>
+                <tbody id="videopack-requests-queue-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB: MONTHLY CLASSES (Folders per Month & Teacher)
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-monthly-classes">
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-calendar-days"></i> Monthly Class Folders & Recordings (මාසික පන්ති)</h3>
+                <p>Manage monthly class recordings per teacher (Theory & Revision) and transfer to Video Packs</p>
+              </div>
+              <div class="action-btn-group">
+                <button class="btn-primary-action small" onclick="openAddMonthModal()">
+                  <i class="fa-solid fa-folder-plus"></i> Add New Month Folder
+                </button>
+              </div>
+            </div>
+
+            <!-- Breadcrumbs bar -->
+            <div class="monthly-breadcrumbs-bar" id="monthly-breadcrumbs-bar" style="display:none;">
+              <button class="btn-breadcrumb" onclick="resetMonthlyView()"><i class="fa-solid fa-house"></i> All Months</button>
+              <span class="breadcrumb-separator">/</span>
+              <span class="breadcrumb-current" id="breadcrumb-month-text">November 2026</span>
+              <span class="breadcrumb-separator" id="breadcrumb-tutor-sep" style="display:none;">/</span>
+              <span class="breadcrumb-current" id="breadcrumb-tutor-text" style="display:none;">Dinesh Muthugala</span>
+            </div>
+
+            <!-- View Level 1: Month Folders Grid -->
+            <div id="monthly-level-months">
+              <div class="admin-month-folders-grid" id="admin-month-folders-grid">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- View Level 2: Tutor Selection inside Month -->
+            <div id="monthly-level-tutors" style="display:none;">
+              <div class="monthly-level-subhead">
+                <button class="btn-back-folders" onclick="resetMonthlyView()">
+                  <i class="fa-solid fa-arrow-left"></i> Back to Month Folders
+                </button>
+                <h4 id="month-tutors-header">Select Teacher for November 2026</h4>
+              </div>
+              <div class="monthly-tutors-grid" id="monthly-tutors-grid">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- View Level 3: Classes Video Manager for selected Tutor & Month -->
+            <div id="monthly-level-classes" style="display:none;">
+              <div class="monthly-level-subhead">
+                <button class="btn-back-folders" onclick="backToMonthlyTutors()">
+                  <i class="fa-solid fa-arrow-left"></i> Back to Teachers
+                </button>
+                <div class="monthly-class-type-switcher">
+                  <button class="btn-mode-tab active" id="btn-mode-theory" onclick="switchMonthlyClassMode('theory')">
+                    <i class="fa-solid fa-book-open"></i> Theory Classes (සිද්ධාන්ත)
+                  </button>
+                  <button class="btn-mode-tab" id="btn-mode-revision" onclick="switchMonthlyClassMode('revision')">
+                    <i class="fa-solid fa-rotate-left"></i> Revision Classes (පුනරීක්ෂණ)
+                  </button>
+                </div>
+                <button class="btn-primary-action small" onclick="openAddMonthlyVideoModal()">
+                  <i class="fa-solid fa-plus"></i> Add Class Video
+                </button>
+                <button class="btn-primary-action small" onclick="openAddMonthlyLiveModal()" style="background:#ef4444; border-color:#dc2626;">
+                  <i class="fa-solid fa-tower-broadcast"></i> + Add Live Session
+                </button>
+              </div>
+
+              <!-- Videos table / grid -->
+              <div class="monthly-videos-container" id="monthly-videos-container">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ======================================================
+             TAB: FREE LESSONS MANAGER
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-freelessons-mgr">
+          
+          <!-- Card 1: Tutor Visibility in Free Lessons -->
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-eye"></i> Tutors Free Lessons Visibility (ගුරුවරුන් පෙන්වීම / සැඟවීම)</h3>
+                <p>Toggle whether each teacher appears on the Student Portal's Free Lessons page. (Default: Dinesh Muthugala is visible; Sasanka Danujaya & Dhananjaya Ariyadasa are hidden until turned ON)</p>
+              </div>
+            </div>
+
+            <div class="fl-visibility-grid" id="fl-tutors-visibility-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Card 2: Free Lessons Content Manager -->
+          <div class="section-card-box mt-4">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-circle-play"></i> <span id="fl-selected-tutor-heading">දිනේෂ් මුතුගල සර්ගේ</span> Free Lessons Hub</h3>
+                <p>Manage free lectures, YouTube links, auto-thumbnails, and Telegram tutes for the selected teacher</p>
+              </div>
+              <div class="section-actions-cluster">
+                <div class="tutor-switch-pills" id="fl-tutor-switch-pills"></div>
+                <button class="btn-primary-action small" onclick="openAddFreeLessonModal()">
+                  <i class="fa-solid fa-plus"></i> Add Free Lesson
+                </button>
+              </div>
+            </div>
+
+            <!-- Free Lessons Content & Folder Tabs -->
+            <div class="fl-content-container" id="fl-content-container">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             TAB 7: SYLLABUS TRACKER MANAGER
+             ====================================================== -->
+        <section class="admin-tab-pane" id="tab-syllabus-mgr">
+          
+          <div class="section-card-box">
+            <div class="section-header-row">
+              <div>
+                <h3><i class="fa-solid fa-list-check"></i> Syllabus Mastery Tracker Manager</h3>
+                <p>Manage and add new subtopics to Units 1 - 10 (Directly updates Student Portal)</p>
+              </div>
+              <button class="btn-primary-action small" onclick="openAddSubtopicModal()">
+                <i class="fa-solid fa-plus"></i> Add Subtopic to Unit
+              </button>
+            </div>
+
+            <div class="syllabus-admin-units" id="syllabus-admin-units">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </section>
+
       </div>
     </main>
   </div>
@@ -260,12 +1100,9 @@ service cloud.firestore {
        ============================================================== -->
 
   <!-- 1. Add Tutor Modal -->
-    
-
-<div class="modal-backdrop" id="modal-add-tutor">
+  <div class="modal-backdrop" id="modal-add-tutor">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-tutor')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-tutor')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-chalkboard-user"></i> Add New Tutor / Sir</h3>
       <form onsubmit="handleSaveTutor(event)">
         <div class="form-group">
@@ -278,8 +1115,7 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Tutor Photo (Image File or Image URL)</label>
-          <input type="file" id="tutor-photo-file" accept="image/*"
-            onchange="previewUploadImage(this, 'tutor-photo-preview', 'tutor-photo-url')">
+          <input type="file" id="tutor-photo-file" accept="image/*" onchange="previewUploadImage(this, 'tutor-photo-preview', 'tutor-photo-url')">
           <input type="text" id="tutor-photo-url" placeholder="Or paste image URL (e.g. /muthugala-sir.jpg)">
           <div class="image-preview-box" id="tutor-photo-preview" style="display:none;"></div>
         </div>
@@ -291,8 +1127,7 @@ service cloud.firestore {
   <!-- 2. Add Video Modal -->
   <div class="modal-backdrop" id="modal-add-video">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-video')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-video')"><i class="fa-solid fa-xmark"></i></button>
       <h3 id="video-modal-title"><i class="fa-solid fa-circle-play"></i> Add Video to Unit or Revision</h3>
       <form onsubmit="handleSaveVideo(event)">
         <input type="hidden" id="edit-video-id">
@@ -330,8 +1165,7 @@ service cloud.firestore {
 
         <div class="form-group" id="video-rev-folder-group" style="display:none;">
           <label>Revision Folder Name (Optional - Day / Topic Group)</label>
-          <input type="text" id="video-rev-folder-input"
-            placeholder="e.g. Day 01 Masterclasses or Paper Discussions (Leave empty for Direct Video)">
+          <input type="text" id="video-rev-folder-input" placeholder="e.g. Day 01 Masterclasses or Paper Discussions (Leave empty for Direct Video)">
         </div>
         <div class="form-group">
           <label>Video Title *</label>
@@ -364,8 +1198,7 @@ service cloud.firestore {
   <!-- 3. Add Live Class Modal -->
   <div class="modal-backdrop" id="modal-add-live">
     <div class="modal-card" style="max-width: 650px;">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-live')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-live')"><i class="fa-solid fa-xmark"></i></button>
       <h3 id="modal-live-title"><i class="fa-solid fa-tower-broadcast"></i> Create / Schedule Live Broadcast</h3>
       <form onsubmit="handleSaveLiveClass(event)">
         <input type="hidden" id="edit-live-id">
@@ -432,8 +1265,7 @@ service cloud.firestore {
 
         <div class="form-group">
           <label>Class Title *</label>
-          <input type="text" id="live-title-input"
-            placeholder="e.g. 2027 A/L Bio Special Night Masterclass: Cell Division Live" required>
+          <input type="text" id="live-title-input" placeholder="e.g. 2027 A/L Bio Special Night Masterclass: Cell Division Live" required>
         </div>
 
         <div class="form-group">
@@ -448,19 +1280,14 @@ service cloud.firestore {
           </div>
           <div class="form-group">
             <label>Scheduled Time / Badge Text</label>
-            <input type="text" id="live-time-input" placeholder="e.g. Tonight 8:30 PM - 11:00 PM"
-              value="Tonight 8:30 PM">
+            <input type="text" id="live-time-input" placeholder="e.g. Tonight 8:30 PM - 11:00 PM" value="Tonight 8:30 PM">
           </div>
         </div>
 
-        <div class="form-group-checkbox"
-          style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(16, 185, 129, 0.3); padding: 12px; border-radius: 10px; margin-bottom: 14px;">
+        <div class="form-group-checkbox" style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(16, 185, 129, 0.3); padding: 12px; border-radius: 10px; margin-bottom: 14px;">
           <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <input type="checkbox" id="live-card-required" checked
-              style="width: 18px; height: 18px; accent-color: #10b981;">
-            <span><strong style="color: #10b981;">🔒 Class Card Access Protection (LMS Restriction):</strong> සජීවී
-              පන්තිය නැරඹීමට අදාළ ගුරුවරයාගේ මාසික Card එක සක්‍රීයව (Active) තිබිය යුතුය. කාඩ්පත කල් ඉකුත් වූ හෝ නොමැති
-              සිසුන්ට Locked ලෙස පෙන්වයි.</span>
+            <input type="checkbox" id="live-card-required" checked style="width: 18px; height: 18px; accent-color: #10b981;">
+            <span><strong style="color: #10b981;">🔒 Class Card Access Protection (LMS Restriction):</strong> සජීවී පන්තිය නැරඹීමට අදාළ ගුරුවරයාගේ මාසික Card එක සක්‍රීයව (Active) තිබිය යුතුය. කාඩ්පත කල් ඉකුත් වූ හෝ නොමැති සිසුන්ට Locked ලෙස පෙන්වයි.</span>
           </label>
         </div>
 
@@ -470,8 +1297,7 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Thumbnail Image (Auto-converts to WebP)</label>
-          <input type="file" id="live-thumb-file" accept="image/*"
-            onchange="previewUploadImage(this, 'live-thumb-preview', 'live-thumb-url')">
+          <input type="file" id="live-thumb-file" accept="image/*" onchange="previewUploadImage(this, 'live-thumb-preview', 'live-thumb-url')">
           <input type="text" id="live-thumb-url" placeholder="Or paste image URL (default /hero.jpg)" value="/hero.jpg">
           <div class="image-preview-box" id="live-thumb-preview" style="display:none;"></div>
         </div>
@@ -627,11 +1453,9 @@ service cloud.firestore {
   <!-- 4. Add Monthly Fees Card Modal -->
   <div class="modal-backdrop" id="modal-add-card">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-card')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-card')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-credit-card"></i> Create Monthly Class Fees Card</h3>
       <form onsubmit="handleSaveCard(event)">
-        <input type="hidden" id="edit-card-id">
         <div class="form-row-two">
           <div class="form-group">
             <label>Target A/L Batch *</label>
@@ -643,8 +1467,7 @@ service cloud.firestore {
           <div class="form-group">
             <label>Class Month / Folder (මාසික ෆෝල්ඩරය) *</label>
             <div style="display:flex; gap:8px;">
-              <select id="card-month-select" style="flex:1;"
-                onchange="document.getElementById('card-month-input').value = this.value;">
+              <select id="card-month-select" style="flex:1;" onchange="document.getElementById('card-month-input').value = this.value;">
                 <option value="November 2026">November 2026</option>
                 <option value="December 2026">December 2026</option>
                 <option value="January 2027">January 2027</option>
@@ -658,8 +1481,7 @@ service cloud.firestore {
                 <option value="September 2027">September 2027</option>
                 <option value="October 2027">October 2027</option>
               </select>
-              <input type="text" id="card-month-input" placeholder="e.g. November 2026" value="November 2026" required
-                style="flex:1;">
+              <input type="text" id="card-month-input" placeholder="e.g. November 2026" value="November 2026" required style="flex:1;">
             </div>
           </div>
         </div>
@@ -682,14 +1504,12 @@ service cloud.firestore {
             </select>
           </div>
         </div>
-        <div id="card-tutor-hint"
-          style="display:none; font-size:0.78rem; color:#10b981; margin-top:-6px; margin-bottom:12px; font-weight:600;">
+        <div id="card-tutor-hint" style="display:none; font-size:0.78rem; color:#10b981; margin-top:-6px; margin-bottom:12px; font-weight:600;">
           <i class="fa-solid fa-circle-info"></i> ගුරුවරයාට අදාළව Class Type එක නිදහසේ වෙනස් කළ හැක (Full flexibility).
         </div>
         <div class="form-group">
           <label>Card Title *</label>
-          <input type="text" id="card-title-input"
-            placeholder="e.g. 2027 A/L නොවැම්බර් • දිනේෂ් මුතුගල (Theory + Revision)" required>
+          <input type="text" id="card-title-input" placeholder="e.g. 2027 A/L නොවැම්බර් • දිනේෂ් මුතුගල (Theory + Revision)" required>
         </div>
         <div class="form-row-two">
           <div class="form-group">
@@ -702,19 +1522,16 @@ service cloud.firestore {
           </div>
         </div>
         <div class="form-group">
-          <label>Valid To (Expiration Date) * <small style="color:#10b981;">(After this date, hidden from students,
-              visible to Admin)</small></label>
+          <label>Valid To (Expiration Date) * <small style="color:#10b981;">(After this date, hidden from students, visible to Admin)</small></label>
           <input type="date" id="card-valid-to" required>
         </div>
         <div class="form-group">
           <label>Class Details & Syllabus Covered</label>
-          <textarea id="card-desc-input" rows="3"
-            placeholder="e.g. Unit 04 ප්‍රභාසංශ්ලේෂණය + Unit 05 මානව රුධිර සංසරණ පද්ධතිය හා සම්පූර්ණ Tute Pack..."></textarea>
+          <textarea id="card-desc-input" rows="3" placeholder="e.g. Unit 04 ප්‍රභාසංශ්ලේෂණය + Unit 05 මානව රුධිර සංසරණ පද්ධතිය හා සම්පූර්ණ Tute Pack..."></textarea>
         </div>
         <div class="form-group">
           <label>Card Banner Image (Auto-converts to WebP)</label>
-          <input type="file" id="card-image-file" accept="image/*"
-            onchange="previewUploadImage(this, 'card-image-preview', 'card-image-url')">
+          <input type="file" id="card-image-file" accept="image/*" onchange="previewUploadImage(this, 'card-image-preview', 'card-image-url')">
           <input type="text" id="card-image-url" placeholder="Or image URL (default /hero.jpg)" value="/hero.jpg">
           <div class="image-preview-box" id="card-image-preview" style="display:none;"></div>
         </div>
@@ -726,8 +1543,7 @@ service cloud.firestore {
   <!-- 5. Add Month Folder Modal -->
   <div class="modal-backdrop" id="modal-add-month">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-month')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-month')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-folder-plus"></i> Add New Month Folder</h3>
       <form onsubmit="handleSaveMonthFolder(event)">
         <div class="form-group">
@@ -750,8 +1566,7 @@ service cloud.firestore {
   <!-- 6. Add Monthly Class Video Modal -->
   <div class="modal-backdrop" id="modal-add-monthly-video">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-monthly-video')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-monthly-video')"><i class="fa-solid fa-xmark"></i></button>
       <h3 id="monthly-video-modal-title"><i class="fa-solid fa-circle-play"></i> Add Class Video Recording</h3>
       <form onsubmit="handleSaveMonthlyVideo(event)">
         <input type="hidden" id="edit-monthly-video-id">
@@ -767,14 +1582,11 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Class Title *</label>
-          <input type="text" id="mcv-title-input" placeholder="e.g. Day 01 - ශාක කායික විද්‍යාව (ජල විභවය හා ආසෘතිය)"
-            required>
+          <input type="text" id="mcv-title-input" placeholder="e.g. Day 01 - ශාක කායික විද්‍යාව (ජල විභවය හා ආසෘතිය)" required>
         </div>
         <div class="form-group">
           <label>YouTube Link or Video ID *</label>
-          <input type="text" id="mcv-yt-input"
-            placeholder="e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ or dQw4w9WgXcQ" required
-            oninput="previewYtThumbnail(this.value, 'mcv-thumb-preview')">
+          <input type="text" id="mcv-yt-input" placeholder="e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ or dQw4w9WgXcQ" required oninput="previewYtThumbnail(this.value, 'mcv-thumb-preview')">
         </div>
         <!-- Live YouTube Thumbnail Preview Box -->
         <div class="yt-thumb-preview-card" id="mcv-thumb-preview" style="display:none;">
@@ -788,13 +1600,11 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Telegram Tute Download Link</label>
-          <input type="text" id="mcv-tute-input" placeholder="https://t.me/apexbiology_tutes"
-            value="https://t.me/apexbiology_tutes">
+          <input type="text" id="mcv-tute-input" placeholder="https://t.me/apexbiology_tutes" value="https://t.me/apexbiology_tutes">
         </div>
         <div class="form-group">
           <label>Short Description (Optional)</label>
-          <textarea id="mcv-desc-input" rows="2"
-            placeholder="e.g. සිද්ධාන්ත ගැඹුරු සාකච්ඡාව සහ Structured Essay ලකුණු දෙන විධික්‍රමය."></textarea>
+          <textarea id="mcv-desc-input" rows="2" placeholder="e.g. සිද්ධාන්ත ගැඹුරු සාකච්ඡාව සහ Structured Essay ලකුණු දෙන විධික්‍රමය."></textarea>
         </div>
         <button type="submit" class="btn-primary-action w-100" id="btn-save-monthly-video">Save Class Video</button>
       </form>
@@ -804,8 +1614,7 @@ service cloud.firestore {
   <!-- 7. Attach Monthly Video to Video Pack Unit Modal -->
   <div class="modal-backdrop" id="modal-attach-unit">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-attach-unit')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-attach-unit')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-paperclip"></i> Attach to Video Pack Unit (වීඩියෝ පැක් එකට එකතු කරන්න)</h3>
       <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
         මස අවසානයේදී මෙම පන්ති වීඩියෝව ස්ථිර Video Pack ඒකකයකට (Unit 01 - 10) ඇතුළත් කරන්න.
@@ -842,8 +1651,7 @@ service cloud.firestore {
   <!-- 5. Assign Cards to Student Modal -->
   <div class="modal-backdrop" id="modal-assign-cards">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-assign-cards')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-assign-cards')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-id-card-clip"></i> Assign Class Cards to Student</h3>
       <div class="assign-student-summary" id="assign-student-summary">
         <!-- Rendered dynamically -->
@@ -851,16 +1659,14 @@ service cloud.firestore {
       <div class="assign-cards-list" id="assign-cards-list">
         <!-- Checkboxes rendered dynamically -->
       </div>
-      <button type="button" class="btn-primary-action w-100"
-        onclick="closeAdminModal('modal-assign-cards')">Done</button>
+      <button type="button" class="btn-primary-action w-100" onclick="closeAdminModal('modal-assign-cards')">Done</button>
     </div>
   </div>
 
   <!-- 6. Add Subtopic to Syllabus Unit Modal -->
   <div class="modal-backdrop" id="modal-add-subtopic">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-subtopic')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-subtopic')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-plus"></i> Add Subtopic to Unit</h3>
       <form onsubmit="handleSaveSubtopic(event)">
         <div class="form-group">
@@ -890,8 +1696,7 @@ service cloud.firestore {
   <!-- 7. Add Revision Video Modal -->
   <div class="modal-backdrop" id="modal-add-revision-video">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-revision-video')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-revision-video')"><i class="fa-solid fa-xmark"></i></button>
       <h3 id="rev-video-modal-title"><i class="fa-solid fa-circle-play"></i> Add Revision Video</h3>
       <form onsubmit="handleSaveRevisionVideo(event)">
         <input type="hidden" id="edit-rev-video-id">
@@ -914,14 +1719,17 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Video Title *</label>
-          <input type="text" id="rev-video-title-input" placeholder="e.g. 2023 A/L Biology Paper Discussion (MCQ 1-50)"
-            required>
+          <input type="text" id="rev-video-title-input" placeholder="e.g. 2023 A/L Biology Paper Discussion (MCQ 1-50)" required>
         </div>
-        <div class="form-group">
-          <label>YouTube Link or Video ID *</label>
-          <input type="text" id="rev-video-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required
-            oninput="previewYtThumbnail(this.value, 'rev-yt-thumb-preview')">
-          <input type="hidden" id="rev-video-duration-input" value="Revision HD">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>YouTube Link or Video ID *</label>
+            <input type="text" id="rev-video-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required oninput="previewYtThumbnail(this.value, 'rev-yt-thumb-preview')">
+          </div>
+          <div class="form-group">
+            <label>Duration</label>
+            <input type="text" id="rev-video-duration-input" placeholder="e.g. 2h 30m" value="2h 30m">
+          </div>
         </div>
         <!-- Live YouTube Thumbnail Preview Box -->
         <div class="yt-thumb-preview-card" id="rev-yt-thumb-preview" style="display:none;">
@@ -934,8 +1742,7 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Telegram Tute Link</label>
-          <input type="text" id="rev-video-tute-input" placeholder="https://t.me/apexbiology_tutes"
-            value="https://t.me/apexbiology_tutes">
+          <input type="text" id="rev-video-tute-input" placeholder="https://t.me/apexbiology_tutes" value="https://t.me/apexbiology_tutes">
         </div>
         <div class="form-group-checkbox">
           <label>
@@ -951,8 +1758,7 @@ service cloud.firestore {
   <!-- 8. Add Revision Custom Folder Modal -->
   <div class="modal-backdrop" id="modal-add-revision-folder">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-revision-folder')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-revision-folder')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-folder-plus"></i> Create Revision Folder</h3>
       <form onsubmit="handleCreateRevisionFolder(event)">
         <div class="form-group">
@@ -965,8 +1771,7 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Folder Name (ෆෝල්ඩරයේ නම) *</label>
-          <input type="text" id="new-rev-folder-name"
-            placeholder="e.g. Past Paper Discussions (පසුගිය විභාග ප්‍රශ්න පත්‍ර)" required>
+          <input type="text" id="new-rev-folder-name" placeholder="e.g. Past Paper Discussions (පසුගිය විභාග ප්‍රශ්න පත්‍ර)" required>
         </div>
         <div class="form-group">
           <label>Description / Note (විකල්ප විස්තරය)</label>
@@ -980,8 +1785,7 @@ service cloud.firestore {
   <!-- 9. Add Free Lesson Modal -->
   <div class="modal-backdrop" id="modal-add-free-lesson">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-free-lesson')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-free-lesson')"><i class="fa-solid fa-xmark"></i></button>
       <h3 id="fl-modal-title"><i class="fa-solid fa-play"></i> Add Free Biology Masterclass</h3>
       <form onsubmit="handleSaveFreeLesson(event)">
         <input type="hidden" id="edit-fl-id">
@@ -1023,14 +1827,17 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Video Title *</label>
-          <input type="text" id="fl-title-input"
-            placeholder="e.g. ප්‍රභාසංශ්ලේෂණය - ආලෝක ප්‍රතික්‍රියාව සහ ATP සංශ්ලේෂණය" required>
+          <input type="text" id="fl-title-input" placeholder="e.g. ප්‍රභාසංශ්ලේෂණය - ආලෝක ප්‍රතික්‍රියාව සහ ATP සංශ්ලේෂණය" required>
         </div>
-        <div class="form-group">
-          <label>YouTube Link or Video ID *</label>
-          <input type="text" id="fl-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required
-            oninput="previewYtThumbnail(this.value, 'fl-yt-thumb-preview')">
-          <input type="hidden" id="fl-duration-input" value="Free HD">
+        <div class="form-row-two">
+          <div class="form-group">
+            <label>YouTube Link or Video ID *</label>
+            <input type="text" id="fl-yt-input" placeholder="e.g. dQw4w9WgXcQ or https://youtu.be/..." required oninput="previewYtThumbnail(this.value, 'fl-yt-thumb-preview')">
+          </div>
+          <div class="form-group">
+            <label>Duration</label>
+            <input type="text" id="fl-duration-input" placeholder="e.g. 1h 45m" value="1h 45m">
+          </div>
         </div>
         <!-- Live YouTube Thumbnail Preview Box -->
         <div class="yt-thumb-preview-card" id="fl-yt-thumb-preview" style="display:none;">
@@ -1039,8 +1846,7 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Telegram Tute Download Link</label>
-          <input type="text" id="fl-tute-input" placeholder="https://t.me/apexbiology_tutes"
-            value="https://t.me/apexbiology_tutes">
+          <input type="text" id="fl-tute-input" placeholder="https://t.me/apexbiology_tutes" value="https://t.me/apexbiology_tutes">
         </div>
         <button type="submit" class="btn-primary-action w-100">Save Free Masterclass</button>
       </form>
@@ -1050,8 +1856,7 @@ service cloud.firestore {
   <!-- 7. Add Admin User Modal -->
   <div class="modal-backdrop" id="modal-add-admin">
     <div class="modal-card">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-admin')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-admin')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-user-shield"></i> Add New Admin Account</h3>
       <form onsubmit="handleSaveAdminUser(event)">
         <div class="form-group">
@@ -1064,22 +1869,17 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Password *</label>
-          <input type="password" id="admin-user-password" placeholder="Create secure admin password" required
-            minlength="6">
+          <input type="password" id="admin-user-password" placeholder="Create secure admin password" required minlength="6">
         </div>
         <div class="form-group">
           <label>Role & Access Level (කාර්යභාරය හා අවසර මට්ටම) *</label>
           <select id="admin-user-role" required>
-            <option value="normal_admin">🛡️ Normal Admin (Assistant / Moderator - Live Classes & Monthly Classes ONLY)
-            </option>
+            <option value="normal_admin">🛡️ Normal Admin (Assistant / Moderator - Live Classes & Monthly Classes ONLY)</option>
             <option value="super_admin">👑 Super Admin (Full Access to Everything)</option>
           </select>
         </div>
-        <div
-          style="font-size:0.78rem; color:#94a3b8; background:rgba(255,255,255,0.03); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); margin-bottom:12px;">
-          <strong style="color:#10b981;">🛡️ Normal Admin සීමාකිරීම්:</strong> සිසුන්ගේ පෞද්ගලික දත්ත (නම්, දුරකථන,
-          IDs), මුදල් ඉල්ලීම් (Requests & Cards), ගුරු මඩුල්ල සහ Tracker කළමනාකරණය නොපෙනේ. Live Classes සහ Monthly
-          Classes පමණක් කළමනාකරණය කළ හැක.
+        <div style="font-size:0.78rem; color:#94a3b8; background:rgba(255,255,255,0.03); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); margin-bottom:12px;">
+          <strong style="color:#10b981;">🛡️ Normal Admin සීමාකිරීම්:</strong> සිසුන්ගේ පෞද්ගලික දත්ත (නම්, දුරකථන, IDs), මුදල් ඉල්ලීම් (Requests & Cards), ගුරු මඩුල්ල සහ Tracker කළමනාකරණය නොපෙනේ. Live Classes සහ Monthly Classes පමණක් කළමනාකරණය කළ හැක.
         </div>
         <button type="submit" class="btn-primary-action w-100">Create Admin Account</button>
       </form>
@@ -1102,14 +1902,13 @@ service cloud.firestore {
         <div class="form-group">
           <label><i class="fa-solid fa-lock"></i> Password *</label>
           <div class="password-wrapper">
-            <input type="password" id="admin-login-password" placeholder="Enter admin password" required
-              autocomplete="current-password">
-            <button type="button" class="btn-toggle-eye" onclick="toggleAdminLoginPassword()"
-              aria-label="Toggle password view">
+            <input type="password" id="admin-login-password" placeholder="Enter admin password" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-eye" onclick="toggleAdminLoginPassword()" aria-label="Toggle password view">
               <i class="fa-solid fa-eye" id="admin-eye-icon"></i>
             </button>
           </div>
         </div>
+        
         <button type="submit" class="btn-primary-action w-100" id="btn-admin-login-submit" style="margin-top: 10px;">
           <i class="fa-solid fa-arrow-right-to-bracket"></i> Authenticate & Enter Admin Studio
         </button>
@@ -1121,19 +1920,17 @@ service cloud.firestore {
   <div class="admin-toast-container" id="admin-toast-container"></div>
 
   <!-- Admin Controller -->
-
+  <script src="admin.js"></script>
   <!-- 9. Add / Edit Product Modal -->
   <div class="modal-backdrop" id="modal-add-product">
     <div class="modal-card" style="max-width: 650px;">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-product')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-product')"><i class="fa-solid fa-xmark"></i></button>
       <h3 id="modal-product-title"><i class="fa-solid fa-box-open"></i> Add Store Delivery Product</h3>
       <form onsubmit="handleSaveProduct(event)">
         <input type="hidden" id="product-edit-id">
         <div class="form-group">
           <label>Product Title (නිෂ්පාදන නාමය) *</label>
-          <input type="text" id="prod-title-input" placeholder="e.g. A/L Biology Complete Theory Pack (Vol. 1 & 2)"
-            required>
+          <input type="text" id="prod-title-input" placeholder="e.g. A/L Biology Complete Theory Pack (Vol. 1 & 2)" required>
         </div>
         <div class="form-row-two">
           <div class="form-group">
@@ -1153,15 +1950,13 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Short Description (කෙටි විස්තරය) *</label>
-          <textarea id="prod-short-desc-input" rows="2" placeholder="Brief 1-2 sentence highlight shown in store..."
-            required></textarea>
+          <textarea id="prod-short-desc-input" rows="2" placeholder="Brief 1-2 sentence highlight shown in store..." required></textarea>
         </div>
 
         <!-- Multi-Image Upload (Converts automatically to WebP) -->
         <div class="form-group">
           <label><i class="fa-solid fa-images"></i> Product Images (3-4 Images • Auto converted to WebP)</label>
-          <input type="file" id="prod-image-file-input" accept="image/*" multiple
-            onchange="handleProductMultipleImageUpload(event)">
+          <input type="file" id="prod-image-file-input" accept="image/*" multiple onchange="handleProductMultipleImageUpload(event)">
           <div id="prod-images-preview-grid" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
         </div>
 
@@ -1176,8 +1971,7 @@ service cloud.firestore {
   <!-- 10. Add Bio Bank Item / Note Modal -->
   <div class="modal-backdrop" id="modal-add-biobank-item">
     <div class="modal-card" style="max-width: 650px;">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-biobank-item')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-add-biobank-item')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-cloud-arrow-up"></i> Add Bio Bank Material (Images / PDFs / Notes)</h3>
       <form onsubmit="handleSaveBioBankItem(event)">
         <div class="form-row-two">
@@ -1208,16 +2002,13 @@ service cloud.firestore {
         <div class="form-group">
           <label>Material Type (ද්‍රව්‍ය වර්ගය) *</label>
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:4px;">
-            <button type="button" class="btn-subfolder-nav active" id="bb-type-btn-image"
-              onclick="setBioBankUploadType('image')" style="padding:8px; font-size:0.82rem; text-align:center;">
+            <button type="button" class="btn-subfolder-nav active" id="bb-type-btn-image" onclick="setBioBankUploadType('image')" style="padding:8px; font-size:0.82rem; text-align:center;">
               <i class="fa-solid fa-images"></i> Image Collection
             </button>
-            <button type="button" class="btn-subfolder-nav" id="bb-type-btn-pdf" onclick="setBioBankUploadType('pdf')"
-              style="padding:8px; font-size:0.82rem; text-align:center;">
+            <button type="button" class="btn-subfolder-nav" id="bb-type-btn-pdf" onclick="setBioBankUploadType('pdf')" style="padding:8px; font-size:0.82rem; text-align:center;">
               <i class="fa-solid fa-file-pdf"></i> PDF Document
             </button>
-            <button type="button" class="btn-subfolder-nav" id="bb-type-btn-text" onclick="setBioBankUploadType('text')"
-              style="padding:8px; font-size:0.82rem; text-align:center;">
+            <button type="button" class="btn-subfolder-nav" id="bb-type-btn-text" onclick="setBioBankUploadType('text')" style="padding:8px; font-size:0.82rem; text-align:center;">
               <i class="fa-solid fa-file-lines"></i> Text / Short Note
             </button>
           </div>
@@ -1225,17 +2016,14 @@ service cloud.firestore {
 
         <div class="form-group">
           <label>Material Title (මාතෘකාව) *</label>
-          <input type="text" id="biobank-item-title"
-            placeholder="e.g. ප්‍රභාසංස්ලේෂණ ආලෝක ප්‍රතික්‍රියා සම්පූර්ණ රූප සටහන් පෙළ" required>
+          <input type="text" id="biobank-item-title" placeholder="e.g. ප්‍රභාසංස්ලේෂණ ආලෝක ප්‍රතික්‍රියා සම්පූර්ණ රූප සටහන් පෙළ" required>
         </div>
 
         <!-- Section 1: Image Collection -->
         <div id="bb-sec-image" style="display:block;">
           <div class="form-group">
-            <label><i class="fa-solid fa-images"></i> Upload Image Collection (Auto-converts to WebP & Cloud
-              Link)</label>
-            <input type="file" id="biobank-images-file" accept="image/*" multiple
-              onchange="handleBioBankMultipleImageUpload(event)">
+            <label><i class="fa-solid fa-images"></i> Upload Image Collection (Auto-converts to WebP & Cloud Link)</label>
+            <input type="file" id="biobank-images-file" accept="image/*" multiple onchange="handleBioBankMultipleImageUpload(event)">
             <div id="biobank-images-preview" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;"></div>
           </div>
         </div>
@@ -1249,8 +2037,7 @@ service cloud.firestore {
             </div>
             <div class="form-group">
               <label>Upload PDF Document</label>
-              <input type="file" id="biobank-pdf-file" accept=".pdf,.doc,.docx"
-                onchange="handleBioBankFileUpload(event)">
+              <input type="file" id="biobank-pdf-file" accept=".pdf,.doc,.docx" onchange="handleBioBankFileUpload(event)">
             </div>
           </div>
           <div class="form-group">
@@ -1263,8 +2050,7 @@ service cloud.firestore {
         <div id="bb-sec-text" style="display:none;">
           <div class="form-group">
             <label><i class="fa-solid fa-pen-nib"></i> Note Content (කෙටි සටහන / Quick Theory Summary)</label>
-            <textarea id="biobank-text-content" rows="6"
-              placeholder="ජීව විද්‍යා කෙටි සටහන හෝ කරුණු ලැයිස්තුව මෙහි ඇතුළත් කරන්න..."></textarea>
+            <textarea id="biobank-text-content" rows="6" placeholder="ජීව විද්‍යා කෙටි සටහන හෝ කරුණු ලැයිස්තුව මෙහි ඇතුළත් කරන්න..."></textarea>
           </div>
         </div>
 
@@ -1283,8 +2069,7 @@ service cloud.firestore {
   <!-- 11. Create Bio Bank Folder Modal -->
   <div class="modal-backdrop" id="modal-create-biobank-folder">
     <div class="modal-card" style="max-width: 520px;">
-      <button class="modal-close-btn" onclick="closeAdminModal('modal-create-biobank-folder')"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button class="modal-close-btn" onclick="closeAdminModal('modal-create-biobank-folder')"><i class="fa-solid fa-xmark"></i></button>
       <h3><i class="fa-solid fa-folder-plus"></i> Create Folder / Subfolder</h3>
       <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:14px;">
         Add folders inside any unit to organize diagrams, summaries, short notes and past papers.
@@ -1313,8 +2098,7 @@ service cloud.firestore {
         </div>
         <div class="form-group">
           <label>Folder Name (ෆෝල්ඩරයේ නම) *</label>
-          <input type="text" id="create-folder-name-input"
-            placeholder="e.g. ප්‍රභාසංශ්ලේෂණය රූප සටහන් / Resource Book Summaries" required>
+          <input type="text" id="create-folder-name-input" placeholder="e.g. ප්‍රභාසංශ්ලේෂණය රූප සටහන් / Resource Book Summaries" required>
         </div>
         <div class="form-group">
           <label>Optional Description / Notes</label>
@@ -1331,13 +2115,9 @@ service cloud.firestore {
   <div class="modal-backdrop" id="modal-admin-video-preview">
     <div class="modal-card" style="max-width: 780px;">
       <button class="modal-close-btn" onclick="closeAdminVideoPreview()"><i class="fa-solid fa-xmark"></i></button>
-      <h3 id="admin-preview-video-title" style="margin-bottom: 12px;"><i class="fa-solid fa-play"></i> Video Preview
-      </h3>
-      <div
-        style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;">
-        <iframe id="admin-preview-video-iframe" style="width:100%; height:100%; border:none;" src="about:blank"
-          allowfullscreen
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      <h3 id="admin-preview-video-title" style="margin-bottom: 12px;"><i class="fa-solid fa-play"></i> Video Preview</h3>
+      <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden;">
+        <iframe id="admin-preview-video-iframe" style="width:100%; height:100%; border:none;" src="about:blank" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
         <span id="admin-preview-video-meta" style="font-size:0.85rem; color:#10b981; font-weight:600;"></span>
@@ -1346,7 +2126,5 @@ service cloud.firestore {
     </div>
   </div>
 
-  <script src="admin.js"></script>
 </body>
-
 </html>

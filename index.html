@@ -1497,6 +1497,7 @@
         </div>
       </div>
     </div>
+    </div>
   </main>
 
 
@@ -2262,109 +2263,6 @@
       </div>
     </div>
   </div>
-
-  
-
-        <div style="display:flex; align-items:center; gap:14px;">
-          <!-- Timer Countdown Badge -->
-          <div class="player-timer-pill" id="player-timer-box" style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.2); padding:6px 14px; border-radius:999px; display:flex; align-items:center; gap:8px; font-family:monospace; font-size:1.1rem; font-weight:800; color:#34d399;">
-            <i class="fa-solid fa-stopwatch"></i>
-            <span id="player-timer-display">45:00</span>
-          </div>
-
-          <!-- Close / Exit Button -->
-          <button type="button" onclick="confirmExitExamPlayer()" style="background:rgba(255,255,255,0.12); border:none; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center;" title="Exit Exam">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Player Body: Split Left (Question + Choices) & Right (Palette) -->
-      <div class="exam-player-body" style="display:grid; grid-template-columns:1fr 280px; flex:1; overflow:hidden; background:#f8fafc;">
-        
-        <!-- Left: Question & Answers Scroll View -->
-        <div class="exam-question-pane" style="padding:24px 30px; overflow-y:auto; display:flex; flex-direction:column; justify-content:space-between;">
-          <div id="player-question-container">
-            <!-- Dynamic Question Content -->
-          </div>
-
-          <!-- Bottom Control Bar -->
-          <div class="player-control-row" style="display:flex; align-items:center; justify-content:space-between; margin-top:24px; padding-top:16px; border-top:1px solid #e2e8f0; flex-wrap:wrap; gap:10px;">
-            <div style="display:flex; gap:8px;">
-              <button type="button" class="btn-player-nav" id="btn-player-prev" onclick="navPlayerQuestion(-1)">
-                <i class="fa-solid fa-arrow-left"></i> Previous
-              </button>
-              <button type="button" class="btn-player-nav" id="btn-player-next" onclick="navPlayerQuestion(1)">
-                Next <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-
-            <div style="display:flex; gap:8px;">
-              <button type="button" class="btn-player-clear" onclick="clearCurrentQuestionAnswer()">
-                Clear Selection
-              </button>
-              <button type="button" class="btn-player-submit" onclick="confirmSubmitExam()">
-                <i class="fa-solid fa-paper-plane"></i> Submit Exam
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Question Palette Grid & Legend -->
-        <div class="exam-palette-pane" style="background:#fff; border-left:1px solid #e2e8f0; padding:20px; display:flex; flex-direction:column; overflow-y:auto;">
-          <div style="font-size:0.85rem; font-weight:800; color:#0f172a; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
-            <span>Question Palette</span>
-            <span id="player-progress-count" style="color:#059669; font-weight:800;">0 / 50</span>
-          </div>
-
-          <div class="player-palette-grid" id="player-palette-grid" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; margin-bottom:20px;">
-            <!-- 1 to 50 numbered bubbles -->
-          </div>
-
-          <div class="player-legend" style="border-top:1px solid #f1f5f9; padding-top:14px; font-size:0.75rem; color:#64748b; display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; background:#10b981;"></span> Answered</div>
-            <div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; background:#e2e8f0;"></span> Unanswered</div>
-            <div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; border:2px solid #3b82f6; background:#eff6ff;"></span> Current</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Result View Screen (Overlaid when exam is finished) -->
-      <div id="player-result-overlay" style="display:none; position:absolute; inset:0; background:#fff; z-index:20; padding:40px 24px; overflow-y:auto; text-align:center; flex-direction:column; align-items:center; justify-content:center;">
-        <div style="max-width:540px; width:100%;">
-          <div style="width:72px; height:72px; border-radius:50%; background:#ecfdf5; color:#10b981; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 16px; box-shadow:0 8px 20px rgba(16,185,129,0.25);">
-            <i class="fa-solid fa-trophy"></i>
-          </div>
-          <h2 style="font-size:1.6rem; font-weight:800; color:#064e3b; margin:0 0 6px;">Assessment Complete!</h2>
-          <p style="color:#64748b; font-size:0.9rem; margin:0 0 24px;">Your response has been graded and recorded to your progress analytics.</p>
-
-          <div style="background:linear-gradient(135deg, #f0fdf4, #ecfdf5); border:1px solid #a7f3d0; border-radius:18px; padding:24px; margin-bottom:24px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-            <div>
-              <div style="font-size:0.8rem; color:#047857; font-weight:700;">TOTAL SCORE</div>
-              <div style="font-size:2rem; font-weight:900; color:#065f46;" id="res-score-display">42 / 50</div>
-            </div>
-            <div>
-              <div style="font-size:0.8rem; color:#047857; font-weight:700;">ACCURACY &amp; GRADE</div>
-              <div style="font-size:2rem; font-weight:900; color:#059669;" id="res-grade-display">84% (A)</div>
-            </div>
-            <div style="grid-column:1/-1; border-top:1px dashed #bbf7d0; padding-top:14px; font-size:0.85rem; color:#065f46; display:flex; justify-content:space-around;">
-              <span><i class="fa-solid fa-check" style="color:#10b981;"></i> Correct: <strong id="res-correct-count">42</strong></span>
-              <span><i class="fa-solid fa-xmark" style="color:#ef4444;"></i> Incorrect: <strong id="res-wrong-count">8</strong></span>
-              <span><i class="fa-regular fa-clock"></i> Time: <strong id="res-time-spent">32m 15s</strong></span>
-            </div>
-          </div>
-
-          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-            <button type="button" class="btn-primary-action" onclick="closeStudentExamPlayer()"><i class="fa-solid fa-house"></i> Return to Portal</button>
-            <button type="button" class="btn-secondary" onclick="viewPaperTrackerFromExam()"><i class="fa-solid fa-chart-line"></i> View Paper Tracker</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
 
   <!-- ==============================================================
        APP & APK DOWNLOAD VIEW (Android APK & Desktop PC App)
