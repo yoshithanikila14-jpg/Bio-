@@ -8800,6 +8800,675 @@ button {
 }
 
 /* ==========================================================================
+   MULTI-SUBJECT A/L PAPER TRACKER & ANALYTICS WORKSPACE
+   ========================================================================== */
+
+/* 1. Subject Switcher Bar */
+.subject-engine-wrapper {
+  margin: 16px 0 20px 0;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.subject-engine-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: max-content;
+}
+
+.subject-tab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.subject-tab-pill:hover {
+  border-color: #10b981;
+  color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.subject-tab-pill.active {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border-color: #047857;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.3);
+}
+
+.subject-tab-pill.active i {
+  color: #a7f3d0 !important;
+}
+
+.subject-tab-count {
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.subject-tab-pill.active .subject-tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.btn-add-subject-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1.5px dashed #10b981;
+  color: #059669;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add-subject-tab:hover {
+  background: #10b981;
+  color: #ffffff;
+  border-style: solid;
+  transform: translateY(-2px);
+}
+
+/* 2. Top Analytics KPI Bar (5 Smart Cards) */
+.paper-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.paper-kpi-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.paper-kpi-card:hover {
+  border-color: #10b981;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
+}
+
+.paper-kpi-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.paper-kpi-icon-box.grade {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.45rem;
+}
+
+.paper-kpi-icon-box.split {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.paper-kpi-icon-box.time {
+  background: #f0fdf4;
+  color: #059669;
+  border: 1px solid #bbf7d0;
+}
+
+.paper-kpi-icon-box.papers {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+}
+
+.paper-kpi-icon-box.killer {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.paper-kpi-details {
+  flex: 1;
+  overflow: hidden;
+}
+
+.paper-kpi-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.paper-kpi-main-val {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+.paper-kpi-sub {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.paper-kpi-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+/* Part I vs Part II Dual Bars */
+.paper-split-bars-wrap {
+  margin: 6px 0;
+}
+
+.split-bar-row {
+  margin-bottom: 6px;
+}
+
+.split-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #475569;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.split-progress-track {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.split-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.split-progress-fill.mcq {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.split-progress-fill.essay {
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+}
+
+/* 3. Paper Workspace Cards */
+.paper-workspace-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.paper-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.paper-card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paper-card-sub {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.chart-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-line-dashed {
+  width: 18px;
+  height: 0;
+  border-top: 2px dashed #ef4444;
+}
+
+/* 4. Pure SVG Responsive Line Chart */
+.paper-svg-chart-wrapper {
+  width: 100%;
+  min-height: 220px;
+  position: relative;
+}
+
+.paper-svg-chart-wrapper svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.chart-tooltip-box {
+  position: absolute;
+  pointer-events: none;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  z-index: 20;
+  transform: translate(-50%, -120%);
+  display: none;
+}
+
+/* 5. 2015 - 2025 Past Paper Mastery Matrix */
+.pastpaper-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.pastpaper-year-card {
+  border-radius: 14px;
+  padding: 12px 14px;
+  text-align: center;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pastpaper-year-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.pastpaper-year-card.mastered {
+  background: #ecfdf5;
+  border-color: #10b981;
+}
+
+.pastpaper-year-card.redo {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.pastpaper-year-card.not-started {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  opacity: 0.85;
+}
+
+.matrix-year-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.matrix-score-main {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.matrix-score-main.mastered { color: #059669; }
+.matrix-score-main.redo { color: #d97706; }
+.matrix-score-main.not-started { color: #94a3b8; font-size: 0.88rem; }
+
+.matrix-split-text {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.btn-matrix-action {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pastpaper-year-card.mastered .btn-matrix-action {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.pastpaper-year-card.redo .btn-matrix-action {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+/* 6. Weak Unit Heatmap & Diagnostics */
+.weak-unit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weak-unit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.weak-unit-left {
+  flex: 1;
+}
+
+.weak-unit-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.weak-unit-meter {
+  width: 100%;
+  height: 6px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.weak-unit-meter-fill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+.weak-unit-meter-fill.critical { background: #ef4444; }
+.weak-unit-meter-fill.warning { background: #f59e0b; }
+.weak-unit-meter-fill.safe { background: #10b981; }
+
+.weak-unit-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.weak-unit-badge.critical { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.weak-unit-badge.warning { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.weak-unit-badge.safe { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+
+/* Mistake Root-Cause Bars */
+.mistake-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mistake-bar-row {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.mistake-bar-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.mistake-bar-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.mistake-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+}
+
+.ai-recommendation-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border: 1.5px solid #a7f3d0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 0.84rem;
+  color: #065f46;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+.ai-recommendation-box strong {
+  color: #047857;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+/* 7. History Table */
+.paper-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.paper-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.paper-history-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.paper-history-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.paper-history-table tr:hover td {
+  background: #f8fafc;
+}
+
+.grade-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.grade-badge-pill.grade-a { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.grade-badge-pill.grade-b { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.grade-badge-pill.grade-c { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.grade-badge-pill.grade-s { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.grade-badge-pill.grade-f { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* 8. Log Paper Modal Elements */
+.paper-mode-radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.paper-mode-radio-label:has(input:checked) {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #047857;
+}
+
+.unit-chips-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 140px;
+  overflow-y: auto;
+  padding: 6px 2px;
+}
+
+.unit-chip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.unit-chip-item input {
+  display: none;
+}
+
+.unit-chip-item:has(input:checked) {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.error-tags-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.error-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.error-tag-chip input {
+  display: none;
+}
+
+.error-tag-chip:has(input:checked) {
+  background: #fffbeb;
+  border-color: #f59e0b;
+  color: #b45309;
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
    PAST PAPERS TRACKER - CLEAN & MODERN UI (MATCHING SCREENSHOT)
    ========================================================================== */
 
@@ -11272,11 +11941,11 @@ button {
     flex: 1 !important;
     overflow-y: auto !important;
     background: #ffffff !important;
-    padding: 10px 18px 24px 18px !important;
+    padding: 14px 18px 24px 18px !important;
     margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     gap: 16px !important;
     border-top: 1px solid #f1f5f9 !important;
   }
@@ -11296,6 +11965,80 @@ button {
     justify-content: center !important;
     box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
   }
+
+  /* Mobile Secure Video Controls Fit (Fix overflow on phone screen) */
+  #video-player-modal .secure-controls-bar {
+    padding: 4px 8px 6px 8px !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.6) 70%, transparent 100%) !important;
+  }
+
+  #video-player-modal .secure-controls-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+
+  #video-player-modal .secure-controls-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+  }
+
+  #video-player-modal .secure-controls-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  #video-player-modal .btn-secure-ctrl {
+    padding: 4px 5px !important;
+    font-size: 0.82rem !important;
+    color: #ffffff !important;
+    background: transparent !important;
+  }
+
+  #video-player-modal .secure-time-counter {
+    font-size: 0.68rem !important;
+    color: #cbd5e1 !important;
+    letter-spacing: -0.3px !important;
+    white-space: nowrap !important;
+  }
+
+  #video-player-modal .player-setting-pill {
+    padding: 2px 5px !important;
+    font-size: 0.66rem !important;
+    border-radius: 6px !important;
+    gap: 3px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  }
+
+  #video-player-modal .player-setting-pill i {
+    font-size: 0.65rem !important;
+  }
+
+  #video-player-modal .player-setting-pill select {
+    font-size: 0.66rem !important;
+    max-width: 58px !important;
+    padding: 0 2px !important;
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  #video-player-modal .player-setting-pill select option {
+    background: #0f172a !important;
+    color: #ffffff !important;
+  }
+
+  /* Hide the redundant Protected badge on mobile to save ~90px width */
+  #video-player-modal .secure-encryption-pill {
+    display: none !important;
+  }
 }
 
 
@@ -11304,47 +12047,49 @@ button {
    DESKTOP & LAPTOP MODAL VIEWPORT FIT (Image 5 Fix)
    Ensures video player modal fits on all screens without cutting top/bottom
    ========================================================================== */
-.video-player-modal-card {
-  max-width: 1020px !important;
-  width: 95% !important;
-  max-height: 94vh !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow-y: auto !important;
-  padding: 18px 24px !important;
-  margin: auto !important;
-  box-sizing: border-box !important;
-  border-radius: 24px !important;
-  background: #ffffff !important;
-}
+@media (min-width: 769px) {
+  .video-player-modal-card {
+    max-width: 1020px !important;
+    width: 95% !important;
+    max-height: 94vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    padding: 18px 24px !important;
+    margin: auto !important;
+    box-sizing: border-box !important;
+    border-radius: 24px !important;
+    background: #ffffff !important;
+  }
 
-.secure-player-container {
-  position: relative !important;
-  width: 100% !important;
-  aspect-ratio: 16 / 9 !important;
-  max-height: calc(94vh - 165px) !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  background: #000000 !important;
-  flex-shrink: 1 !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
-}
+  .secure-player-container {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    max-height: calc(94vh - 165px) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: #000000 !important;
+    flex-shrink: 1 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  }
 
-.secure-player-iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none !important;
-  display: block !important;
-}
+  .secure-player-iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    display: block !important;
+  }
 
-.player-top-header {
-  flex-shrink: 0 !important;
-  margin-bottom: 8px !important;
-}
+  .player-top-header {
+    flex-shrink: 0 !important;
+    margin-bottom: 8px !important;
+  }
 
-.player-footer-info {
-  flex-shrink: 0 !important;
-  margin-top: 10px !important;
+  .player-footer-info {
+    flex-shrink: 0 !important;
+    margin-top: 10px !important;
+  }
 }
 
 

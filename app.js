@@ -6611,10 +6611,11 @@ function updateHomeDashboardMetrics() {
   const syllabusSubEl = document.getElementById('home-syllabus-subtext');
   const syllabusTagEl = document.getElementById('home-metric-unit-tag');
 
-  if (syllabusPctEl) syllabusPctEl.textContent = `${syllabusPct}%`;
-  if (syllabusBarEl) syllabusBarEl.style.width = `${Math.min(100, Math.max(syllabusPct > 0 ? 5 : 0, syllabusPct))}%`;
-  if (syllabusSubEl) syllabusSubEl.textContent = `${overallCompleted} of ${overallTotal} Subtopics Completed (${syllabusPct}%)`;
-  if (syllabusTagEl) syllabusTagEl.textContent = overallCompleted === 0 ? 'Start Tracking' : ongoingUnitTitle;
+  const displaySyllabusPct = overallCompleted > 0 ? syllabusPct : 35;
+  if (syllabusPctEl) syllabusPctEl.textContent = `${displaySyllabusPct}%`;
+  if (syllabusBarEl) syllabusBarEl.style.width = `${displaySyllabusPct}%`;
+  if (syllabusSubEl) syllabusSubEl.textContent = overallCompleted === 0 ? '35% Completed - Unit 04 Ongoing' : `${overallCompleted} of ${overallTotal} Subtopics Completed (${syllabusPct}%)`;
+  if (syllabusTagEl) syllabusTagEl.textContent = overallCompleted === 0 ? 'Unit 04 Ongoing' : ongoingUnitTitle;
 
   // 2. Paper Average
   let papers = [];
@@ -6628,6 +6629,7 @@ function updateHomeDashboardMetrics() {
   } catch(e) {}
 
   const paperCount = Array.isArray(papers) ? papers.length : 0;
+  const displayPaperCount = paperCount > 0 ? paperCount : 12;
   let paperAvg = 78;
   if (paperCount > 0) {
     const totalScore = papers.reduce((sum, p) => sum + (Number(p.score) || 0), 0);
@@ -6641,8 +6643,8 @@ function updateHomeDashboardMetrics() {
 
   if (paperAvgEl) paperAvgEl.textContent = `${paperAvg}%`;
   if (paperBarEl) paperBarEl.style.width = `${Math.min(100, Math.max(5, paperAvg))}%`;
-  if (paperCountTagEl) paperCountTagEl.textContent = `${paperCount} Papers Logged`;
-  if (paperSummaryEl) paperSummaryEl.textContent = `${paperCount} Papers • Avg: ${paperAvg}%`;
+  if (paperCountTagEl) paperCountTagEl.textContent = `${displayPaperCount} Papers Logged`;
+  if (paperSummaryEl) paperSummaryEl.textContent = `${displayPaperCount} Papers • Avg: ${paperAvg}%`;
 
   // 3. Spaced Repetition SRS Retention
   let srsTopics = [];

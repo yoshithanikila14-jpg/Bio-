@@ -44,7 +44,11 @@
       "isVerified": true,
       "status": "active",
       "activeCards": [],
-      "createdAt": "2026-11-10T13:52:49.770Z"
+      "createdAt": "2026-11-10T13:52:49.770Z",
+      "unlockedPacks": [
+        "dinesh-u1",
+        "u1"
+      ]
     }
   ],
   "tutors": [
@@ -1163,6 +1167,21 @@
   "classCards": [],
   "requests": [
     {
+      "id": "req_1794497113138",
+      "studentId": "27728669",
+      "studentName": "dg edits",
+      "studentPhone": "+94728266917",
+      "studentSchool": "Private Candidate (Private A/L)",
+      "batch": "2027",
+      "type": "videopack",
+      "targetId": "dinesh-u1",
+      "targetTitle": "ජීව විද්‍යාව හැඳින්වීම (දිනේෂ් මුතුගල (Dinesh Muthugala))",
+      "tutorId": "dinesh",
+      "status": "approved",
+      "requestedAt": "2026-11-12T15:25:13.138Z",
+      "approvedAt": "2026-11-12T15:25:25.317Z"
+    },
+    {
       "id": "req_1794474509327",
       "studentId": "27784979",
       "studentName": "nikila yoshitha",
@@ -2199,6 +2218,14 @@
     }
   ],
   "studyTasks": [
+    {
+      "id": "task_1794498234148_yl2u",
+      "studentId": "27784979",
+      "text": "🔄 [SRS Revision] එන්සයිම ක්‍රියාවේ යාන්ත්‍රණය (Unit 02 • Day 0 Review)",
+      "title": "🔄 [SRS Revision] එන්සයිම ක්‍රියාවේ යාන්ත්‍රණය (Unit 02 • Day 0 Review)",
+      "completed": false,
+      "createdAt": 1794498234148
+    },
     {
       "id": "task_1794483704061_5udh",
       "studentId": "27784979",
